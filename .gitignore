@@ -1,0 +1,19 @@
+
+# Ignore secrets and local config
+.env
+token.json
+credentials.json
+.streamlit/secrets.toml
+
+# Ignore Python junk
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.log
+.ipynb_checkpoints/
+myenv/
+venv/
+.vscode/
+.idea/
+

@@ -1,0 +1,4 @@
+{
+  "pyxis_spec.pdf": {"type": "Specifications", "team": "hardware", "source": "file_name", "tags": "xyz", "creation_date": "01.01.2020", "last_updated_date":"01.03.2020","title": "xyz"},
+  "prd_vision.txt": {"type": "Product Requirement", "team": "product"}
+}

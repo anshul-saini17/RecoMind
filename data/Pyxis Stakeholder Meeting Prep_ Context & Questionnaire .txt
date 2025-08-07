@@ -1,0 +1,401 @@
+﻿Recogni Inc. | Recogni GmbH
+San Jose (US) | Munich (Germany)
+	  
+
+	
+
+
+
+Pyxis Stakeholder Meeting Prep: Context & Questionnaire 
+
+
+This document is confidential, for Recogni internal use only. The objective of this document is to provide context, along with a set of questions that the Sales, Business Development, Product Management and Engineering Leadership teams may use to validate to drive customer positioning, partner development and help fine-tune product requirements to customer/partner needs. 
+
+
+Last Edited Date: 04/21/2025
+________________
+
+
+Pyxis Product Positioning        3
+Target Customer Segments        3
+Hyperscaler and Large CSP (cloud service provider)        3
+Generative AI Focused Cloud        3
+Large Enterprises        3
+Gen AI Tech Model Developers and Independent Software Vendors (ISVs)        4
+Key Hypothesis (to test/validate with external partners/customers in 2024)        4
+Recogni Thesis #1 : Models size growth continues to drive compute and memory capacity demand        4
+Recogni Thesis #2: Major shift (>70%) in spend from Training to Inference in 2 years        7
+Recogni Thesis #3: AI inference OPEX will dominate TCO and buying decisions        9
+Recogni Thesis #4: Real time GenAI multi-media will drive demand for differentiated inference solutions        10
+Recogni Thesis #5: Real time GenAI Reasoning / Chain of Thought        11
+Recogni Thesis #6: Quick turn-around times of new models (release to deployment) is more important than supporting a lot of models        11
+Stakeholder Questions (to ask external industry partners and prospective customers)        11
+Application Use Cases        11
+Performance and Scalability        12
+GenAI LLM Model Development        12
+GenAI LLM/LVM Model Deployment        13
+Datacenter Infrastructure, Power and Efficiency        13
+Commercial, Cost and Budget        13
+Support and Maintenance        14
+Security and Compliance        14
+Output Quality and Optimization        14
+Future Needs and Innovation        15
+Change Tracking        15
+Additional Resources        15
+
+
+________________
+Pyxis Product Positioning 
+
+
+For Cloud Service Providers, Independent Software Vendors (ISVs) and Enterprise Customers that want a performance/cost/power optimized datacenter infrastructure for scaling Generative AI multi-modal application deployments, Pyxis Pod is a Turnkey AI Data Center system that enables either public cloud service providers, or a private company IT cloud to accelerate GenAI inference performance without compromise for every Generative AI user and inference workload.
+ 
+When compared to the Nvidia’s newest Blackwell product suite (e.g. GB200 NVL72), the Pyxis Pod (“GPOD”) delivers capital expenditure savings of greater than 2X, and operating expenditure savings of greater than 4X, while meeting or beating Generative AI application accuracy, latency and throughput requirements with seamless integration of customer models through the PyTorch framework.
+Target Customer Segments
+This is the list of customer segments where we will drive joint visits led by Business Development and Product Management to gather requirements and garner LOI’s (Letter Of Intent).
+
+
+
+
+Target Customers
+	Description
+	Target
+	Funnel
+	Hyperscaler and Large CSP (cloud service provider)
+	Companies that purchase and deploy their own datacenter infrastructure for Generative AI
+	Azure, Meta, IBM, Oracle
+	Google, AWS
+	Generative AI Focused Cloud
+	Cloud providers - third party companies offering customized compute solutions for specific customer requirements for Gen AI Inference workload
+	Ori, Aleph Alpha, Tensorewave 
+	CoreWeave, Vast, FluidStack, Lambda, RunPod
+	Large Enterprises
+	Large enterprises (inc, Technology companies, Fortune 500) that maintain their own On-Premises/ Private/Dedicated Cloud infrastructure for GenAI interference workload
+	Goldman Sachs, JPMC, PayPal, Ebay, Adobe, Dropbox
+	Walmart, CocaCola, Pfizer, Tesla …
+	Gen AI Tech Model Developers and Independent Software Vendors (ISVs)
+	Foundation Models, application and software developers that require compute to host GenAI interference workload
+	OpenAI, Stability AI, Liquid AI, Aleph Alpha, Anthropic, Abacus AI, Mistral, AI21Labs, Cohere
+	Anthropic, Adept, HuggingFace, Databricks, Snowflake
+	
+
+Target list of customers with GTM strategy:
+  
+
+Key Hypothesis (to test/validate with external partners/customers in 2024)
+Recogni Thesis #1 : Models size growth continues to drive compute and memory capacity demand
+Model sizes will continue to exponentially grow, and so too will the needs for even greater compute & memory capacity for inference systems.
+   * Possible counterpoint that merits investigations with external companies: AI inference at the edge might start to outpace the growth of data center AI due to potentially lower latency, concerns about data privacy, and lower costs of edge AI, so models may continue to bifurcate (e.g. what we’re seeing Llama right now - the super light 7B parameter versions and the 400B+ parameter versions) in a way that “good enough” AI inference at the edge dominates future AI inference growth - or at least forces us to consider how prevalent hybrid AI could become, and if so, where our play there might be. I don’t think that’s necessarily the case, but we need to investigate and corroborate this potential counterpoint together with the external industry thought leaders.
+   * We need to explore whether we think that AI inference could become hybridized, i.e. applications that use lightweight inference at the edge in conjunction with heavier, more accurate AI inference in the data center - and if so, how might that work? Or do they remain two totally separate markets, and we’re ok to keep focused on the data center volumes. We’re not going to learn that, convincingly anyway, without talking to many different companies and hearing their expert perspectives.
+
+
+The exponential growth of large language models (LLMs) continues to push the boundaries of compute and memory capacity—especially for inference workloads. This trend is reinforced by the latest advances from leading organizations and unprecedented capital investments aimed at AI infrastructure and model development.
+Escalating Model Sizes & Sophistication
+Meta – Llama 4
+* Llama 4 “Maverick”: 400B parameters (17B active), leveraging Mixture-of-Experts (MoE) for scalability and inference efficiency.
+* Llama 4 “Behemoth” (in dev): 2 trillion total parameters, 288B active. Positioned to dominate STEM reasoning benchmarks and high-accuracy use cases.
+DeepSeek R1
+* 671B parameter MoE model with 37B active parameters.
+* Optimized for complex reasoning with reinforcement learning from AI feedback—emphasizing performance, not just size.
+OpenAI – GPT Models
+* GPT-4.5 and emerging variants like o3 and o4-mini continue to scale reasoning capacity, multimodality, and tool integration.
+* Though model sizes are undisclosed, performance on math, coding, and reasoning tasks (MATH, GPQA, MMLU) signals ongoing scaling of capacity and training data.
+The Reasoning Era of AI
+Across the board, there is a clear shift toward reasoning-optimized architectures. Models are being trained and reinforced to emulate multi-step logic, decision-making, and abstraction—critical for real-world applications like software development, scientific discovery, and multimodal understanding.
+This evolution deepens the demand for:
+* Memory-intensive architectures (for longer context windows, intermediate reasoning steps)
+* High-throughput inference systems that can support variable compute per token (e.g., MoE, Toolformer-style modular systems)
+
+
+Strategic Global Investment in AI Scale
+SoftBank’s AI-First Infrastructure Push
+* Committed to $100B in the U.S. AI infrastructure investment and job creation over 4 years.
+* Partnering with OpenAI and Oracle on the $500B “Stargate Project” to build the world’s largest AI datacenters.
+* Investing through Vision Fund 2 in AI-native startups like OpusClip (GenAI video), among others.
+Sovereign Wealth Fund Moves
+* UAE’s MGX: A new $100B AI investment firm funded by Abu Dhabi, focused on foundation model infrastructure.
+* Saudi Arabia’s PIF: Targeting a $40B AI fund, potentially with Andreessen Horowitz as partner.
+* Singapore’s Keppel: Raised $1.5B across funds targeting AI, energy, and infrastructure.
+These moves demonstrate that sovereigns view AI infrastructure as the next strategic resource—akin to energy or broadband—and are building long-term national capacity.
+SoftBank’s Homegrown LLM Ambitions
+In parallel with infrastructure investment, SoftBank is also building foundational model capabilities:
+In August 2023, SoftBank launched SB Intuitions Corp., a wholly owned subsidiary focused on generative AI.
+* The company has currently developed a 460B parameter multimodal LLM
+* Longer term, SoftBank aims to develop models approaching 1 trillion parameters, specialized for Japanese language and multimodal integration (text, audio, image, video, sensor fusion).
+* This is part of their broader strategy to enable a “next-generation social infrastructure” that coexists with AI and boosts national and corporate AI sovereignty.
+  
+
+Strategic Implications for Recogni
+* Inference system demand will continue rising, particularly for large-scale, low-latency, memory-bound deployments in data centers.
+* While edge and hybrid AI deserve monitoring, the industry’s center of gravity—from Meta to SoftBank—is still expanding compute-intensive inference workloads.
+* Recogni’s differentiation around highest compute at the lowest power with high-bandwidth interconnect across Pyxis devices is directly aligned with where the market is going.
+
+
+________________
+
+
+
+
+Recogni Thesis #2: Major shift (>70%) in spend from Training to Inference in 2 years
+AI usage as a % of the bill that Enterprise companies pay to public cloud, for example, will substantially shift from training to inference soon, such that inference costs will dominate the total cost of ownership for enterprise & mass-market consumer AI applications.
+   * Possible counterpoint that merits investigations with external companies: could a shift happen where model training becomes more incremental “fine-tuning”, e.g. daily rather than annually, as enterprise companies generate more training data each day, and the cost of patching models is worth the increased accuracy of inference results. Could that make us vulnerable when trying to sell an “inference only” solution vs. competitive offerings that can do both inference & training, in a way that we could potentially abate if we learned more in advance? We think that TCO and the dominance of inference as a % of total AI cost will carry us through here, but it’s something we’ll want to investigate as completely and as quickly as we can, in case we need to make some pivots. If this happens, there still could be a future play for Recogni in not just inference, but potentially with incremental training, especially if FP32 and backpropagation become less essential for incremental model tuning - this is unlikely, though it is something we much corroborate with some key partners to be certain. 
+ Strategic Thesis: AI Inference Will Surpass Training as the Dominant Cost Center (2025–2030)
+1. Jensen Huang & NVIDIA: Inference Will Eclipse Training
+* Massive Demand for Inference: In his 2025 GTC keynote, Jensen Huang declared that “agentic” AI systems—those capable of reasoning—require 100x more inference compute than anticipated just a year earlier. Inference, not training, is becoming the “real workhorse” of AI.
+* Blackwell Architecture Focus: NVIDIA’s latest Blackwell platform includes dedicated inference enhancements, showing a deliberate bet on inference as the future profit center for AI deployments.
+* Quote: “AI factories will need to operate continuously, generating tokens, images, and actions. Inference is where the business happens.” — Jensen Huang, GTC 2025
+
+
+2. Hyperscalers (Microsoft, AWS, Google, Meta): Cloud Economics Are Tilting to Inference
+* Microsoft
+   * Data Center Shift: Microsoft is slowing AI training expansion to prioritize deployment-ready inference models for Azure customers.
+   * Satya Nadella (2025) emphasized that “the biggest cost pressure from AI is no longer training—it’s running the models at scale.”
+* Amazon AWS
+   * Cost Optimization: Amazon offers services like Bedrock Batch Inference and custom chips (Inferentia2) to reduce inference cost per token.
+   * Andy Jassy (2025 shareholder letter) stated Amazon’s AI bet is on “delivering inference at enterprise scale cost-effectively.”
+* Google Cloud
+   * TPU v5e Introduction: Built specifically to make inference cheaper and more scalable. Google’s AI-optimized stack is shifting from model development to model deployment.
+   * Enterprise Cost Tools: Google is helping customers estimate inference TCO vs. training, encouraging operational deployment.
+* Meta
+   * Focused heavily on AI-generated content, Meta predicts that over 70% of compute by 2027 in its data centers will be dedicated to serving inference for AI-driven user experiences (e.g., feed ranking, agents, content generation).
+
+
+3. Enterprise Signals: Budgets & Architectures Are Evolving
+* CapEx & Workload Shifts
+   * Morgan Stanley & Barclays (2025) report that enterprise compute spend will flip from 70% training in 2022 to 75% inference by 2026–2027.
+   * Inference costs are growing 89% YoY due to scale-out deployment of LLMs and multi-modal models.
+* Behavioral Shifts
+   * Enterprises are:
+      * Scaling inference into customer-facing products (e.g., copilots, agents, search).
+      * Building “inference-first” MLOps pipelines that optimize for latency and throughput, not training iterations.
+      * Shifting from centralized model training to decentralized inference and lightweight tuning.
+* Edge Computing
+   * By 2030, >60% of enterprise inference is expected to run on edge devices (laptops, cars, phones), reducing demand for retraining and placing even greater emphasis on low-power, always-on inference chips.
+
+
+4. Counterpoints to Watch: Incremental/Continual Training
+* Emerging enterprise use cases involve daily fine-tuning using tools like LoRA, QLoRA, and Retrieval-Augmented Generation (RAG).
+   * This doesn’t eliminate inference dominance, but nudges architectures toward hybrid systems where small-scale updates are performed.
+   * Recogni Opportunity: Offer inference solutions that support lightweight retraining (adapter updates, quantized fine-tunes) without full FP32 backprop.
+Conclusion & Strategic Positioning for Recogni
+Trend
+	Implication for Recogni
+	Inference surpasses training in cost and priority by 2026
+	Reinforces Recogni’s focus on low-power, high-throughput inference
+	Enterprises prioritize inference-first architecture
+	Recogni can offer differentiated value over training-heavy platforms
+	Edge inference explosion by 2030
+	Develop Recogni’s hardware roadmap and energy-efficiency narrative
+	Mild rise in continual learning
+	Recogni should explore selective capabilities for lightweight adapter tuning or partner with retraining platforms
+	Recogni Thesis #3: AI inference OPEX will dominate TCO and buying decisions
+AI inference costs to CSP/Hyperscalers and Enterprise companies with on-premises AI systems, are dominated by opex, and not by capex - and that opex is dominated primarily by electrical power consumption, thus the lower power solution will almost always deliver the lowest TCO to our customers, and that’ll heavily influence AI system purchasing decisions:
+   * Possible counterpoint that merits investigation with external companies: switchover costs could be higher than we currently think, and deemed risky by target customer, and if so, we’ll need far more than just claims of superior perf/Watt to garner customer commitments to evaluate our generative AI inference Pod solution.
+
+
+Thesis Rebuttal: OPEX Is No Longer a Meaningful Driver of AI Infrastructure Decisions
+
+
+In the generative AI era, the assumption that operational expenditure (OPEX), particularly electricity cost, determines total cost of ownership (TCO) is outdated. While power cost was once a rational basis for long-term efficiency, the current wave of AI growth has surpassed economic considerations and entered the realm of physical infrastructure constraints. Organizations are not optimizing for energy cost—they’re fighting for energy availability.
+
+
+Key reasons OPEX no longer drives decisions:
+
+
+Reason
+	Explanation
+	CAPEX still matters
+	Procurement teams weigh up-front cost (3 year amortization) over OPEX (amortized over 10-15 years).
+	Power is already committed
+	Hyperscalers often lock in multi-year energy contracts. Marginal power efficiency doesn’t result in marginal cost savings because energy provisioning is already maxed out.
+	Global data center expansion is power-limited, not cash-limited
+	Operators have billions in CAPEX, but can’t build fast enough because the grid can’t deliver more power.
+	Energy costs are often not variable in practice
+	Many large players operate in zones with flat-rate industrial power pricing—further weakening the connection between efficiency and OPEX savings.
+	Buying teams are optimizing for throughput-per-kilowatt
+	The need is for maximum inference throughput within fixed power budgets.
+	
+
+New Paradigm: “Energy-Balanced Computing” Defines the Future
+Definition
+Energy-balanced computing is the design and deployment of AI systems that maximize computational throughput within rigid energy constraints, aligning compute performance with what the power infrastructure can sustainably deliver.
+This is the new strategic KPI for datacenter operators, infrastructure architects, and CSPs:
+* Compute per available watt, not cost per watt
+* Tokens per megawatt, not dollars per kilowatt-hour
+
+
+Recogni Thesis #4: Real time GenAI multi-media will drive demand for differentiated inference solutions
+The rapid evolution of real-time generative AI (GenAI) for multimedia applications—spanning vision, speech, and multimodal content—is catalyzing an urgent need for differentiated inference solutions that deliver ultra-low latency, high throughput, and energy-efficient performance. As mainstream adoption accelerates across industries, only purpose-built inference architectures can meet the growing complexity and responsiveness demands of these AI workloads:
+   * Possible counterpoint that merits investigation while real-time GenAI multimedia presents new computational challenges, the demand for differentiated inference solutions may be overstated. General-purpose AI hardware and cloud-based scaling strategies are evolving fast enough to handle these workloads through software optimization, orchestration, and economies of scale—reducing the need for highly specialized inference architectures.
+The overall market for inference - if expressed as “total deployed exaFLOPS” - will be made up of mostly video-including applications at some point since it is so much more computationally demanding than text and audio.
+
+
+
+
+Recogni Thesis #5: Real time GenAI Reasoning / Chain of Thought
+Reasoning / Chain of Thought / Research models (e.g. o3 or deepseek r1) are without a doubt representing capabilities that are far beyond single-shoot LLMs (e.g. Llama-70B). Accelerating reasoning to a degree at which it becomes almost realtime-feasible (meaning: fit for human-to-AI interaction OR fit as a part of an agentic system that makes decisions in real-time environments) is going to unlock a set of new applications and markets, and hence represents both a narrative AND technological advantage we should treat with high importance.
+
+
+
+
+Recogni Thesis #6: Quick turn-around times of new models (release to deployment) is more important than supporting a lot of models
+The rapid evolution of real-time generative AI (GenAI) models means that money-makers (i.e. the models that actually generate the most revenue for their integrators/deployers) are always the latest models. Hence it is more important to be able to quickly deploy new releases successfully (down to 6 hours as stated by Lambda), than to work towards supporting a wide range of off the shelf models before launching.
+Recogni Thesis #7: Hyperscalers will deploy specialized inference-only HW systems (likely as part of an IaaS that they’re building up)
+We have heard multiple times “why would I pay for a blackwell rack if all I want to do is inference?” - supporting the thesis that customers are in need of purpose-built inference-specialized HW to optimize economical KPIs.
+Lately inference-only companies such as Groq have gained a lot of mind share (even if it’s non-economical for them atm) because the speed offering is better than what one can get through APIs that access nvidia HW in the background. Cerebras as well (with IBM/Meta).
+Stakeholder Questions (to ask external industry partners and prospective customers)
+Application Use Cases
+1. What are your primary use cases for generative AI (e.g., text generation, image synthesis, audio generation)?
+   1. The majority of Neo Clouds have stated text based implementations LLM with some early indicators of image and video emerging (Meta, WhatsApp use case). Having said that when diving into Google Cloud use cases a lot of video based GenAI use cases have been highlighted below. We also spoke with Genmo for Video production with Mochi1 and Twelve Labs for Video Analytics as use cases.
+   2. https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders
+      1. Real world video use cases:
+         1. Agoda is a digital travel platform that helps travelers see the world for less with its great value deals on a global network of over 4.5M hotels and holiday properties worldwide, plus flights, activities, and more. They’re now testing Imagen and Veo on Vertex AI to create visuals, allowing Agoda teams to generate unique images of travel destinations which would then be used to generate videos.
+         2. *Japan Airlines partnered with Pencil, a generative AI platform, to create new tourism spots that will broadcast in-flight and via YouTube Ads; JAL has been working with Jellyfish and Pencil, both owned by the Brandtech Group, to experiment with AI video using Google’s Veo 2.
+         3. Globant's Advance Video Search helps audiences find the content they need, with best-quality results. Using multimodal search in Gemini models, Globant can access specific frames within a full catalog of assets, which optimizes time and cost of operations, thus improving content monetization and boosting user engagement.
+         4. *Globo, Latin America's largest media company, created a recommendations experience inside its streaming platform that more than doubled their click-through-play rate on videos.
+         5. Canva is using Vertex AI to power its Magic Design for Video, helping users skip tedious editing steps while creating shareable and engaging videos in a matter of seconds.
+         6. *Captions, a next generation storytelling startup, recently released its integration with Veo 2, making it easy for users to add B-roll content to its talking videos.
+         7. Hour One migrated its workloads to high-performance Cloud GPUs, powering faster video content generation, better image quality, and more sophisticated AI models, improving inference speed by 1.8x and reducing inference costs by 28%.
+         8. *Instreamatic, part of the Google for Startups AI cloud accelerator, helps businesses maximize the potential of existing creative assets using its AI to create hundreds of hyper-personalized video and audio ad variations in minutes.
+         9. Lightricks is developing content creation tools, including its flagship products Facetune2, Videoleap and Photoleap. Leveraging the remarkable performance and ample memory capacity of Google Cloud TPU v5p, Lightricks successfully trained its generative text-to-video model without impacting the user experience.
+         10. Paramount currently relies on manual processes to create the essential metadata and video summaries used across its Paramount+ platform for showcasing content and creating personalized experiences for viewers. Text Bison on Vertex AI is now helping to streamline this process.
+         11. *Sphere, the giant globe-shaped performance and experience venue in Las Vegas, is working with Google Cloud and Google Deepmind to reimagine the Wizard of Oz for a new generation, using a specialized version of the Veo 2 video generation model to bring the film to life on a whole new scale.
+         12. *Synthesia, a startup that operates an AI video platform, is using Google Cloud to build the next generation of advanced AI models that replicate realistic human likenesses and voice. The startup is also using Gemini models to handle complex vision and language-based tasks with speed and accuracy. https://www.synthesia.io/case-studies 
+         13. *ZMO AI, a personalization engine, is using Google Cloud to build quick mobile solutions for viral video trends.
+         14. *L'Oreal Groupe uses Veo 2 and Imagen 3 as a creative partner, enabling teams to generate diverse, cinematic shots in less time, producing hundreds of new qualitative videos across 20 more countries and languages while upholding its "trustworthy AI" values.
+         15. Lytehouse provides instant video intelligence for any CCTV camera, enabling businesses to extract security, operational, and business insights from their video data by having multimodal gen AI agents monitor their cameras 24/7 — acting as coworkers for their business.
+         16. *fal is a generative media platform for developers, accelerating the inference of gen AI models to improve the speed in which content is generated. The fal team is working with Google Cloud to integrate its Veo 2 technology, empowering its users to create videos with realistic motion and high-quality output.
+         17. Higgsfield.ai built a number of text-to-video apps for consumers, including Diffuse 2.0, which can combine users' photos, videos, and texts through AI models to create more realistic avatars.
+         18. *Nerdmonster used Vision AI and Vertex AI to analyze and categorize images and videos published on consumers' digital channels. Now, the retail intelligence provider can then identify objects, scenes, emotions, and texts, generating insights that help large retail chains and franchises optimize campaigns and identify opportunities.
+         19. *Scaleup has created an AI-based technology that transcribes video lessons and generates subtitles in up to seven languages. This innovation improved content absorption and reduced student dropout rates before the end of the course by 17%.
+         20. *Spot AI, a video AI startup, transforms passive security cameras into AI agents for improving security, safety, and operations in industries like manufacturing, retail, hospitals, construction and more. The team is using Google Cloud to power Iris — its new interface for building custom video AI agents.
+2. What is your typical workload/model size, and data processing requirements?
+   1. Nebius : https://drive.google.com/file/d/1YgzQQ1JfW-pjKAKKb5QT6KUp6xj7NIyc/view?usp=drive_link
+   2. Oracle : 
+      1. https://docs.google.com/presentation/d/1Bs--8Cz0a3jsPRqyicv_yYNp0p23sAxj/edit?usp=drive_link&ouid=116439068018674726617&rtpof=true&sd=true 
+      2. https://blogs.oracle.com/cloud-infrastructure/post/oci-gen-ai-mlperf-inference-v40-benchmarks 
+   3. Meta : https://drive.google.com/file/d/1BlGGEHJ6v283rAUFPUjZ9OyQIxF7PO0X/view?usp=drive_link 
+3. What non-AI processing steps (pre or post processing) are part of your AI inference/production stack?
+   1. All Neo Cloud and hyperscalers enable customers to build full stack solutions using their GPU and CPU compute capabilities. Lets Take Nebius as an example:
+      1. Nebius AI Studio documentation: https://docs.nebius.com/studio/fine-tuning/how-to-fine-tune 
+      2.         3.      2. Majority of their current infrastructure is getting consumed for training and fine tuning with a few customers moving to inference deployments
+   4. How interested are you in an open-source, click-to-deploy model zoo of pre-trained models? (within this question, we also need to explore potential willingness for Recogni to have or curate a set of trained models that have been optimized for our hw and are available for purchase/licensing).
+   1. All customers expect Recogni to provide model zoo support for popular open source models such as Llama, Stable Diffusion, Mochi, etc. We have not yet advanced our business engagement to a level where we have been able to determine if they would be willing to pay for model optimization services.
+   5. What would the ideal AI application development environment look like for your software engineers, e.g. what would they most like to see in an SDK for new generative AI acceleration systems?
+   1. Triton kernel support: Microsoft, Meta
+   6. Do you train any models or do fine-tuning at all? If yes, how often do you retrain your models, and do you perform interim, incremental training to fine tune models as new data becomes available, in between the times when you do a major retraining?
+   1. Nebius AI Studio documentation: https://docs.nebius.com/studio/fine-tuning/how-to-fine-tune 
+   7. The Triton programming model hides the thread-based programming model of CUDA. Thereby, the Triton compiler is able to better leverage the GPU hardware e.g., such as optimizing for cases that might otherwise require explicit synchronization. How important is support of the Triton programming model to the inference models or applications you’re developing?
+   1. Triton support needed to start engagement: Microsoft, Meta. Internal developers of both the companies refuse to use the internal kernel development language of MAIA and MTIA
+Competitive
+   8. What hardware accelerators are you currently using (e.g., GPUs, TPUs, custom ASICs)?
+   1. Meta: Nvidia, AMD, MTIA
+   2. Oracle: Nvidia, AMD , https://drive.google.com/file/d/1BvOB5mhOXhgy0R6x8c11-YojCmPFqRD1/view?usp=drive_link 
+   3. IBM : Nvidia, Intel, Gaudi
+   4. Crusoe : Nvidia, AMD 
+   5. TensorWave : AMD
+   6. CoreWeave : Nvidia
+   9. What were you satisfied with vs. the challenges that you may encounter with your current AI inference acceleration hardware?
+   10. What makes your developers happy with your current solution vs. what they’d like to see, in terms of ease of use or better features?
+   11. What are the most major points of frustration you encountered with your current AI stack?
+Performance and Scalability
+   12. Which KPIs are most important to you in measuring the performance of an multimodal AI inference acceleration solution, e.g. TTFT, % of acceptable drop in accuracy upon quantization, latency, petaflops/kilowatt?
+   1. Nebius feedback to our RFP response: https://drive.google.com/file/d/1Bj9j2D3mzunxmx-TPy1zE7_eiTtpwd2z/view?usp=sharing 
+We directly compare the ‘blended cost of 1M tokens' and the 'Token/s/user (input+output)’ with other chip providers. Out of the metrics computed, only input:output ratio of 3:1 is used for the comparison.
+For llama 8b (fast flavor) with input:output ratio of one the recogni’s ttft, and system throughput is competitive when compared to the hardware vendors currently available to purchase. For the cost optimized flavor the reported ttft is higher than nvidia chips that we tested internally.
+For llama 70b (fast flavor) with input:output ratio of one the recogni’s ttft, and system throughput is very competitive when compared to the hardware vendors currently available to purchase. For the cost optimized flavor the throughput is significantly higher but the reported ttft is higher than nvidia chips that we compared with.
+For llama 405b (fast flavor) with input:output ratio of one the recogni’s ttft, and system throughput is highly competitive when compared to the hardware vendors currently available to purchase. For the cost optimized flavor the throughput is significantly higher but the reported ttft is higher than nvidia chips.
+   13. How important is scalability for your generative AI workloads? How do you handle parallelism from a software point of view?
+GenAI LLM Model Development
+   14. What AI application development frameworks and libraries do you use for model development (e.g., Triton, PyTorch, JAX, TensorFlow)?
+   1. Microsoft, Meta: Triton
+   2. OpenAI: JAX
+   15. Which (types of) models are you running, e.g. are you developing/fine-tuning your own AI model architecture or are you primarily utilizing commercially available foundational models - and if the latter, which ones?
+   16. What led you to your choice of the models you're using?
+   17. Do you write custom code? What depth or type of custom operator support do you require?
+   18. We are deploying pareto AI log math. Would you be interested in continuing to use bit-accurate emulation even when you already have access to hardware systems on which to test your models?
+   19. Are you using PTQ or QAT methods for quantizing models to e.g. 8 or 4 bit number formats?
+   20. Do you think that edge AI inference acceleration will coexist with data center AI inference acceleration within the same application (i.e. a hybrid approach), or do you foresee that most applications will only utilize one or the other rather than both approaches simultaneously?
+GenAI LLM/LVM Model Deployment
+   21. What is your software stack when it comes to model deployment? 
+   1. Nebius: vllm for benchmarking. Nebius AI Studio offers an OpenAI-compatible API for inference and fine-tuning. 
+   22. If you utilize your own on premise cloud for AI applications, do you use Kubernetes or another means of container orchestration and management? Is it compatible with AKS, EKS, GKS, etc.?
+   1. Nutanix, Crusoe : Kubernetes
+   23. Which state-of-health/diagnostics do you expect from an AI inference solution?
+   24. How do you deploy models today? pytorch>tensorrt-llm>device ?
+   25. What “glue”, i.e. software/hardware outside of the pure tensor → tensor model (or the AI pod it runs on), do you currently use or project using? For example speculative decoding; for example loading and management of models. For example load balancing.
+   26. Our AI inference system is essentially a very accurate, efficient, high performance torch-graph accelerator. It is our understanding that many applications such as live-video feeds, LLM-API access, image generation, or RAG require other functions such as tokenization, video encoding/decoding, image compression/decompression, audio processing etc. to also happen, with dedicated storage and multimedia acceleration - often in “network proximity” to the main AI acceleration because of latency and bandwidth implications. 
+   1. Are these multimedia pre or post processing functions already “taken care of somewhere else in your AI data center such that Recogni only needs to provide the final inference tensors/tokens, rather Recogni needing to, for example, manage operations that involved the rendering of graphics or video or audio in the case of multimodal (non-text) outputs? How and where is this done within your data center today for multimodal AI inference acceleration that produces rendered images or video? 
+   2. Along those lines: API-access vs. bare-metal access - how large is the customer pool you see who expect a very GCP/AWS-like bare metal access with an ability to run all kinds of C++/Python code within an x86 Linux environment?
+   27. LLM Application Deployment
+   1. Cache state for rapid prompt resuming : Mechanism for KVcache archival and re-loading. What are the expected KPIs in terms of latency/etc
+   2. What framework (FSDP, DeepSpeed, etc.) do you use for model sharding
+   28. How do you specify custom kernels?
+   1. Microsoft, Meta: Triton
+   29. Are your “baseline model” developers and your “model deployment” engineers the same person/team - or are the model development and deployment teams separated within your organization?
+Datacenter Infrastructure, Power and Efficiency
+   30. What datacenter infrastructure do you use for your GenAI application deployment? (Use CSP, On-premise, use co-location, all of the above)
+   31. What are your preferences for hardware interfaces and connectivity?
+   32. Do you have any specific requirements for hardware compatibility and integration?
+   33. How important is power efficiency in your generative AI tasks?
+   34. What are your power consumption constraints?
+   35. Are there specific cooling or environmental conditions that your hardware must operate within?
+Commercial, Cost and Budget
+   36. What is your budget for generative AI hardware, and is it planned to increase, decrease or stay the same?
+   37. How do you balance cost versus performance in your hardware choices?
+   38. Are there any cost-related concerns you have with current generative AI hardware solutions?
+   39. What are the primary cost factors that influence your AI system purchasing decision, e.g. is it primarily dominated by CapEx factors like AI system purchase price, system setup/installation costs, non-recurring software stack integration/migration costs - or is the purchasing decision primarily driven by OpEx factors, e.g. electricity bill / power consumption, maintenance costs of liquid cooling, or other operational costs?
+   40. How do you purchase datacenter infrastructure systems and services today?
+Support and Maintenance
+   41. What level of technical support are you currently receiving from hardware vendors, and are you happy with it? What are the most common scenarios for which you’ve required technical support in the past?
+   42. Do you require on-site support or remote assistance for your AI inference acceleration systems?
+   43. How important are firmware updates and maintenance for your hardware, do you have any requirements for how they must be deployed on your systems? (within this question, and the one preceding it, we need to explore customer willingness to pay maintenance costs in the form of an annual subscription fee that includes on-site support, early access to software upgrades, etc.)
+   44. What is your upgrade process?
+   45. How do you bring non-working AI accelerators offline? (Validate assumption of support being off-lined gracefully.)
+Security and Compliance
+   46. What security features are essential for your generative AI hardware?
+   47. Do you have any data privacy and protection compliance requirements (e.g., GDPR, HIPAA) that AI inference acceleration hardware for your applications must meet?
+   48. Are you aware of any emerging standards for AI model security? For e.g. weight encryption to prevent weights leaking?
+   49. Are there any security requirements that compel you to have some or all of your AI applications running on premise rather than utilizing public cloud for running inference acceleration for all of your AI applications?
+   50. Are there any specific RAS standards (reliability, availability, security) standards for which AI systems in your data center comply?
+Output Quality and Optimization
+   51. What kind of guardrails do you use for GenAI application deployment?
+   52. What quality measures do you use to evaluate generative outputs?
+   53. How do you define “good enough” for the inference accuracy of quantized models and any other aspects of generative output quality?
+   54. Are there specific optimization techniques that you use to improve the quality or speed of generative models?
+   55. How do you trade-off throughput/latency vs task performance?
+   56. Do you optimize your models for power consumption efficiency?
+Future Needs and Innovation
+   57. What emerging generative AI technologies are you interested in?
+   58. Are there any features or capabilities that you believe would significantly enhance your current and future generative AI projects?
+   59. In the long term, what improvements would you eventually like to see in current generative AI hardware that plan to use for inference acceleration?
+
+
+Change Tracking
+
+
+Changes
+	   * Initial version published -  May 21, 2024
+   * Incorporated feedback from Michael, Frederik, Shaba and Gilles - May 24, 2024
+   * Tim added a few new questions and fine tuned several others - May 28, 2024
+	
+
+Additional Resources
+
+
+Recogni General Access links
+   * Pyxis Product Requirement v1.1 
+   * Pyxis Software Specification
+   * Pyxis and Draco math (Notion) 
+   * Pyxis Fspec.pdf
+	Recogni Restricted Access Links
+   * Pyxis GTM Overview
+   * Product Cost & Margin Model
+	
+
+
+
+Sources
+
+
+© 2024 CONFIDENTIAL AND PROPRIETARY– RESTRICTED INTERNAL USE ONLY- Recogni Inc. | Recogni GmbH

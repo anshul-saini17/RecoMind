@@ -1,0 +1,2172 @@
+﻿Recogni Inc. | Recogni GmbH
+San Jose (US) | Munich (Germany)
+	  
+
+	
+
+PRD “Pyxis” v1.1
+Product Requirements Document
+
+
+Last Updated: March 14, 2024
+This document is confidential and for internal use only and subject to change. No external commitments can be made based on this document, as the solution is in planning and development stage. Scope of the solution and timing are subject to change. This document super cedes Pyxis Rev1 PRD
+________________
+
+
+
+
+
+
+Executive Summary        2
+Multimodal Generative AI Systems        3
+Pyxis Key Product Features        4
+Requirement Categories and User Personas        6
+Schedule & Releases        8
+Commercial Requirements        9
+Application Requirements        11
+Hardware Overview        14
+Pyxis MCM and Chip Requirements        17
+Linecard Requirements        21
+Software Requirements        23
+Modeling / Internal        23
+Service / Runtime / Inference        24
+Device / RTOS        25
+System/Linecard SW        25
+SDK        26
+Approvals        27
+Change Tracking        27
+Appendix        27
+Competitive and TCO Analysis        27
+Additional Resources        29
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recogni “Pyxis”
+Datacenter AI Inference Processor + System
+
+
+Executive Summary
+“Pyxis” (internal code name) is Recogni’s ambitious bet to deliver disruptive innovation for the datacenter Generative AI inference market. The “Pyxis” solution delivers a complete hardware and software stack by integrating Recogni’s AI inference processor into partner fabric system. Pyxis solution development commenced in late 2023 and will continue through its product launch in early 2026 and well into 2027 as Pyxis customers ramp up into high volume production. Pyxis will be designed to accelerate AI inference efficiently and accurately for multimodal generative AI networks, that include CNN (convolutional neural networks) and transformer models for language and vision, where live inference inputs could be text, still images, video, code, and other data, e.g. from sensors like depth, temperature, etc. 
+Pyxis solution consists of hardware, software and AI application developer tools to deliver a complete AI inference acceleration system, comprising of the following ingredients:
+
+
+* Silicon/MCM: an MCM (multi-chip module) that includes the Pyxis accelerator die, plus HBM (high bandwidth memory) chips and potentially necessary passive/discrete components itself, all connected via an interposer within a single package.
+* Hardware System:  a line card that contains 9 Pyxis chips configured in a manner that interfaces seamlessly to an partner router fabric chassis. 
+* Software: all of the necessary OS integration, drivers, compilers, firmware, and a customer-facing SDK consisting of useful libraries, sample code, etc.
+* Tools: Emulators, Profilers, Functions, Model Analysis Tools and Reference Applications that allow AI application developers to (either pre-silicon or post-silicon) assess network inference performance, accuracy, power consumption, resource utilization, etc.
+
+
+All of these components will combine to form a complete “Recogni AI Inference Pod” whose hardware and software will work “plug-and-play” style, within partner’s PTX series pre-existing fabric routing system to accelerate multimodal generative AI inference workloads.
+
+
+This PRD’s goal is to be a “living document” that clearly captures “Revision Updates”, “Key Stakeholder Approvals”, “Gaps and Opens” and is kept up to date as a single source of truth for the official POR (plan of record) of what Pyxis must and will become for our customers. It includes technical requirements, schedule requirements and financial/cost requirements that Recogni must fulfill in order to meet desired commercial goals.
+Multimodal Generative AI Systems
+Multimodal generative AI systems typically rely on models that combine types of inputs, such as images, videos, audio, and words provided as a prompt. It then converts them into an output, which may also include text-based responses, images, videos and/or audio. These models are trained by analyzing large amounts of text and many images, videos or audio recordings. The models learn patterns and the association between text descriptions and corresponding images, video or audio recordings. Below is a list of some of the most commonly used, and thus the primary, targeted multimodal generative AI models for Pyxis inference acceleration:
+
+
+* GPT-4 is the latest release of GPT class of models, a large-scale, multimodal model which can accept image and text inputs and produce text outputs. GPT-4 is a transformer-based model pre-trained to predict the next token in a document. The post-training alignment process results in improved performance on measures of factuality and adherence to desired behavior.
+* Gemini is a family of multimodal large language models developed by Google DeepMind, serving as the successor to LaMDA and PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Nano.
+
+
+* DALL-E is a type of multimodal algorithm that can operate across different data modalities and create novel images or artwork from natural language text input. 
+* Stable Diffusion is a text-to-image model similar to DALL-E, but uses a process called “diffusion” to gradually reduce noise in the image until it matches the text description. 
+  
+
+LLMs (such as openAI’s ChatGPT)
+ A computer circuit board with many blue lights
+
+Description automatically generated 
+
+      Stable Diffusion (Microsoft’s Dall-E3)
+
+
+
+
+In addition to these models above, Pyxis must be able to efficiently accelerate NeRFs (neural radiance fields) and other types of multimodal generative AI models that will continue to evolve over time.
+
+
+Pyxis Key Product Features
+
+
+
+
+Technical Specifications
+	Pyxis MCM (multi-chip module)
+	Technology Node
+	3n TSMC
+	Operating Temperature
+	-40 – 105ºC (Need to finalize) AI: Vinay + Arun
+	Power
+	275 W 
+	Numerical Precisions
+	FP8 (dense), FP16 (dense
+	Dedicated Vector Processing Unit
+	Yes
+	Scatter Gather Support
+	Yes (sparse gathering and scattering)
+	Model Coverage (examples)
+	GPT-3, Mixtral, SDXL2.1, Falcon180B, …
+	Max. Throughput FP8
+	2,083 teraFLOPS
+	Max. Throughput FP16
+	1,042 teraFLOPS
+	Memory Capacity
+	144GB (4x HBM3e at 36 GB)
+	Memory Throughput
+	4,195 GB/s
+	Parameter Precisions
+	FP8, High Precision (SW), 4b-Compression
+	Interfaces
+	PCIe : Gen5x16, Fabric: 36 x 112G SERDES
+	OCP Compliance
+	OAI-OAM Base Spec r2.0 v0.75
+	
+
+Technical Specifications
+	Pyxis ILC (Inference Line Card) 
+	Pyxis MCM
+	9
+	Host CPU
+	1
+	Power
+	2 kW
+	Max. Throughput FP8
+	18.7 PFLOPS
+	Max. Throughput FP16
+	9.3 PFLOPS
+	IO
+	200 GE
+	Memory Capacity
+	1.3 TB
+	Memory Throughput
+	4.5 TB/s
+	Partner Compatibility
+	Designed for PTX10016, PTX10008 chassis
+	Device Type
+	Expansion module
+	Form Factor
+	Plug-in module
+	Physical Dimensions
+(WxHxD)
+	17.2 x 1.89 x 20.5 in
+(43.68 x 4.8 x 52.07 cm)
+	
+
+Technical Specifications
+	Pyxis AI Inference Superpod
+	Pyxis AI Inference Pod
+	Partner Chassis
+	PTX10016
+	PTX10008
+	Pyxis ILC
+	16
+	8
+	Pyxis MCM
+	144
+	72
+	Power
+	??
+	??
+	Max. Throughput FP8
+	300 PFLOPS
+	150 PFLOPS
+	Max. Throughput FP16
+	150 PFLOPS
+	75 PFLOPS
+	IO
+	3.2 Tb/s
+	1.6 Tb/s
+	Memory Capacity
+	20.8 TB
+	10.4 TB
+	Memory Throughput
+	72 TB/s
+	36 TB/s
+	Physical Dimensions
+(WxHxD)
+	17.4 x 36.65 x 35 in
+(44.2 x 93.09 x 88.90 cm)
+	17.4 x 22.55 x 32 in.
+(44.2 x 57.76 x 81.28 cm)
+	
+
+
+
+Pyxis will be successful by surpassing competitive offerings through the following distinct advantages and focus areas that will differentiate our solution offering for inference acceleration at datacenter scale:
+
+
+* Highest DC compute density: Highest TFLOPS density/mm2 with PetaFlops scaling/square meter
+* Scalability: Highest multi-modal inference throughput (Number TBD: for 1 to 144 chips) at lowest latency (Number To be Confirmed <50 ms) for a representative 
+* Power efficiency: leading model inference processing efficiency, as measured by TFLOPS/Watt at the MCM (multi chip module package of Pyxis die + HBM), and scaling out to substantial energy usage reductions in yearly electricity costs for data centers.
+* TCO (total cost of ownership)
+   * Operational cost (aka “opex”) savings in terms of kWh and $ per millions of generated tokens per device to enable cloud service provider’s software developer customers to establish profitable business models in multimodal genAI services.
+   * Integration/Setup costs (aka “capex”) of lower MCM and line card acquisition costs for customers to establish multimodal genAI service datacenter services
+* Usability: from well designed software that makes Pyxis easy to utilize for application developers with easy-to-integrate APIs and tools, with high-accuracy, fast model quantization & compilation for easier model migration. 
+* Flexibility: We’ll enable wide operator support at the die level to cover a wide range of AI inference use cases that span from large hyperscalers down to small B2B high security businesses.
+* Stability: from industry-leading FIT rates of a single die to extremely high availability and reliability of multi-chassis genAI datacenter services powered by Pyxis.
+* Time to Market: From the execution of aggressive yet achievable engineering schedules that allow Recogni to sample AI inference Pods to beta customers by the end of 2025.
+* Partnership Synergies: Recogni will benefit from the fabric and system solution partnership that will enable best in class networking connectivity, as well as sales channels to drive adoption with a faster time to market. 
+Requirement Categories and User Personas
+ A screenshot of a computer program
+
+Description automatically generated 
+
+
+
+Requirements Category
+	Personas
+	Key Care abouts / Pain points
+	Commercial
+	* Decision makers: Business head, VP engineering
+* Stakeholders: Purchasing, CIO/CISO, CFO, COO
+* Partner: Marketing, Sales, BD
+	* Sustained Application Performance (>2X) leader for 3 years after deployment for target application
+* Ability to easily upgrade hw/sw infrastructure to support emerging enterprise multi-modal Gen AI applications 
+>2X Application level cost savings compared to on-premise or cloud deployment
+* >2X Operational cost savings for on-premise cloud deployment
+Next generation Pyxis roadmap
+* Sales and service support agreements to maintain enterprise applications SLA
+	Applications - Functional
+	   * Decision makers: VP engineering, AI scientist
+   * Stakeholders: ML Ops, AI deployment engineers
+   * Partner: Marketing, AI-BD
+Cloud customer/partner: BD, GenAI GTM specialist
+	      * Supports key benchmark and deployment model level KPIs (AI frameworks like PyTorch, TTFT, accuracy, latency, etc.)
+      * Support for end customer application integration while delivering  >4X sustained end to end application acceleration
+      * Ability to easily integrate into end customer application (api or code level) and supported frameworks 
+Sustained Application Performance leader for 3 years after deployment for target application
+      * Ability to easily upgrade hw/sw infrastructure to support emerging enterprise multi-modal Gen AI applications
+      * Next generation Pyxis roadmap
+AI/SW Application engineers available to help support end customer benchmarking and application integration activity
+	CMAT
+	         * Decision makers: VP engineering, AI scientist
+         * Stakeholders: AI deployment engineers
+         * Partner: Marketing, AI-BD
+Cloud customer/partner: BD, GenAI GTM specialist
+	            * Supports key benchmark and deployment model level KPIs (AI frameworks like PyTorch, TTFT, accuracy, latency, etc.)
+            * AI/SW Application engineers available to help support end customer benchmarking and application integration activity
+            * Support for end customer application integration while delivering  >4X sustained end to end application acceleration
+            * Ability to easily integrate into end customer application (api or code level) and supported frameworks 
+	Pyxis - Pod + Linecard
+	            * Decision makers: Business head, VP engineering, COO - DC Systems Operator, CIO/CISO
+            * Stakeholders: Systems Deployment Engineer, DC provisioning team, SW security
+            * Partner: Marketing, AI-BD
+	            * Support for existing power, networking and cabling infrastructure
+            * Documentation for hardware bring-up and first boot set-up
+            * System Application engineers available to help support POD bring-up and datacenter integration
+	System Software : Pod, ILC, Pyxis MCM
+	            * Decision makers: VP engineering, CIO, DC SW provisioning, CIO/CISO
+            * Stakeholders: Systems Deployment engineer,  SW security audit
+            * Partner: System Software Engineering
+	            * System software works with existing orchestration, scheduling and cluster management
+            * System Application engineers available to help support POD bring-up and datacenter integration
+	AI SDK - Compiler, profiler, runtime
+	            * Decision makers: VP engineering, ML Ops, AI scientist
+            * Stakeholders: AI Deployment engineers,  CIO/CISO
+            * Partner: System Software Engineering
+	            * Supports key benchmark and deployment model level KPIs (AI frameworks like PyTorch, TTFT, accuracy, latency, etc.)
+            * Support for end customer application integration while delivering  >4X sustained end to end application acceleration
+            * Ability to easily integrate into end customer application (api or code level) and supported frameworks 
+            * Model compilation, profiling and deployment executable creation time similar to competitive offerings from leading inference acceleration solutions from Nvidia, AWS Neuron SDK, Google 
+	
+
+Schedule & Releases
+  
+
+https://recogni.atlassian.net/wiki/spaces/Pyxis/pages/176619549/Program+Schedules 
+ A screenshot of a schedule
+
+Description automatically generated 
+
+
+
+The following milestones need to be achieved for a successful launch and commercialization.
+Release
+	Date
+	Description
+	FCS
+	Q2 2026
+	Shipping to customers
+	Beta
+	Q1 2026
+	Pyxis System + Software Beta
+	Alpha
+	Q4 2025
+	Pyxis System + Software Alpha
+	ILC Rev1
+	Q2 2025
+	
+
+	Pyxis TO
+	Q1 2025
+	
+
+	CMAT EA2
+	Q4 2024
+	CMAT Early Access 2
+	ILC Rev0
+	Q3 2024
+	
+
+	CMAT EA1
+	Q3 2024
+	CMAT Early Access 1
+	
+
+	Q2 2024
+	Architecture Closure
+	
+
+	Q1 2024
+	Design Freeze
+	
+
+
+
+            * Requirements Prioritization Framework : We are going to choose the MoSCoW method.
+
+
+Priority
+	Definition
+	1
+	Must Have (M) : These are the requirements needed for the project's success.
+
+
+	2
+	Should Have (S): These are important requirements for the project but not necessary.
+
+
+	3
+	Could Have (C ):  These requirements are “nice to have.” But don’t have as much impact as the others. 
+
+
+	4
+	Will Not Have (W): These requirements aren’t a priority for the project.
+
+
+	
+
+Commercial Requirements
+The main competition datapoint for Pyxis is the H100-based (soon H200-based) Nvidia DGX SuperPOD, equipped with DGX H100 Systems.
+
+
+
+
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	C00
+	1
+	
+
+	Recogni’s Pyxis-based genAI inference system’s main competitive point of reference is the Nvidia H100 SuperPOD.
+	Other competitive data points include established companies such as AMD (e.g. with its MI300X) or startups such as Groq, Cerebras, Untether and Positron.
+	C01
+	1
+	
+
+	TCO (Total Cost of Ownership) is in our case defined as List Price (capex) + Electricity Cost (over 4 years).
+	We believe that in this highly dynamic market 4 years is a fair span of time to consider w.r.t. such a system’s lifetime in terms of it being able to run state of the art inference workloads.
+	C01a
+	1
+	
+
+	Beat Competitive target in C00 (Nvidia H100 SuperPOD) by 3x in CapEx
+	This assumes of course that migration to the Pyxis-based System is sufficiently easy for our customers. (switch-over cost!). Otherwise no matter how cheap we offer the system it will not be adopted.
+	C01b
+	1
+	
+
+	Beat Competitive target in C00 (Nvidia H100 SuperPOD)  by 8x in OpEx
+	We believe that beating an H100-based SuperPOD datacenter system by 8x today will grant us still around 2x-3x in 2026 once we launch. This assumes of course that migration to the Pyxis-based System is sufficiently easy for our customers. (switch-over cost!)
+	CO2
+	1
+	
+
+	The Pyxis-based full-rack 42U chassis needs to beat REQ.C00 by 10-15x in volumetric compute density.
+	Given that the H100-based SuperPOD needs 11x 42U racks to realize 0.5 EFLOPS (dense FP8) which we (effectively) realize in a single 21U rack this requirement should be achievable.
+	CO3
+	1
+	
+
+	Targeting a minimum gross margin of 70% for every Linecard sold. We are assuming 20% discounts on average on list price for every Linecard sold.
+	Our source of revenue and profit will be Pyxis-equipped Linecards of which Recogni fully owns the design and manufacturing. 
+	C04
+	1
+	
+
+	Pyxis cost (fully packaged and tested) and thereby also die size and technology node need to serve the purpose of achieving all other commercial requirements.
+	Any features resulting in more die size but in favor of less power consumption are highly welcome because as per above breakdown, chip cost influences the capex goal far less than power consumption influences the opex goal. 
+Average power consumption of the entire system divided by the number of Pyxis MCMs is:
+46.88kW / (16*9) = 326W (all in, NOT just the chip or the MCM!)
+Realistically we are rather looking at ~550W per MCM. We might have to run the chassis at a lower operational speed not to exceed rack power limitations.
+	C05
+	1
+	
+
+	The per-Pyxis-MCM power consumption (defined as: entire 16-Linecard-system’s power divided by the number of Pyxis MCMs) should not exceed 326W.
+	
+
+	
+
+
+
+
+
+Application Requirements
+The following are high-level functional and applicational performance goals that are supposed to ensure the system’s ability to compete successfully in 2026.
+
+
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	A00
+	
+
+	
+
+	Recogni’s Pyxis-based datacenter AI inference system is targeted at all modalities of modern AI including genAI.
+	
+
+	A01
+	
+
+	
+
+	List of representative workloads which all need to be evaluated w.r.t. any req/KPI.
+List of reference models:
+● Large Language Models:
+○ LLama2-7B and LLama2-70B
+○ OPT-6B and OPT-70B
+○ GPT-J 6B (MLPerf) and GPT3-175B
+○ Falcon-7B, Falcon-70B, Falcon-180B
+○ Gemma
+○ Mistral
+○ Mixtral
+● Image Generation:
+○ StableDiffusion-1.5, StableDiffusion-2.0 and StableDiffusion-XL
+○ DiT
+● Video Generation:
+○ VideoCrafter
+○ LaVIE
+● Speech
+○ Whisper
+○ WavLM
+○ Conformer
+○ XLS-R
+● Misc (to be evaluated)
+○ Mamba
+○ Monarch Mixer
+○ RAG-algorithms
+○ NerFs
+● Detection (should we even include this?)
+○ DETR-R50
+○ YOLOv8/YOLOv9
+	
+
+	A02
+	
+
+	
+
+	TTFT (Time To First Token) < 50 ms (L270B-BS1-2KIN-TP4).
+	How long does it take for the system to complete the processing of the LLM input before it can start generating the output that the user is waiting for.
+	A03a
+	
+
+	
+
+	TPOT (Time Per Output Token) < 0.05 ms (L270B-BS512-TP4) (same as >20,000 output tokens/s)
+	How fast (throughput) are outputs generated once output generation has started. This is an average - the first output token takes much less time than the last. THIS IS NOT THE LATENCY
+	A03b
+	
+
+	
+
+	LFOT (Latency First Output Token) < 10 ms (L270B-TP4)
+	How fast (latency) is the first output token generated once the input context has been consumed and output generation has started.
+	A04
+	
+
+	
+
+	MBU (Model Bandwidth Utilization): 90% in memory-BW-limited execution (e.g. LLM decode).
+	In execution modes during which there is no bottleneck due to memory bandwidth or latency, how much of the theoretically available memory bandwidth is achievable.
+	A05
+	
+
+	
+
+	MFU (Model FLOPS Utilization): 90% in compute-BW-limited execution (e.g. LLM prefill)
+	In execution modes during which there is no bottleneck due to compute throughput, how much of the theoretically available compute (e.g. in TFLOPS)  is actually usable on average.
+	A06
+	
+
+	
+
+	Parallelization: TP (Tensor Parallelism)=16  |  PP (Pipeline Parallelism)=inf  |  EP (Expert Parallelism)=inf (L270B)
+	For a given model (Llama2-70B) how many chips can this model be parallelized over with Tensor Parallelism before running 
+	A06a
+	
+
+	
+
+	TP=16 should work at N*16*80% of throughput (token’s)
+	
+
+	A07
+	
+
+	
+
+	Conversion of models needs to happen solely based on PTQ methods (no QAT) (calibration data and model only).
+	PTQ (Post-Training-Quantization) is a method that converts a model from its FP32 baseline to a lower-precision, proprietary math without changing the architecture or the parameters of the model (at least not in a back-propagation fashion) and does not require more than the model itself as well as an unlabeled calibration dataset.
+	A08
+	
+
+	
+
+	Conversion of models needs to happen within 1 hour per 100B model parameters.
+	For every 100B model parameters converting a model with REQ.A07 as a method should not take more than 1 hour of real time (independent of what the $ cost of that conversion was).
+	A09
+	
+
+	
+
+	Conversion accuracy drops need to be within 1% of original performance w.r.t. the model’s main accuracy metric.
+	
+
+	A10
+	
+
+	
+
+	Custom operators need to be deployable for any end user of the system
+	The definition of a custom operator is a purely numerical (no for loops or if statements) function such as a new non-linear activation function (e.g. squash).
+SW and HW design should strive towards also supporting any C++ custom operator (within limits and guided by tutorials).
+ADD SOMETHING ABOUT TVM.
+	A11
+	
+
+	
+
+	A single 16-Linecard system needs to be able to run 4 instances of GPT-4 in TP8-PP4-EP10.
+	
+
+	A12
+	
+
+	
+
+	GPT3 175B in TP2-PP1 can be completely loaded onto a Linecard within 1 minute and instantiated over all Pyxis
+	This includes the broadcasting of the model parameters through one or few ethernet links to multiple or many Pyxis MCM’s HBM memories.
+	A13
+	
+
+	
+
+	Input and Output Bandwidth requirements met by system for all models in list of models (no bottlenecks - likely to be 2x 100 GigE per 9 Pyxis devices)
+	
+
+	A14
+	
+
+	
+
+	Image generation (SD v2.1) throughput of min 4 images/sec with BS 4 in TP1-PP1
+	
+
+	A15
+	
+
+	
+
+	There is an easily accessible web-based documentation of the entire Pyxis SW world including tutorials for every major function of the system.
+	
+
+	
+
+
+
+Hardware Overview
+
+
+This section describes all 4 layers of the hardware:
+
+
+            * Chassis / System
+            * 21U rack system with 16 Pyxis linecards
+            * 2x Route Engine/Supervisor cards that run in sync as backups to each other
+            * Linecard
+            * PCB that interfaces with backplanes of the chassis for fabric communication
+            * Holds 9 MCMs (9 Pyxis)
+            * MCM (Multi-Chip-Module) with Pyxis
+            * Module that consists of a Pyxis die, 4 HBMs, power circuitry etc.
+
+
+The MCM (Multi Chip Module) is a module that consists of:
+            * 1x Pyxis die (packaged)
+            * 4x HBM memory chips
+
+
+ A close-up of a computer chip
+
+Description automatically generated 
+
+
+
+
+
+Depictions of the system’s components:
+  
+
+The entire 16-Linecard chassis / system.
+ A computer screen shot of a computer
+
+Description automatically generated 
+
+Top of rack management cards (Route Engine Card)
+ A diagram of a computer
+
+Description automatically generated 
+
+Fabric and Linecards interconnect
+
+
+PCIe card
+[Placeholder for now to include PCIe card specs for:
+            * PCIe card with 1 Pyxis
+            * PCIe card with 2 Pyxis - with Pyxis-Pyxis connection through fabric interface]
+
+
+OAM Module: Placeholder for now to include OAM module specs for:
+            * OAM-OCP OAI compliant module/PCB with a single Pyxis MCM
+ A diagram of a computer chip
+
+Description automatically generated 
+
+
+
+OCP chassis/UBB
+[Placeholder for now to include OCP chassis (standard baseboard, UBB) with:
+            * 4 Pyxis
+            * 8 Pyxis
+Both with point2point Pyxis-to-all-other-Pyxis mesh through fabric interfaces (but without switches basically)]
+
+
+Chassis / System
+The chassis consists in more detail of:
+            * 2x        “Route Engine”/”Supervisor” cards (AMD processors, handling all inbound and outbound traffic)
+            * 16x        (up to) Linecards, holding each a number (e.g. 9) Pyxis MCMs
+            * 6x         Fabric cards which implement a point-to-point high-speed interconnect network
+
+
+Only the line cards as mentioned in REQ.C04 are Recogni’s responsibility - however the successful integration with all other components of the system is a base requirement.
+Pyxis MCM and Chip Requirements
+
+
+Attribute
+	Value
+	Comment
+	Layout Compliance
+	OAI: OCP (OAM) r2.0 v0.75
+	This will allow us to use the MCM on a OAI UBB (base board) without new layout work. 48V supply voltage.
+	MCM Memory
+	HBM3e x4 (36 GB each), 9.2 Gbit/s / pin minimum
+	Be compliant with all error-correction mechanisms of HBM
+	HBM Bandwidth
+	4,915 GB/s
+	9.6 Gb per pin assumed
+	Pyxis:
+	
+
+	
+
+	Technology Node
+	3nm TSMC
+	It was decided that 5nm does not ensure competitiveness in 2026 (launch).
+	Die Size Target
+	300~350 mm2
+	So we still achieve capex goals. Not super relevant for our TCO goals.
+	Max. Theor. Throughput
+	2,083 teraFLOPS (dense FP8)
+	Based on 1.3?? GHz
+	Max. Theor. Throughput
+	1,042 teraFLOPS (dense FP16)
+	Half of the above
+	On-Chip SRAM
+	4x 64MB = 256 MB
+	64 MB per cluster
+	UIE clusters
+	4
+	
+
+	UIEs per cluster
+	12
+	In total 48 (44 TFLOPS each)
+	UIE grid size
+	128x16p / 128x128v
+	Every unit does 16 ops per cycle in fp8
+	PCIe
+	Gen5 - 16 lanes
+	8 lanes can be switched off, built-in DMA
+	Fabric interface
+	36 lanes at 112 Gbit/s
+	Total of 504 GB/s. Needs to be usable for non-fabric chip-to-chip communication too.
+	Fabric modes
+	(A) Full Juniper any2any mode
+(B) Fabric-less chip to chip
+	(A) “Normal” intended use
+(B) To connect 4 or 8 Pyxis MCMs to each other without fabric in the middle
+	Memory Protection
+	ECC
+	For all memories
+	Sparse Sampling
+	1x SGU per cluster
+	Support for sparse gathering and scattering
+	Scalar and Vector Processing Support
+	VPU (dedicated Vector Processing Unit)
+	VPU has its own SRAM cache buffer
+Ability to fully shadow SoftMax
+	Custom Operator Support
+	Yes (TVM instruction set support pending)
+	Most importantly such that continuous-algorithm as well as purely numerical innovations (e.g. FlashAttention) are supported
+
+
+It will be StableHLO/XLA
+	Parameter Compression
+	Yes (multiple)
+	4-bit LUT-based compression, HighPrecision (SW-only, half speed)
+	Activation Compression
+	Yes (multiple)
+	4/5-bit compression of KV-cache (dynamic), 8-bit compression of inter-chip communication activations (tensor parallelism of linear/matmul layers)
+	Interchip Compression
+	Yes
+	8bit compression (? needs to be checked)
+	
+
+
+
+
+
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	M01
+	
+
+	
+
+	PMIC power measurements of chip and MCM need to be possible at all times.
+	
+
+	M02
+	
+
+	
+
+	Each MCM will be equipped with 4x HBM3e x4 (36 GB each). Total of 144 GBytes. Min peak throughout 9.2 Gbit/s per  pin
+	
+
+	POO
+	
+
+	
+
+	Maximum average power of 275W when executing L270B-TP4-BS512-128IN-2048OUT (including all MCM, fabric, HBM, leakage etc.).
+	
+
+	P01
+	
+
+	
+
+	Technology node is 3nm TSMC, Interposer TSMC 16nm
+	
+
+	P02
+	
+
+	
+
+	Die area max 350 mm2 (3nm) to align with capex side of REQ.C01 Beat Competitive target in C00 (Nvidia H100 SuperPOD) by 3x in CapEx
+	
+
+	P03
+	
+
+	
+
+	MTBF FIT rate for 112 KPOH
+	
+
+	P04
+	
+
+	
+
+	Minimum theoretical dense FP8 max throughput of 2,000 TFLOPS
+	
+
+	P05
+	
+
+	
+
+	AI engine organized as 4 clusters with 12 grids each. Grid size of 128x16 physical or 128x128 virtual – 18 3x3-ops per cycle per cell, 16 1x1/linear/matmul ops per cycle per cell
+	
+
+	P06
+	
+
+	
+
+	Total HBM memory BW of 4,915 GB/s.
+	
+
+	P07
+	
+
+	
+
+	PCIe interface: Gen5, 16 lanes, 512 GT/s
+	
+
+	P08
+	
+
+	
+
+	8 out of 16 lanes can be switched off by SW (shut off unused SERDES)
+	
+
+	P09
+	
+
+	
+
+	PCIe end-point divide with in-built DMA capability
+	
+
+	P10
+	
+
+	
+
+	PCIe sole interface for model loading and model serving. First class citizen to entire chip
+	
+
+	P11
+	
+
+	
+
+	Fabric interface: 36 lanes at 112 Gbit/s for a total of 504 GB/s. 
+Must also serve for non-fabric mode: 4 or 8 Pyxis communicate point to point fabric-less.
+Given 36 links, 4 pyxis communicate with 12 links/pair, 8 pyxis with 5 links/pair.
+	
+
+	P12
+	
+
+	
+
+	HW-SW support to enable Collective Operations over Fabric (primary) and other interfaces (broadcast, unicast, multicast, AllReduce, AllGather, ReduceScatter, etc.) 
+	
+
+	P13
+	
+
+	
+
+	Hardware support for inter-chip-communication and sharding mechanisms to shadow fabric latency enough to achieve at least 80% speed up in TP=2.
+	
+
+	P14
+	
+
+	
+
+	Intra-chip cluster-to-cluster network switch BW: 660 GB/s (1.3x of Fabric to avoid bottlenecks).
+	
+
+	P15
+	
+
+	
+
+	On-Chip SRAM of 256 MB, organized as 64 MB for each cluster (4 clusters)
+	
+
+	P16
+	
+
+	
+
+	All memories ECC protected (including CPU caches)
+	
+
+	P17
+	
+
+	
+
+	AI engine organized as 4 clusters with 12 grids each
+	
+
+	P18
+	
+
+	
+
+	Grid size of 128x16 physical or 128x128 virtual – 18 (actually 16 because of vertical overlap) 3x3-ops per cycle per cell, 16 1x1/linear/matmul ops per cycle per cell.
+	
+
+	P19
+	
+
+	
+
+	CPU as non-distributed, centralized multi-core cluster. DMA and Memory Management is purely HW-driven w/o CPU intervention.
+Any time dynamic batching is done (arbitrary in shape), CPU needs to patch dynamic parameters for every trip that’s running. There WILL be CPU involvement. But compiler will set it up efficiently
+	
+
+	P20
+	
+
+	
+
+	CPU boot ROM external to chip
+	
+
+	P21
+	
+
+	
+
+	UIE math config of 5.10, 5.13, 5.18 (input, active acc, writeback acc).
+	
+
+	P22
+	
+
+	
+
+	Supported activation number systems: UIE (FP8, FP16), VPU (FP8, FP16, INT16), inter-chip (FP8, FP16). FP8 and FP16 of main UIE are NOT IEEE-compliant.
+	
+
+	P23
+	
+
+	
+
+	Supported weight precisions: native FP8/LNSI4F3 (+LNSI5F10 for 1x1 convs), CF high-precision, codebook block-wise 4-bit.
+	
+
+	P24
+	
+
+	
+
+	Vector engine as 128-wide, 1-symbol deep LUT-based engine with its own separate cache buffer
+	
+
+	P25
+	
+
+	
+
+	Each cluster hosts one SGU (Scatter Gather Unit)
+	
+
+	P26
+	
+
+	
+
+	Floor-sweeping requirements: Fully functional Pyxis, 2 quadrants working (both max Mem and half Mem), 1 quadrant working (half mem or quarter mem)
+Does it make sense since we won’t be getting the full 2,000 TFLOPS then? How would we use a chip that has partially working NNUs/clusters in a system with multiple Pyxis with different levels of compute throughput?
+	
+
+	P27
+	
+
+	
+
+	Support for Power-Down Mode (not all 9 Pyxis on every Linecard need to be active)
+	
+
+	P28
+	
+
+	
+
+	Support for Stand-By Mode (all HBM and NNUs consume 0 dyn. Power, subset of CPU cores active, PCIe functional, fabric interface functional, fabric logic off)
+	
+
+	P29
+	
+
+	
+
+	Multiple die thermal/temperature sensors that are readable
+	
+
+	P30
+	
+
+	
+
+	On-chip register with major/minor version information and fuse-registers to specify floor-sweeping version
+	
+
+	P31
+	
+
+	
+
+	Statistics and Error monitoring (numbers of bytes shipped via RDMA, received via RMA, number of NNU ops executed, number of HBM reads/writes)
+	
+
+	P32
+	
+
+	
+
+	Pyxis able to initiate and terminate any RDMA traffic without CPU intervention (part of compiler execution path inline with AI operations)
+	
+
+	P33
+	
+
+	
+
+	JTAG for testability
+	
+
+	P34
+	
+
+	
+
+	Capability to perform extensive loopback tests on all fabric interfaces
+	
+
+	P35
+	
+
+	
+
+	Ambient operating temperature range: 0C - 70C
+	
+
+	P36
+	
+
+	
+
+	Floor-Sweeping capability that allows to have 4, 3, 2 or just 1  UIE-quadrant functional
+	
+
+	P37
+	
+
+	
+
+	Clock-gating/power-down of unused UIE quadrants
+	
+
+	P38
+	
+
+	
+
+	Solve for any di/dt steep slope
+	
+
+	P39
+	
+
+	
+
+	Have multiple frequency steps/tunability
+If base frequency is X, then step-up to X+100, X+200, X+400, step-down to X-100, X-200, X-400, X-600 MHz.
+	
+
+	P40
+	
+
+	
+
+	Core/UIE voltage tunability 
+If base voltage is Y, then step-up to Y+.05, Y+0.1, Y+.15, step-down to Y-.05, X-.1, X-.15, X-.2 Volt
+	
+
+	P41
+	
+
+	
+
+	Pyxis needs to be PCIe endpoint AND root node 
+	
+
+	P42
+	
+
+	
+
+	DMA performance of Pyxis cannot be a bottleneck if it’s in PCIe endpoint mode 
+	
+
+	P43
+	
+
+	
+
+	Supporting system scalability to up to 1024 or 2048 pyxis chips (address map capabilities). Enough bits in header of fabric to account for this
+	
+
+	P44
+	
+
+	
+
+	Support for up to 64 GB per HBM interface (HBM address space needs to account for this)
+	
+
+	
+
+
+
+Linecard Requirements
+
+
+
+
+
+
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	L00
+	
+
+	
+
+	Recogni leverages partner specifications to own the design specifications of the inference linecard 
+	
+
+	L01
+	
+
+	
+
+	Recogni to work with contract manufacturer to get UL, FCC Certifiocation andL01
+	
+
+	L02
+	
+
+	
+
+	The Linecard needs to be fully compliant with the partner PTX10016 system’s backplanes.
+	
+
+	L03
+	
+
+	
+
+	The peak sustained (indefinitely, max average) power of a Linecard is 3,200 Watt.
+	
+
+	L04
+	
+
+	
+
+	The operating temperature range is 10C to 35C.
+	
+
+	L05
+	
+
+	
+
+	Relative humidity: 5% to 90% (non-condensing)
+	
+
+	L06
+	
+
+	
+
+	Shock and vibration testing per GR-63-CORE
+	
+
+	L07
+	
+
+	
+
+	Works with the Partner PTX10016 validated CPU sub-system
+	
+
+	L08
+	
+
+	
+
+	2x dedicated 100 GigE networking interface per Linecard.
+	
+
+	L09
+	
+
+	
+
+	9 Pyxis MCMs per Linecard
+	
+
+	L10
+	
+
+	
+
+	All mechanical dimensions of partner linecard specification are met (dimensions, signal integrity, face-plate, etc.).
+	
+
+	L11
+	
+
+	
+
+	Support for hot-plug of a new line card into a running system.
+	
+
+	L12
+	
+
+	
+
+	Support inrush current requirements.
+	
+
+	L13
+	
+
+	
+
+	Support powered-down, pre-provisioning, stand-by and operational models.
+	
+
+	L14
+	
+
+	
+
+	Support being off-lined gracefully - Needs more definition based on partner specifications- place holder for now
+	
+
+	L15
+	
+
+	
+
+	Linecard needs to report back-side connector connectivity status with guarantees through on-board registers.
+	
+
+	L16
+	
+
+	
+
+	Meets chassis requirements for airflow across all available slots and all variants (16/12/8/4? LCs)
+	
+
+	L17
+	
+
+	
+
+	Ability to measure and report board power (all voltages), board temperature (multiple locations for devices at air inlets).
+	
+
+	L18
+	
+
+	
+
+	Board CPU has a readable version ID (major and minor versions) and board manufacturing serial-ID.
+	
+
+	L19
+	
+
+	
+
+	Board-level diagnostics and statistics are measured and reported
+	
+
+	L20
+	
+
+	
+
+	Linecard CPU board requirements - mem size, flash size, storage capacity.
+	
+
+	L21
+	
+
+	
+
+	MTBF (mean-time between failure) FIT rate for Linecard in fully assembled state
+	
+
+	L22
+	
+
+	
+
+	DFM and DFT requirements for Linecard.
+	
+
+	L23
+	
+
+	
+
+	Status LEDs (operational, standby, powered-off, power-ok, card-insertion ok)
+	
+
+	L24
+	
+
+	
+
+	Device numbering and port numbering.
+	
+
+	L27
+	
+
+	
+
+	Line card can power down any unused Pyxis (per-device power down
+	
+
+	L28
+	
+
+	
+
+	Clear label and marking of serial number of the line card
+	
+
+	L29
+	
+
+	
+
+	Support partner linecard LEDs on front panel of line card (desire is that they are 3 state LEDs with 8 possible states) for easy maintenance
+	
+
+	L25
+	
+
+	
+
+	The intermediate FPGA (Inference) Line Card F(I)LC matches the linecard exactly in high-level electrical and mechanical specifications. May use FPGAs to stand in place of the pyxis devices to enable system and device advanced software development
+	
+
+	L25.1
+	
+
+	
+
+	Mechanical Fit into Chassis, build in partner PTX10016 Chassis
+	
+
+	L25.2
+	
+
+	
+
+	Power up / down / clocks / interfaces (I2C + Control Plane Ethernet)
+	
+
+	L25.3
+	
+
+	
+
+	Control plane CPU - Prog/func of the control plane
+	
+
+	L26
+	
+
+	
+
+	The F(I)LC is supposed to demonstrate all system-level functionalities including the fabric communication (at reduced speed of 28gig or 56 gig instead of the full 112gig per lane), health mgmt, linecard system registration/ID, and basically everything besides Pyxis RTOS and the application layer.
+	
+
+	L26.1
+	
+
+	
+
+	Validate PCIe switch / NIC / external ethernet interfaces
+	
+
+	L26.2
+	
+
+	
+
+	Validate bulk data transfer path via frontside 100G ethernet -> PCIe​
+	
+
+	L26.3
+	
+
+	
+
+	De-risk fabric IP as much as possible.
+26.3.1Transfer data bundles over fabric from LC CPU -> (Pyxis) PCIe IF -> Fabric IF & back. 
+26.3.2 PHY to PHY SI Simulation
+	
+
+	
+
+Pyxis Dummy Line Card Exploration
+
+
+https://www.opencompute.org/documents/oai-oam-base-specification-r2-0-v0-75-2-pdf
+
+
+Software Requirements
+Pyxis Software Specification 
+  
+
+Modeling / Internal
+These are internal software tools that help us develop a fault-free product. 
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	I00
+	
+
+	
+
+	Cycle-accurate system-C model in parity with C++ library used by ML SDK to emulate chip’s math bit-accurately
+	
+
+	I01
+	
+
+	
+
+	Bit-accurate emulation library accessible through PyTorch
+	
+
+	I02
+	
+
+	
+
+	Benchmark framework that allows the evaluation of new features using REQ.I01 on all models from REQ.A01
+	
+
+	I03
+	
+
+	
+
+	Dataflow simulator that models intra-chip data flow (grid, SRAM, HBM, VBUF) and inter-chip communication w.r.t. bandwidth and latency, Linecard input and output traffic and is configurable to a range of different parallelism settings, sharding strategies and dynamic batching configurations
+	
+
+	
+
+
+
+Service / Runtime / Inference
+This is the layer that manages N pyxis over M linecards and K chassis. Virtualization for the end user. Data/Model/Prompts in and out at the highest layer.
+
+
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	S00
+	
+
+	
+
+	Provisioning and managing of a farm of devices
+	
+
+	S01
+	
+
+	
+
+	Model deployment and infrastructure lifetime
+	
+
+	S02
+	
+
+	
+
+	Initiation and termination of HTTP-style customer redirects
+	
+
+	S03
+	
+
+	
+
+	Farm and chassis health
+	
+
+	S04
+	
+
+	
+
+	Caching of rapid prompt resuming
+	
+
+	S05
+	
+
+	
+
+	Caching for model deployment and weights
+	
+
+	S06
+	
+
+	
+
+	Input format to farm of chassis
+	
+
+	S07
+	
+
+	
+
+	Output format from farm of chassis
+	
+
+	S08
+	
+
+	
+
+	Pyxis receive data as preprocessed (tokenized, decompressed) and output data in raw (bitmaps, tokenized)
+	
+
+	
+
+
+
+Device / RTOS
+This is the OS running on Pyxis.
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	R00
+	
+
+	
+
+	PCIe / Ethernet driver (PCIe endpoint initialization)
+	
+
+	R01
+	
+
+	
+
+	Fabric driver
+	
+
+	R02
+	
+
+	
+
+	Host communication protocol
+	
+
+	R03
+	
+
+	
+
+	Weight/model setup/initial loading
+	
+
+	R04
+	
+
+	
+
+	Runtime support  
+	
+
+	R05
+	
+
+	
+
+	Custom operator support
+	
+
+	R06
+	
+
+	
+
+	Inter-chip communication and data transfer primitives
+	
+
+	R07
+	
+
+	
+
+	NNA (incl. VPU) instruction set support
+	
+
+	R08
+	
+
+	
+
+	Pyxis-level SoH (State of Health) management
+	
+
+	R09
+	
+
+	
+
+	API for Linecard OS communication
+	
+
+	R10
+	
+
+	
+
+	HBM driver incl initialization
+	
+
+	R11
+	
+
+	
+
+	Input and output networking
+	
+
+	
+
+
+
+System/Linecard SW
+This is the OS running on the processors of the Linecard.
+
+
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	Y00
+	
+
+	
+
+	All inbound and outbound data pre- and post-processing (image compression, tokenization) needs to happen outside of Pyxis (on the AMD processors)
+For text (text2text LLMs) for tokenization and such probably yes. But not for image/video data. Very likely/Too risky to rely on the snowy owl for that.
+	
+
+	Y01
+	
+
+	
+
+	Input and output networking incl broadcasting / tiling to Pyxis MCMs
+	
+
+	Y02
+	
+
+	
+
+	System Management, Admin, Config, Security
+	
+
+	Y03
+	
+
+	
+
+	Provisioning of Ethernet Adapter on LC
+	
+
+	Y04
+	
+
+	
+
+	Pyxis SoH reporting management
+	
+
+	Y05
+	
+
+	
+
+	Pyxis availability management
+	
+
+	Y06
+	
+
+	
+
+	Pyxis workload distribution level (high level, non realtime)
+	
+
+	Y07
+	
+
+	
+
+	Model loading and weight distribution to multiple Pyxis HBMs
+	
+
+	Y08
+	
+
+	
+
+	Linecard initialization
+	
+
+	Y09
+	
+
+	
+
+	Linecard SoH management
+	
+
+	Y10
+	
+
+	
+
+	Linecard OS is independent of RE/SUP OS. Consistent across all cards in system
+	
+
+	Y11
+	
+
+	
+
+	OS upgrades to only happen within maintenance windows
+	
+
+	Y12
+	
+
+	
+
+	OS in Route Engine / Supervisor Cards has highest level of availability in the System
+	
+
+	Y13
+	
+
+	
+
+	Primary and Backup cards run in sync (same OS version)
+	
+
+	Y14
+	
+
+	
+
+	System OS needs to keep running during OS upgrades (one card at a time)
+	
+
+	Y15
+	
+
+	
+
+	System able to perform OS rollbacks in case of issues with upgrade
+	
+
+	Y16
+	
+
+	
+
+	Under all conditions system (dataplane) stays functional (inference) during OS upgrades  
+	
+
+	Y17
+	
+
+	
+
+	Ethernet network between SUP CPU and LC CPU is secure  
+	
+
+	Y18
+	
+
+	
+
+	Inference-POD specific CLI extensions (details in Platform Software)
+	
+
+	Y19
+	
+
+	
+
+	All OSes need to be certificate-signed and verified before loading into System   
+	
+
+	
+
+
+
+SDK
+The customer-facing SDK through which end users will transform their workloads into Pyxis-digestible formats. This is the (“offline”) software that users use to compile a workload to a Pyxis-based AI inference system.
+
+
+Req #
+	Priority
+	Target Release
+	Description
+	Details/Comments
+	K00
+	
+
+	
+
+	The SDK will offer developers to convert their genAI workloads into Python-digestible formats primarily through Python/PyTorch
+	
+
+	K01
+	
+
+	
+
+	Integration into user framework by provision of respective libraries
+	
+
+	K02
+	
+
+	
+
+	Sharding of workloads
+	
+
+	K03
+	
+
+	
+
+	Compilation and lowering to instructions
+	
+
+	K04
+	
+
+	
+
+	Creation of inter-chip and inter-chassis communication orchestration
+	
+
+	K05
+	
+
+	
+
+	User debugging support
+	
+
+	K06
+	
+
+	
+
+	Deployment performance reporting
+	
+
+	K07
+	
+
+	
+
+	Inbound dynamic batching configuration
+	
+
+	K08
+	
+
+	
+
+	Custom Operator support
+	
+
+	
+
+
+
+
+
+Approvals
+Name
+	Stakeholder
+	Date
+	Signature , Comments
+	Tim Leland
+	Product and Engineering Lead
+	
+
+	
+
+	Gilles Backhus
+	Pyxis Product Management and AI Lead 
+	
+
+	
+
+	Vinay Singh
+	Pyxis Product Management Lead
+	
+
+	
+
+
+
+	Berend Ozceri
+	Architecture Fellow
+	
+
+	
+
+	Arun Vaidyanathan
+	ASIC Lead
+	
+
+	
+
+	Gary Goldman
+	ASIC Chief architect
+	
+
+	
+
+	Korkut Alacam
+	HW Systems
+	
+
+	
+
+	Shaba Abhiram
+	Software (Platform FW/SW, OS, Compiler) Lead
+	
+
+	
+
+	Lukas Rinder
+	CoreML (AI SDK, Conversion)
+	
+
+	
+
+	Luka Lukic
+	AI applications (CMAT, Evaluations)
+	
+
+	
+
+	
+
+Change Tracking
+
+
+Version
+	Date
+	Changes
+	Reason
+	1.1
+	3/142/24
+	            * Included PRD Rev1.0 PRD document
+            * Added persona definition
+            * Captured requirements as Tables
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+Appendix
+Competitive and TCO Analysis 
+https://www.servethehome.com/nvidia-nvlink4-nvswitch-at-hot-chips-34/hc34-nvidia-dgx-h100-superpod-bandwidth/ 
+https://www.nextplatform.com/2022/03/23/nvidia-will-be-a-prime-contractor-for-big-ai-supercomputers/ 
+The following data points are known about the H100-based SuperPOD
+            * Total Size                11x 42U chassis (8 of which are compute chassis with 4 DGX systems each)
+            * Total Power                500 kW (out of which 325 kW are just for the compute)
+            * Total Compute        512 PFLOPS (dense FP8) A close-up of a computer
+
+Description automatically generated 
+            * Compute Efficiency        ~1 TFLOPS/W
+            * Total Memory                20 TB
+            * List Price                $20M
+            * Yearly Electricity        4.38 MWh
+            * Yearly Opex                $438,000 (at 10 cents per kWh)
+            * TCO (4 years)                $21.75M
+            * Rel. Cost                $42.5K / PFLOPS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CapEx
+Cost breakdown:
+               * Pyxis (incl. HBM)                        9 Pyxis * 5,000 USD/MCM cost (374mm2 low 3NM) = $45,000
+               * Source (OUTDATED): https://docs.google.com/spreadsheets/d/1BCyBaKF6szUe2rRUtbp4atRTBChs7J-R/edit?usp=sharing&ouid=110025928572498487809&rtpof=true&sd=true 
+               * Everything else        $10,000 (needs to be updated)
+               * Total cost of                 $55,000 (for low volume!)
+
+
+List price derivation
+               * $22,000 (Cost)
+               * $73,000 (Sale, Including a margin of 70%)
+               * $91,400 (List, including 20% discount)
+
+
+System revenue share:
+               * $91,400 * 16 Linecards/system = $1.46M
+               * Rel. Cost of 1.46M / (16 Linecards * 9 Pyxis * 2,000 TFLOPS) = $5,100/PFLOPS
+
+
+System price competitive advantage conclusions:
+               * $5,100/PFLOPS against $39,000/PFLOPS (capex only) of Nvidia H100 SuperPOD
+               * $39,000 / 6 (REQ.C02) * (16*9*2=288) PFLOPS = $1.87M (undiscounted list price) for a 16-LC chassis
+               * 1.46/1.87 = 78% revenue share (in conclusion, preliminary TBD)
+
+
+OpEx
+               * Nvidia’s system consumes 500 kW for 512 PFLOPS
+               * Recogni needs to consume no more than 46.88kW for the entire 16-LC system to achieve REQ.C02b
+               * Under realistic circumstances though! 
+ A screenshot of a graph
+
+Description automatically generated 
+
+Comparison of Pyxis performance vs. Nvidia H200 Performance (Mid December 2023)
+
+
+Additional Resources
+
+
+               * Pyxis Rev1 PRD 
+               * https://ai.meta.com/tools/system-cards/multimodal-generative-ai-systems/
+               * Product Cost & Margin Model
+               * Pyxis Topics
+               * Line Card / BaseBoard Topics
+               * Pyxis Software Specification
+               * Platform Software
+               * Pyxis and Draco math (Notion) 
+               * Pyxis Fspec.pdf
+               * Reference Architecture | NVIDIA DGX SuperPOD: Next Generation Scalable Infrastructure for AI Leadership (competition) 
+               * https://www.notion.so/recogni/HW-SW-Architecture-daeac6bbfbf34aeda8ce90500a56c4ca (Harold’s notion page that has “all” the documents in one place)
+               * https://images.nvidia.com/aem-dam/Solutions/Data-Center/gated-resources/nvidia-dgx-superpod-a100.pdf 
+               * https://docs.google.com/document/d/1j7XbmX_rEvnmqUXTNjL2cuLz2mGP1sEIzU8prlRJTgk/edit#heading=h.iml7to1nlr9b (CPU)
+               * https://www.notion.so/recogni/User-Stories-da6b7b7c522f44fa95db572d40d9b5f9?pvs=4 (user stories for quantization and AI SDK)
+               * Pyxis power profiling estimate v0.1(power estimates for Pyxis) 
+
+
+© 2023 CONFIDENTIAL AND PROPRIETARY– RESTRICTED INTERNAL USE ONLY- Recogni Inc. | Recogni GmbH        -

@@ -1,0 +1,62 @@
+[SystemMessage(content='You are a helpful AI assistant', additional_kwargs={}, response_metadata={}), HumanMessage(content='hello ', additional_kwargs={}, 
+response_metadata={}), HumanMessage(content="I can add a sample trace output and describe what's in it. I'll do that while we figure out what to do 
+next.\n[r]@tobias.spath@recogni.com can we borrow some of your help on Racer JIRAfication?\n_Reassigned to tobias.spath@recogni.com_\n[s]of course 
+@harold.zable@recogni.com feel free to schedule a meeting at your earliest convenience in my calendar!\n_Reassigned to harold.zable@recogni.com_\n\ndevices: 
+3\n   serveConfig:\n     modelManifestRef: recogni-devops/pyxis-models/LLama3-70B/model_config.json\n\nSoftware Overview\n\nsharding tools. Beyond its role in the compilation flow, users of 
+Design Verification (DV) and Virtual Platform (TLM) tools can leverage HAAPI to generate test vectors.\n\ntheir virtual and physical Pyxis id. 
+The rank 0 recogni-inference-server passes the resulting virtual-physical Pyxis id mapping table to the RDM.\n\ndatabase for debugging, tracing, profiling, and other 
+such purposes.", additional_kwargs={}, response_metadata={}), AIMessage(content='The sample trace output provided contains a log of communication 
+between individuals at a company regarding a project called "Racer JIRAfication." The conversation includes reassignments of tasks and scheduling a meeting. 
+Additionally, the output includes information about the devices being used, software configurations, and tools being utilized for design verification and 
+testing purposes. It also mentions the usage of a database for debugging, tracing, profiling, and other purposes related to the project. If you need further assistance 
+in understanding or analyzing the content of the trace output, feel free to ask. What would you like to do next?', additional_kwargs={}, response_metadata={}), 
+HumanMessage(content='what is pyxis ', additional_kwargs={}, response_metadata={}), HumanMessage(content='The Pyxis software ecosystem[a][b][c][d][e][f] enables customers o create and maintain inference systems within a datacenter for a number of users. 
+Pyxis software falls into three broad categories:\n\nPyxis devices and their parent line card CPUs/memory are abstracted as K8s resources. Pyxis device capabilities and 
+provisioning APIs are exposed with industry best practices in mind. Resource abstraction extends to device selection, workloads provisioning, and 
+enlistment into load balancers.\n\nPyxis hardware begins with the Pyxis ASIC, our AI inference accelerator. Each ASIC is combined with HBM (High Bandwidth Memory) 
+into an MCM (Multi-Chip Module). Multiple MCMs are combined into an AI Inference 
+Line Card (ILC), which can plug seamlessly into a partner’s router chassis to make use of its high-speed fabric interconnect. Multiple ILCs plugged into such a chassis 
+create a Recogni AI Inference Pod, or Pyxis Pod.\n\n\ufeffPyxis Software pecification\nExecutive Summary\nPyxis is the code name for Recogni’s technology 
+which delivers a complete hardware and software stack for multimodal generative AI inference acceleration. The Product Requirements Document (PRD) defines all of its major 
+components in detail; we provide a short summary here.\n\nPyxis is the Recogni inference 
+architecture.\n\n\nPyxis Device is our first generation ASIC for data-center LLM inference.\n\nTensor: a tensor is an algebraic object that describes a multilinear 
+relationship between sets of algebraic objects tied to a linear space. They’re also commonly used in physics. Many tensors can be considered a type of multi-dimensional array.[4]\n\nThe 
+Datacenter Software manages the relationship between Pyxis devices, connected in an any-to-any fashion via our fabric interconnect. Currently, our selection criteria for Pyxis devices is 
+dictated by having one or more Pyxis devices attached to a worker node (ILC CPU) via PCIe. All remaining Pyxis devices can be any type if they’re local to the same chassis. 
+The Fabric Interconnect section of this document covers this concept in greater detail.', additional_kwargs={}, response_metadata={}), AIMessage(content="Pyxis is a software ecosystem 
+developed by Recogni that enables customers to create and maintain inference systems within a data center for various users. The Pyxis software encompasses devices, hardware, and software 
+pecifications to support AI inference acceleration tasks. Here are some key points about Pyxis:\n\n1. **Pyxis Devices**: The Pyxis devices and their corresponding line card CPUs/memory are 
+abstracted as Kubernetes (K8s) resources. These devices have capabilities and provisioning APIs that adhere to industry best practices. This abstraction extends to device selection, workload 
+provisioning, and integration with load balancers.\n\n2. **Pyxis Hardware**: The Pyxis ecosystem includes Pyxis ASICs, which are AI inference accelerators combined with High Bandwidth Memory (HBM) 
+into Multi-Chip Modules (MCMs). These MCMs are further assembled into AI Inference Line Cards (ILCs) that can be seamlessly integrated into partner router chassis. Multiple ILCs in a chassis form a 
+Recogni AI Inference Pod or Pyxis Pod.\n\n3. **Pyxis Software Specification**: Pyxis is Recogni's technology stack for multimodal generative AI inference acceleration. It consists of a complete hardware 
+and software stack. The Product Requirements Document (PRD) provides detailed information on the major components of Pyxis.\n\n4. **Pyxis Device**: The Pyxis Device is Recogni's first-generation ASIC 
+esigned for data-center LLM (low-latency mapping) inference tasks.\n\n5. **Tensor**: Within the context of Pyxis, tensors are algebraic objects that describe multilinear relationships between sets of 
+algebraic objects in a linear space. They are widely used in physics and can be considered as multi-dimensional arrays.\n\n6. **Datacenter Software**: The software manages the relationship between Pyxis 
+devices in a data center, connecting them in an any-to-any fashion via a fabric interconnect. The selection criteria for Pyxis devices involve attaching them to a worker node (ILC CPU) through PCIe, with
+additional Pyxis devices within the same chassis. The Fabric Interconnect section provides more details on this concept.\n\nIn summary, Pyxis is a comprehensive software ecosystem designed to support 
+AI inference acceleration tasks in data center environments. If you have any more questions or need further clarification, feel free to ask!", additional_kwargs={}, response_metadata={}), 
+HumanMessage(content='give me just one paragraph ', additional_kwargs={}, response_metadata={}), HumanMessage(content="[p]Sure. Give me a day or three...\n[q]I'm going to need some help with 
+moving things to JIRA, as I'm still a JIRA newbie.\n\nThe text here does already describe Racer's basic functionality. I could also add more user-level documentation, but I'm not sure that's 
+appropriate for this document. The SW spec, in general, seems to have high-level motivations and not system details.\n\n\nI keep wanting to compare this to the HW FSpec. The difficulty is that 
+HW docs usually need a lot of detail before the system is completed, while SW docs are usually sketchy at first, and only get details after the SW is in progress.\n\n[f]I agree with the sentiment 
+here, and will endeavor to keep things in sync in the future. I ask that, rather than leaving a general comment here, you just mark specific issues that you see in the future, and I'll update them 
+individually.\n[g]When ready, we need to describe how to prepare a model here.\n[h]When ready, we need to describe how to start up and shut down a system here.\n[i]Juniper resources about 
+kubernetes:\n\nTODO: I am making a table for now, we will expand upon this in the near future.\n\nMore Detailed Motivation and Description\nThe final implementation of the Pyxis description 
+in RTL will be cycle-accurate. Pyxis will be broken down into many individual block models, each of which describes all the details of what’s going to happen on a cycle-by-cycle basis. 
+n the end, that’ll be an exact timing description of everything that happens… but that will have too much detail for most experiments.\n\nparallelization documentation. See our brownbag about 
+LLM deployment challenges for another introduction to the topic.", additional_kwargs={}, response_metadata={}), AIMessage(content='The Pyxis software ecosystem developed by Recogni facilitates 
+the creation and management of inference systems within data centers, supporting AI inference acceleration tasks. Pyxis devices, abstracted as Kubernetes resources, offer capabilities for device 
+selection, workload provisioning, and integration with load balancers. The Pyxis hardware comprises ASICs combined with High Bandwidth Memory (HBM) in Multi-Chip Modules (MCMs) that form AI Inference 
+Line Cards (ILCs) within Recogni AI Inference Pods. The Pyxis software specification includes an executive summary defining the technology stack for multimodal generative AI inference acceleration. 
+Additionally, the software manages the relationship between Pyxis devices in data centers, emphasizing the any-to-any connectivity via a fabric interconnect. If you need further details or have specific 
+questions, feel free to ask.', additional_kwargs={}, response_metadata={}), HumanMessage(content='can you give that in points again ', additional_kwargs={}, response_metadata={}), 
+HumanMessage(content='[p]Sure. Give me a day or three...\n[q]I\'m going to need some help with moving things to JIRA, as I\'m still a JIRA newbie.\n\n4. The same (meaning point c) can be done for any 
+other ML framework\n   4. Once exported, the graph (expressed in Lua via Lunarite) can be passed to the compiler, it can also be passed to Lunarite-runner to be run on the CPU and/or GPU (for bit-accuracy 
+testing).\n   1. The compiler may break compilation after any number of passes, and generate the latest state of the graph in Lunarite to allow inspection, and Lunarite-runner testing.\n\n[n]This 
+diagram comes from very early days. The components "Entrypoint", "Server", and "RockRT" are a single binary now. Apart from this, everything is still correct.\n[o]@harold.zable@recogni.com can we 
+update this region to describe racer, and point to some examples of the types of stuff it generates? I suspect some of the roadmap / goal stuff can be removed from here and memorialized in 
+corresponding JIRA ticket items\n_Assigned to harold.zable@recogni.com_\n[p]Sure. Give me a day or three...\n\nThe image shows a graph that undergoes two different passes. The graph representation 
+changes as each optimization pass completes during the ROCK job. The optimizations reduce and remove ML decision errors, and improve inference performance. Note that in this example, the numbers of 
+edges and vertices both get reduced in the network.\n\nalso be included so as to provide its own, more accurate performance information.\n\nmight be two cycles/multiply, as the data takes extra time 
+to pass through the system.', additional_kwargs={}, response_metadata={})]

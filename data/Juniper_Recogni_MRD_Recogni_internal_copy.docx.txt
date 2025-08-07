@@ -1,0 +1,2271 @@
+﻿Document Number
+	J3.02.P32.T01
+	Rev
+	42
+	Document Title
+	Market Requirement Document Template
+	Document Owner 
+	Kat Fotheringham
+	Effective Date
+	07/19/2024
+	 A black and blue logo
+
+Description automatically generated 
+
+
+
+
+
+
+
+Market Requirements Document (MRD)
+
+
+
+
+Inference One Pod
+ A close up of a computer
+
+Description automatically generated 
+
+
+
+
+
+
+
+Document Revision History
+
+
+Rev. No.
+	Date
+	Revised By
+	Comments
+	1.0
+	11/5/2024
+	Vinay Singh, Tim Leland, Gilles Backhus
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+Contents
+Document Revision History        1
+Contents        2
+1        EXECUTIVE SUMMARY        5
+1.1        Market Overview        5
+1.2        Product/Application Overview        5
+1.3        Positioning Overview        5
+1.4        Sales/channel Overview        5
+2        MARKET OVERVIEW        5
+2.1        Target market data        5
+2.2        Customer drivers        5
+2.3        Bottom-up customer information        5
+2.4        Regulatory trends        6
+2.5        Market timing        6
+3        PRODUCT APPLICATIONS        6
+3.1        Customer business and technical problem(s)        6
+3.2        Current solutions        6
+3.3        Network deployment        6
+3.4        MVP and UCC        7
+3.5        Failure cases        8
+3.6        JUNOS SDK interaction        8
+3.7        Juniper-defined solution interaction        8
+3.8        Competing product match        8
+4        TARGETED GEOGRAPHIC MARKETS        8
+5        PRODUCT REQUIREMENTS        9
+5.1        Press Release        10
+5.2        Hardware        10
+5.3        WEEE, ROHS, REACH Software        13
+5.4        Network Management Requirements        14
+5.5        High-Availability, resiliency and integrity requirement        16
+5.6        Usability, serviceability, security and testability requirements        16
+5.7        Performance and Scale Requirements        31
+5.8        Standards Compliance and Interoperability        31
+5.9        Licensing Requirements        35
+5.10        Packaging Requirements        37
+5.11        Information Experience (Technical Documentation)        37
+5.12        Quality and Reliability Requirements        38
+5.13        Infrastructure Support        38
+5.14        Field Conversion        38
+5.15        Inclusion and Diversity        39
+5.16        Cloud Attachment Ready Features:        40
+6        PRODUCT TIMING AND PHASING        40
+7        PRODUCT POSITION        42
+7.1        Competition        42
+7.2        Differentiation        42
+7.3        Portfolio fit        42
+7.4        XBT review        42
+8        SALES/CHANNEL OVERVIEW        42
+8.1        Channel        43
+8.2        Partnerships        43
+9        NON-GOALS        43
+9.1        Features/functionality that are not goals        43
+9.2        Problems this product does not address        43
+9.3        Specific features and functionality not be carried forward        43
+10        PRODUCT DEPENDENCIES        43
+10.1        Other required programs, features or RLIs        43
+10.2        Somewhat dependent programs, features or RLIs        43
+10.3        Related programs, features or RLIs        43
+10.4        Other dependencies        43
+10.5        Programs that must precede this project        44
+11        POTENTIAL RISKS        44
+11.1        Risk factors        44
+12        PRODUCT LEVERAGE        44
+12.1        Future product potential        44
+12.2        New areas or markets        44
+13        APPENDIX: REFERENCE DOCUMENTS        45
+14        APPENDIX: EACU COUNTRIES HAVING IMPORT RESTRICTIONS        45
+15        APPENDIX: HOMOLOGATION        45
+16        APPENDIX:  Review Questions for Systems Engineering reviewers        50
+17        APPENDIX:  Template Revision History        50
+17.1        Template Revision History        50
+17.2        Approver List for this Revision        55
+
+
+________________
+
+
+1. EXECUTIVE SUMMARY
+
+
+The “Inference One Pod” is Juniper’s and Recogni’s ambitious technology bet to deliver disruptive innovation for the Generative AI inference datacenter market.
+
+
+The Inference One Pod is a complete system level solution that includes the necessary hardware and software for multimodal generative AI inference acceleration. It deeply integrates Recogni’s AI “universal inference engines” (UIE) with Juniper’s high performance network cell fabric interconnect within the same ASIC die - which when tightly packaged with HBM3e memory, creates the Inference One “Accelerator” in the form of a multi-chip module. 
+
+
+Each Inference One Pod includes several custom inference line cards that power 9 accelerators each, with highly tuned software that enables massively parallel, distributed AI inference workload processing across up to 144 Inference One Accelerator devices - irrespective of the inference line card where the participating Inference One Accelerator module resides. Thus, it is true “any to any” cooperative multi-tasking approach, that will deliver a level of massively distributed, tensor parallel computing that will be unprecedented in the AI industry when the Inference One launches with customers. The Inference One Pod is being designed in a scalable manner, to accelerate AI inference efficiently and accurately for multimodal generative AI networks, that include transformer models for language, vision and other applications where live inference inputs could be text, images, audio, video, code, and other types of data. 
+
+
+Inference One development commenced at Recogni in the fall of 2023. Engineering execution was well underway at Recogni in early 2024 with Juniper joining the project in Q2 of 2024. This joint effort will continue throughout all of 2025, until the product launches in early 2026 and beta customer engagements take place in the spring of 2026. The first revenue shipments are planned for the summer of 2026, with the expectation that Inference One Pod customers at data centers will ramp up into high volume production throughout 2027. 
+
+
+
+
+
+
+  
+Fig. 1:  Description of Inference One 
+
+
+The partnership between Recogni and Juniper aims to accelerate the market entry of Recogni’s Inference One solution, focusing on delivering competitive pricing and efficiency. Our collaboration leverages Juniper’s extensive networking expertise and manufacturing experience, to bring a hyperscaler-grade GenAI inference system to market. 
+
+
+ A close-up of a white sheet
+
+Description automatically generated 
+Figure 2: Benefits of the Juniper-Recogni Partnership
+
+
+* Technological Integration and Benefits
+
+
+The deeply integrated combination of Recogni’s AI Math and Juniper’s Chip-to-Chip will deliver the following benefits:
+
+
+* Deep integration of AI & Networking: 
+Recogni's patented logarithmic math technology delivers pareto-optimal efficiency with nearly lossless instant quantization. The fully custom ASIC within the Inference One Accelerator is built from the ground up solely for AI inference acceleration, leveraging SOTA semiconductor technologies, e.g. 3nm TSMC, HBM3e, and CoWoS. It will deliver astounding multimodal inference acceleration performance when coupled with the deep integration of Juniper’s high-speed and cost-effective chip-to-chip networking technology. 
+
+
+Benefit #1 - Outstanding Performance: Inference One will achieve a lower latency and higher throughput for heavy AI inference workloads, since it can spray all inference processing traffic evenly across all the available links between the Inference One Accelerators, as the fabric protocol proactively manages congestion by pushing back to the source. Juniper's cell fabric in conjunction with Recogni’s deep integration approach will also help minimize "tail latency" (also known as high-percentile latency) i.e. the long response times experienced by a small percentage of requests in a system - typically those at the 98th to 99th percentile and above. This advantage is critically important, because high data transfer latencies, even if very infrequent, could otherwise adversely impact tensor parallelism performance.  
+
+
+Benefit #2 - Efficient Scalability: The integrated solution provides any-to-any direct connectivity with a single hop across the fabric, for any scalable configuration, allowing for easy fungibility of deploying accelerator chips to workloads in an Inference One Pod. The use of logarithmic math also enables optimal efficiency and instant quantization without loss, while the Recogni chip core architecture provides the densest AI accelerator available, supporting large-scale models like Llama 405b with extended context capabilities.
+ 
+* Faster TTM with Established Platform: 
+Inference One leverages existing, Juniper-provided “Aegon” fabric cards (which Inference One repurposes as system “management cards”), plus the chassis that includes power supplies and fans, as well as the EVO-Lite management software. Inference One will also benefit greatly from Juniper’s PTX-16,8,4 slot chassis and cell fabric expertise, that when combined with Recogni’s generative AI expertise, will provide customers with a complete solution for their multimodal AI inference acceleration needs.
+The Recogni Inference Line Card will also leverage significant portions of the Juniper Fabric Card designs, for faster time to market (TTM), and also to ensure compatibility and scalability for large-scale AI deployments in existing Juniper chassis. 
+* Go-to-Market (GTM) Strategy
+
+
+* Sales and Marketing Channels:
+ 
+   * Sales Collaboration: 
+
+
+      * Accelerated Market Entry: Juniper’s robust GTM channels and existing client base facilitate faster market penetration, allowing Recogni to reach strategic customers efficiently and competitively. The partnership will leverage Juniper’s established global sales and marketing networks to target key segments such as Hyperscalers, Cloud Service Providers (CSP), and AI-focused enterprise companies, to sell.
+
+
+      * Recogni’s own sales force will also work in conjunction with Juniper to identify potential customers and engage with them throughout the sales process.
+
+
+   * Joint Marketing: 
+
+
+      * Juniper and Recogni will embark on an outbound marketing campaign, starting with the announcement that the companies have joined forces to develop a multimodal generative AI inference acceleration for data center customers. Throughout 2025, Juniper and Recogni will explore other joint marketing opportunities and plan together for the product launch details like marketing event(s), joint company and partner testimonials, press engagements, etc.
+
+
+      * Recogni’s website has been updated to reinforce the company’s generative AI and data center product focus. That website will continue to evolve, with additional product disclosures as the public product launch date approaches. Part of that collateral produced by Recogni is “MPS”. The Recogni model performance simulator tool (MPS) exists as a standalone SDK utility targeted for demos to investors, high-level managers and semi-technical evaluators. MPS will be used to invite customers and partners to join our Inference One beta engagement, as part of the process of enabling Juniper and Recogni Sales to secure Letters of Intent (LOIs) for Inference One products.
+
+
+      * Recogni will take the lead in producing promotional collateral, like product presentations, product briefs, product demonstrations, etc., that can be utilized by both companies in the lead up to first revenue shipment and beyond. 
+* Operational and Supply Chain Benefits
+* Supply Chain Management: Juniper’s established supply chain management system supports efficient production and delivery, ensuring that the partnership can meet market demands without delay.
+* Sales Operations and Support: The collaboration utilizes Juniper’s sales operations infrastructure to streamline customer engagement, support, and service, enhancing the overall customer experience and ensuring operational efficiency.
+* Competitive Advantage
+* Unique Market Position: The partnership positions Recogni uniquely in the GenAI inference market, combining Juniper’s networking prowess and global reach with Recogni’s specialized AI inference capabilities.
+* Cost Optimization: The combined expertise and IP from both companies focus on delivering the lowest Total Cost of Ownership (TCO) for customers, making the solution both competitive and attractive for large-scale deployment
+
+
+   1. Market Overview 
+
+
+1.1.1 GenAI Inference Market Overview
+
+
+* Growth Potential: The generative AI (GenAI) inference market is experiencing rapid growth, with a projected valuation of approximately $377 billion by 2027. This expansion is driven by the increasing adoption of real-time AI applications across various industries, including finance, healthcare, retail, and automotive. As models become more complex, the need for efficient, scalable inference solutions grows exponentially.
+
+
+* Shift from Training to Inference: Traditionally, AI training has been resource-intensive, consuming significant hardware resources and time. However, as the focus shifts to inference—using trained models for real-time data processing—the market sees a shift towards solutions that prioritize low-latency and high-efficiency execution.
+
+
+1.1.2 Window of Opportunity
+
+
+* Infrastructure Evolution: The generative AI market’s shift from training to inference presents a significant window of opportunity for companies that can provide specialized hardware optimized for inference tasks. With the limitations of current GPU-based solutions in terms of power consumption and latency, there is a growing demand for purpose-built accelerators designed specifically for inference.
+
+
+* Sustainability Demands: As data centers struggle with increasing power consumption—projected to account for a substantial share of global electricity usage—efficient, low-power inference solutions become not only desirable but essential. Companies that can provide these power-efficient and scalable solutions will have a strategic advantage in the market.
+
+
+1.1.3 Risks
+
+
+* Technological Limitations: One of the main risks in the GenAI inference market is the technological limitations of current hardware. GPUs, while essential for training, are not optimized for inference, leading to inefficiencies in power usage, compute density, and latency. Companies that fail to develop or adopt new hardware technologies may find themselves unable to meet market demands. Recogni’s bespoke approach will obviate the aforementioned risk – but it also introduces a different risk that is inherent to building brand-new inference acceleration silicon architecture and correspondingly new graph compiler. True innovation never comes without the acceptance of risk, though steps have been taken to mitigate those risks. We believe that it is less risky to migrate to a more modern architecture than to attempt to win with an old (GPU-like) architecture.
+
+
+* Environmental and Sustainability Concerns: The growing energy demands of AI models pose environmental risks and regulatory challenges. If companies do not innovate to create power-efficient solutions, they may face increasing scrutiny or restrictions as governments and organizations push for sustainable practices.
+
+
+* Competition and Market Saturation: With the market’s rapid expansion, more companies are entering the space, increasing competition. Companies need to differentiate themselves through unique technologies or strategic partnerships to avoid market saturation and stand out amidst the competition.
+
+
+1.1.4 Target Customers
+
+
+* Data Centers and Cloud Providers: The primary customers for GenAI inference solutions are hyperscale data centers and cloud service providers (e.g., AWS, Microsoft Azure, Google Cloud). These entities need to optimize their infrastructure to handle the growing demand for real-time AI services while minimizing operational costs.
+
+
+* Enterprises Adopting AI: Industries such as healthcare, finance, automotive, and retail are integrating AI solutions into their operations. These enterprises are increasingly seeking efficient and scalable inference systems that can deliver insights in real time, improve customer experiences, and streamline operations without incurring high energy costs.
+
+
+* Technology and AI Companies: AI software providers and technology companies that develop AI models are also key customers. They require high-performance inference systems to test and deploy models at scale and offer integrated AI solutions to their clients.
+
+
+   2.  Product/Application Overview
+
+
+The Inference One Pod solution consists of hardware and software components, to deliver a complete AI inference acceleration system, comprising each of the following ingredients:
+
+
+* Silicon/MCM “Accelerator”: an MCM (multi-chip module) that effectively works as a neural network processor, which includes the Recogni AI inference accelerator die (ASIC), plus 4x HBM3e (high bandwidth memory) chips and passive/discrete components, all connected via an interposer within a single package.
+* Hardware System:  an AI inference line card (ILC) that is partially based on the Juniper “Aegon” router card as a reference design, but effectively replaces all of the Juniper silicon, with multiple Recogni MCM Accelerators, configured in a manner that interfaces seamlessly to Juniper’s fabric cards within Juniper’s router chassis. After the Recogni AI ILCs replace Juniper’s pre-existing router line cards, the Juniper “Aegon” router chassis is transformed to operate as an AI Pod that exclusively performs multimodal AI inference acceleration. 
+* SDK for AI Application Developers: The Recogni SDK is built for AI application developers, as an offline toolchain that converts and compiles their trained AI model from common ML frameworks like PyTorch. Below is a high-level classification of some of the most commonly used, and thus the primary, targeted multimodal generative AI models that the SDK will support for multimodal inference acceleration with the Inference One Pod:
+   * LLMs (large language models) for many uses:
+      * OpenAI: GPT variants
+      * Meta: Llama variants
+      * Mistral: Mistral/Mixtral/Minstral variants
+      * Google: Gemini variants
+   * LVM (large vision models) for media generation or mass classification:
+      * Anthropic: Claude variants
+      * Stable Diffusion: SDXL
+      * Back Forest Labs: Flux
+      * Open Source: DreamShaper
+The SDK converts trained models to Recogni Inference accelerator-optimized formats that are efficiently used by the Recogni system runtime software. In addition to the types of AI models shown above, Inference One Pod will have the ability to efficiently accelerate NeRFs (neural radiance fields) and be able to adapt to other types of multimodal generative AI models that will continue to evolve over time. 
+ 
+   * The SDK delivers an essential product differentiator for Inference One Pod: it permits AI application developers to very quickly deploy their trained models with no accelerator-specific model retraining required, with “push button quantization”. Natively integrated with PyTorch, the Recogni SDK includes conversion methods (hardware parameter configuration, model optimization), emulation, profiling utilities, sharding and custom operator functionality. The SDK also includes the entire offline compiler that handles dynamic batching, sharding and parallelization of inference tasks. 
+   * The Recogni Model Performance Simulator (MPS) is also an ingredient of the Recogni SDK that is most frequently used for pre-product engagements with potential customers and strategic partners – but application developers will likely utilize it as well. The Recogni model performance simulator tool (aka MPS) exists as a standalone SDK utility targeted for demos to investors, high-level managers and semi-technical evaluators. MPS will be used to invite customers and partners to join our Inference One beta engagement, as part of the process of enabling Juniper and Recogni Sales to secure Letters of Intent (LOIs) for Inference One products.
+   * The Recogni SDK also provides support for extending to SOTA ML Frameworks (Tensorflow, JAX, etc.), GenAI Open Source models in Recogni Model Zoo, sample code and tutorials on Jupyter notebooks.  Additionally, support for custom, user-defined (e.g. Triton lanagued) kernels are also supported by our SDK, via a proprietary compiler front-end framework called “Lunarite”.
+* Pod System Software for Data Center Operators: Recogni Pod system software deploys and executes Generative AI applications on Inference One PODs. Recogni Pod system software includes all the required data center, Juniper chassis, firmware, JunOS and drivers software to load models/data/binaries, run inference, and output results. Recogni Pod software also includes system management tools for active health monitoring, comprehensive diagnostics, system alerts and governance policies including power and clock management.
+All of these components combine to form a complete “Inference One Pod” whose hardware (see figures 1-3 below) and software work “plug-and-play” style, within Juniper’s PTX series pre-existing fabric routing system to accelerate multimodal generative AI inference workloads. 
+
+
+
+
+ A close-up of a computer chip
+
+Description automatically generated 
+
+Fig 3:  Artist rendering of  single Recogni Multichip Module (MCM) consisting of Accelerator die + HBM chips
+	 A computer chip with many colors
+
+Description automatically generated 
+
+Fig 4: Artist rendering of a single Line Card consisting of 9 Recogni MCMs, plus other components.
+	 A black rectangular object with lights
+
+Description automatically generated 
+
+Fig 5: Artist rendering of Inference One Pod
+	
+
+   3. Positioning Overview
+
+
+For Cloud Service Providers, Independent Software Vendors (ISVs) and Enterprise Customers that want a performance/cost/power optimized datacenter infrastructure for scaling Generative AI multi-modal application deployments, Inference One Pod is a Turnkey AI Data Center system that enables either public cloud service providers, or private company IT cloud to deliver inference performance without compromise for every Generative AI user and inference workload. Infernce One Pod will deliver the best inference accuracy per Watt per performance KPI than any competing solution at the time it launches with first revenue customers in mid-2026 – and probably at least a couple of years after that too.
+ 
+When compared to the Nvidia DGX SuperPOD™ with DGX GB200, the Inference One Pod delivers capital expenditure savings of greater than 2X, and operating expenditure savings of greater than 4X, while meeting or beating Generative AI application accuracy, latency and throughput requirements with seamless integration of customer models through the PyTorch framework.
+   4. Sales/channel Overview
+Summary of impact if any.
+1.4.1 Market Entry and GTM (Go-To-Market) Strategy
+* Target Market Segments:
+   * Titans: Companies like Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, Meta, xAI, Apple, Oracle Cloud, Alibaba, and others who require scalable, high-density AI inference acceleration solutions that work seamlessly within their proprietary Kubernetes AI inference orchestration frameworks.  These companies represent 80% or more of the total GenAI inference market.
+   * GenAI Cloud : Companies like Equinix, Digital Reality, CoreWeave, Lambda, Crusoe, Digital Ocean, Nscale, Omniva, and others who develop, host, and/or operate large data centers to provide benefits of scale and cost efficiency for Titans, Large Enterprise, Model Builders, and others.
+   * Large Enterprise: Fortune 1000 companies such as large financial, pharmaceutical, engineering, retail, and service companies who require significant colocation or cloud services capacity or who operate their own on-premise, private AI cloud data centers.
+   * Model Builders: GenAI companies developing and hosting highly customized AI workloads, needing specialized and efficient hardware for optimizing performance.
+
+
+* Channel Utilization: The plan leverages Juniper’s established global network and robust sales channels to access these segments efficiently. This includes utilizing Juniper’s established client relationships and integrating the solution into their sales cycles. Recogni’s sales force will augment this channel too (details of which are still being discussed in a pending commercial agreement between the two companies).
+* Accelerated Market Entry: By using Juniper’s existing GTM channels, Recogni can reduce time-to-market, ensuring “Inference One” gains traction quickly with large-scale customers.
+
+
+1.4.2 Sales Operations and Distribution Strategy
+* Global Reach: With Juniper’s expansive global sales network, the partnership aims to scale the solution across multiple regions, ensuring a wide distribution footprint.
+* Integrated Sales Operations: Juniper’s sales and operational capabilities are integrated into the plan to streamline customer acquisition, support, and post-sale services. This includes utilizing Juniper’s sales teams for direct outreach and building on existing relationships to pitch the AI solutions.
+* Supply Chain Management: The partnership emphasizes efficient supply chain management, leveraging Juniper’s connections and established operations to maintain steady production flow and optimize cost efficiency.
+2. MARKET OVERVIEW
+Content for this section should include (as applicable):
+   1. Target market data
+
+
+2.1.1 Introduction: The Expanding Role of GenAI
+
+
+Generative AI (GenAI) has transitioned from niche applications to mainstream, driven by advancements in foundational models that require increasingly complex computations. The rapid growth in AI model sizes and complexity demands unprecedented levels of power consumption, data center floor space and computing resources. 
+As trained multimodal generative AI model parameters multiply, the burden on traditional data center infrastructure intensifies, pushing companies to seek innovative solutions to handle these capacity, performance and power efficiency challenges.
+
+
+ A close-up of a diagram
+
+Description automatically generated 
+
+Fig 6: GenAI Model Size Increases Drives Compute Demand
+
+
+
+
+
+
+2.1.2 Market Dynamics and Growth Potential
+
+
+GenAI Inference vs. Training: Traditionally, AI training has been resource-intensive, requiring extensive GPU resources and significant investment, making it a cost-center. Training will always be necessary, but once completed, most of the generative AI workload for the lifetime of an AI application is in inference - the process by which a trained AI model uses what it has learned to analyze new data, recognize patterns, and make prediction that can be used by the AI software application. As such, AI inference acceleration is a profit center, whose technical barriers to entry are far lower than the AI model training segment that is currently dominated by Nvidia. Inference One’s strategy is to be completely compatible with, and benefit from the already flourishing training ecosystem, by providing the world’s best AI inference acceleration systems that will help companies optimally monetize multimodal generative AI application development and high-volume deployments, where reliability, accuracy, performance, power efficiency and time to market matters most.
+
+
+ A blue and white card with text
+
+Description automatically generated 
+
+Fig 5: The AI Paradigm Shift from Costly Training to Scalable, Low Power Inference
+
+
+
+
+Projected Growth: The GenAI inference market is expected to reach a valuation of $377 billion by 2027. This substantial growth is fueled by the increasing need for real-time AI applications across sectors like finance, healthcare, automotive, and retail, where latency-sensitive inference is critical for customer experiences and operational efficiency.
+ A graph of a bar
+
+Description automatically generated with medium confidence 
+
+Fig 5: GenAI Inference market projected to reach $377B by 2027
+
+
+   2. Customer drivers
+2.2.1 Challenges with Current AI Hardware
+
+
+* Inefficiency of GPUs for Inference: General-purpose GPUs, while essential for training, are not optimized for inference tasks. They operate at low utilization rates (20-30%) in inference applications, leading to inefficiencies in both power and performance.
+
+
+* Environmental Impact: The energy demands of AI workloads could soon surpass the energy consumption of some nations, with predictions indicating AI alone could account for the majority of data center power consumption by 2040. This inefficiency, if unaddressed, challenges sustainability goals and underscores the need for alternative solutions.
+
+
+* Total Cost of Ownership (TCO): High TCO remains a barrier, with costs arising from hardware investments, cooling needs, and operational expenses. GPUs, as they are not built specifically for inference, increase TCO without delivering optimal results.
+
+
+2.2.2 Strategic Partnerships and Market Position
+
+
+* Recogni Partnership with Juniper: Recogni has collaborated with Juniper to accelerate the deployment of its GenAI inference system. This partnership leverages Juniper’s technology, market presence and industry leading fabric to bring Recogni’s solution to data centers with a focus on rapid deployment and minimized investment.
+
+
+* Competitive Positioning: By offering a purpose-built system for inference, Recogni addresses a critical gap in the current AI hardware landscape, where most solutions prioritize training over inference efficiency. This positions Recogni and Juniper as a frontrunner in the generative AI market, particularly for organizations that require scalable, real-time AI solutions.
+
+
+2.2.3 Recogni’s Solution: A Purpose-Built AI Accelerator for GenAI Inference
+
+
+Next-Generation AI Accelerator: Recogni has developed a second-generation AI accelerator aimed at multimodal GenAI inference. This solution directly addresses the inefficiencies of traditional GPU architectures by optimizing for inference performance, power usage, and latency reduction.
+
+
+Key Advantages:
+* Enhanced Power Efficiency: The Recogni system offers 3.4x more power efficiency in TFLOPs/Watt, translating to lower operational costs due to reduced power and cooling requirements.
+
+
+* Increased Compute Density: Achieving 5 PFLOPs per square foot, Recogni’s solution allows data centers to maximize their compute power within limited space, reducing capital expenditure and infrastructure strain.
+
+
+* Reduced Total Cost of Ownership: By focusing on efficient inference, Recogni’s solution is projected to cut TCO by up to 70% compared to traditional GPU-based systems, as it eliminates the need for costly cooling systems and achieves higher utilization rates.
+   1. Bottom-up customer information
+Use the following table to identify the customers who requested specific features, the corresponding Juniper SE or SME who has presented the opportunity to you, and details about the solution.
+
+
+Current interested customers
+
+
+Recogni has many active customer engagements, including ongoing discussions with: Omniva, Nscale, Liquid.ai, Crusoe, Cirrascale, and others. We also have a strong network of alliances with key ecosystem players like Switch, Equinix, and Cap Gemini.
+Future prospects
+Describe any future prospects that you anticipate from the addition of this feature or product.
+For Juniper Networks and HPE, the launch of this AI inferencing system unlocks access to a significant new addressable market projected to reach $377B TAM by 2030. This market includes a range of customers, from Hyperscalers and AI-focused cloud hosts to large Enterprise and Service Provider's.
+Active Engagements:
+* Enterprise: TD, Lumen, Cap Gemini, Goldman Sachs, Uber and others.
+* Tier 2 CSPs and AI Cloud Hosts: Equinix, Switch, ECL, Colovore, and others.
+* AI Cloud Providers: Omniva, Crusoe, Cirrascale, Nscale, Ori Cloud, Liquid, and others.
+* Hyperscalers: We have periodic discussions with all hyperscalers except Amazon.
+
+
+   2. Regulatory trends
+Legislators, regulators and standard setters are starting to develop legal or policy frameworks to maximize Generative AI’s benefits to society while mitigating its risks.  Per the OECD AI policy observatory, at present, 8 jurisdictions: Canada, China, the European Union (EU) , Japan, Korea, Singapore, the United Kingdom (UK) and the United States (US) are considering the above.   Rulemaking, for now, seems focused at reducing risk from use of the technology.   The EU recenty passed the AI Act in 2024 which goes into full force in 2026.  It is unclear to what extent regulatory variation across jurisdictions may result in global interoperability issues.
+
+
+   3. Market timing
+Indicate any market timing issues, either positive or negative.
+
+
+The absence of a clear roadmap for a 16-slot chassis in 2026 presents a strategic risk for the Recogni-Juniper partnership, as it could cause misalignment with projected customer needs and market growth cycles, particularly within the AI and data center sectors.
+
+
+Key Implications:
+
+
+1. Mismatch with Market Demand:
+   1. By 2026, hyperscalers and large enterprises are expected to significantly expand their AI and data center capacities, seeking high-density, scalable infrastructure. The 16-slot chassis is critical for these deployments, as it offers the necessary capacity and flexibility.
+   2. The lack of a planned solution means that Recogni-Juniper may miss this critical demand window, putting them at a disadvantage when competitors likely have their high-density chassis solutions available.
+
+
+2. Competitive Disadvantage:
+   1. We are newcomers to the market for generative AI inference acceleration systems. Others, primarily Nvidia, therefore have power of incumbency, i.e. a pre-existing, entrenched position within data centers that requires newer suppliers who are trying to enter the same market, like us, to deliver a product that is deemed superior enough to displace their current solutions. Inference One therefore has the disadvantage of needing to be markedly superior to pre-existing competitive solutions, to displace them in customers’ data centers. Somewhat mitigating this disadvantage is the exigent desire of data centers to find a strong second supplier source to Nvidia, so that their business is not prohibitively restricted by Nvidia’s terms. Similarly, many potential customers are on allocation by multiple suppliers, meaning that the demand is currently greater than the collective ability of the top suppliers to meet customer’s needs – and that is expected to be the case for several years into the future. Nevertheless, not having power of incumbency is a disadvantage.
+   2. Inference One only accelerates generative AI inference processing. It was not designed for training. We believe that our bespoke approach will primarily be an advantage for Inference One’s target market since there is a de facto “training tax” that hinders the performance per Watt of inference processing, in systems that are designed for both training and inference - like Nvidia’s DGX series. That said, for customers who require the flexibility of performing both inference and training in the same system, this focus would be a disadvantage for Inference One. We believe that there is a robust data center market for inference-only systems though, because TCO for large scale applications is dominated by power consumption opex, rather than hardware capex.
+   3. Competitors like Nvidia and AMD, who have substantially more financial resources, are expected to have scalable products on the market, positioning them to capture hyperscaler and enterprise clients looking for high-performance, dense AI infrastructure. To mitigate this risk, Recogni has requested Juniper’s support for a 4, 8 and 16 slot chassis. A failure to provide scalable solutions could  hinder Inference One’s ability to secure and maintain strategic partnerships with key players such as Microsoft, Meta, Google, and Oracle, who expect forward-looking solutions aligned with their technology refresh cycles.
+3. Operational and Client Impact:
+   1. The absence of a 16-slot chassis in the Inference One roadmap would cost us the “performance crown” at the time of launch, i.e. within a single pod, we’d not beat the competition in every meaningful metric, as we would if a 16 slot chassis was available at launch. As the 16 slot chassis was part of the product plan that we had been pitching to customers for months, Juniper’s inability to support the 16 slot chassis configuration, could potentially impact sales and damage customer trust, especially with hyperscalers who depend on long-term product commitments and roadmaps from vendors. This might push them towards competitors who demonstrate superior inference acceleration within a single system and/or dependability of their long-term roadmap claims. 
+   2. The limited range of chassis configurations that scales only up to 8 slots in a single system, may also limit upselling and expansion opportunities with existing customers, who may require a guaranteed path to scalable upgrades within their data center infrastructure, potentially resulting in lost revenue and partnerships.
+
+
+Recommendations:
+
+
+* Accelerate Development: Prioritize and expedite the development of the 16-slot chassis roadmap to ensure alignment with the 2026 demand window. This should involve prototyping, testing, and collaborating closely with hyperscaler clients, and Recogni, to tailor the 16 slot chassis solution to confirmed needs. The term “performance crown” in HPC (high performance computing) is generally ascribed to the solution or system that achieves the highest KPIs for industry benchmarks and/or the workloads that are widely agreed to be the most important ones.  Launching Inference One, with confidence that it will seize the “performance crown” from competitors, is a business plan that’s worth pursuing for Inference One, given its almost certain, positive impact on the increased ASP (average selling price) as well as the higher likelihood of a “performance crown” product, displacing incumbent solutions sooner rather than later.
+* Proactive Customer Engagement: We should jointly promote Inferece One, engaging clearly with key customers, like Microsoft, Meta, and Google, about the partnership’s plans and timelines, reinforcing commitment to align with their expansion needs. Leveraging Juniper’s existing data center partnerships will also be key in maximizing Inference One’s reach.
+
+
+Conclusion
+
+
+All of the known competitive disadvantages have mitigations in place, with the sole exception of the “performance crown”. The 16-slot chassis, built from the latest, high bandwidth SF5/Aegon technology, is imperative. Without addressing this gap, Recogni-Juniper risks losing competitive positioning during a crucial growth period in the AI and data center markets. The partnership may miss critical revenue opportunities and weaken client relationships if a solution that gives Inference One the unambigous performance crown, is not delivered in time.
+PRODUCT APPLICATIONS
+Content for this section should include (as applicable): 
+   4. Customer business and technical problem(s)
+Describe customer business or technical problems that are being solved by this product or feature.
+Does this increase ARPU, increase market reach, decrease CAPEX or minimize OPEX?
+“Inference One” addresses several critical business and technical challenges faced by customers in AI and data center environments. Here’s how it solves these issues:
+
+
+Scalability and Efficiency for AI Inference
+
+
+* Problem: Customers, especially hyperscalers and AI-focused cloud hosts, need solutions that scale efficiently while handling increasingly complex AI workloads without excessive hardware investments.
+* Solution: Inference One provides a scalable and efficient AI inference solution, integrating high-performance chip-to-chip networking and optimized AI math. Its architecture allows it to deliver high compute density, supporting advanced AI models like Llama 405b independently, making it suitable for hyperscalers looking to expand capabilities without significant overhead.
+
+
+3.1.2 Optimizing Total Cost of Ownership (TCO)
+
+
+* Problem: Customers are pressured to reduce operational costs, including power consumption, hardware maintenance, and overall infrastructure investment, especially when deploying at scale in data centers.
+* Solution: The amount of power consumed per AI token processed by AI inference systems, will dominate the total cost of ownership (TCO) over time. Inference One ensures a low TCO through its cutting-edge chip technologies (e.g. Pareto log math, patented universal inference engine (UIE) design, SOTA 3nm fab TSMC fab process, integrated Juniper cell fabric), and efficient system design with the most power efficient HBM3e embedded inside of the same CoWoS (Chip on Wafer on Substrate) MCM package. The bespoke, balanced system approach to design for massive tensor parallelism, will yield the industry’s most accessible, dense AI compute processing performance, coupled flexible vector processing and overall efficient energy usage. All of these advances will enables Inference One Pod customers to maintain high performance without escalating costs or having to sacrifice the accuracy of inference results.
+
+
+3.1.3 Maximizing Compute Density in Data Centers
+
+
+* Problem: Data centers are often constrained by physical space and power capacity, requiring solutions that maximize compute power per unit space.
+* Solution: As highest performing AI inference multimodal AI inference acceleration system in the market, with the highest usealbe compute density, Inference One offers more than half an Exaflop in a single rack, optimizing the use of data center space and energy resources. This allows customers to achieve high throughput and processing power within their existing data center floor space and power grid constraints.
+
+
+3.1.4 Ease of Integration and Compatibility
+
+
+* Problem: Enterprises and CSPs face challenges integrating new AI inference systems with their existing hardware and software infrastructure.
+* Solution: The system’s modular design and compatibility with existing chassis configurations, such as Juniper’s PTX-8 slot chassis, allow for seamless integration. Juniper’s established GTM channels also facilitate faster market entry and customer adoption, reducing deployment time and integration complexity.
+
+
+3.1.5 Support for Advanced AI Models and Long Context Processing
+
+
+* Problem: Customers increasingly require hardware capable of supporting and optimizing next-generation AI models with long context capabilities for advanced applications in natural language processing, computer vision, and other AI-driven services.
+* Solution: Inference One, powered by the RC1 core, supports and optimizes advanced AI models, providing highly accurate instant quantization and pareto-optimal efficiency. This capability enables customers to run sophisticated models like Llama 405b efficiently, making it a future-proof solution for AI development.
+
+
+3.1.6 Global Deployment and Reliability
+
+
+* Problem: Customers need AI infrastructure that is not only high-performing but also reliably supported and available globally to ensure continuity and consistent performance.
+* Solution: Leveraging Juniper’s global network and robust operational capabilities, Inference One is supported by a comprehensive sales, supply chain, and support infrastructure. This ensures that customers receive reliable service and parts availability worldwide, enhancing operational stability.
+Inference One effectively addresses these critical technical and business challenges, offering a comprehensive solution that aligns with the evolving needs of hyperscalers, Tier 2 CSPs, and AI-focused cloud hosts. This makes it a versatile and scalable choice for diverse AI and data center applications.
+   2. Current solutions
+Existing products and solutions customers rely on to solve this problem.
+The existing products and solutions that customers currently rely on to solve their business and technical problems in AI inference and data center environments include:
+
+
+3.2.1. Traditional AI GPUs and Accelerators
+* Overview: Hyperscalers and CSPs often design AI GPUs or accelerators from Nvidia and AMD (e.g., NVIDIA H100 or AMD MI300X series) into their customized systems to train and host their AI workloads.
+* Limitations:
+   * Because they are designed to be more powerful and flexible to support AI model training, they incur a “training tax” when used for inference.
+   * Due to lower utilization, they cannot achieve the same compute density or efficiency as Inference One.  They typically consume more power and occupy more physical space, increasing total costs of ownership (TCO) as scale increases.
+
+
+3.2.2 High-Density Server Clusters
+* Overview: Vendors like HPE, Dell EMC, SuperMicro, and Lenovo provide enterprises and Gen AI cloud providers with dense server clusters containing CPUs and GPUs provided by Nvidia and AMD to scale their AI operations.
+* Limitations:
+   * Although these clusters provide flexibility, they are often less efficient in terms of power usage and compute density compared to specialized AI inference hardware.
+   * Scaling these clusters adds complexity and higher operational costs, which is a challenge for hyperscalers seeking to improve efficiency.
+
+
+3.2.3 In-House ASIC-Based Inference Solutions
+* Overview: In-house inference solutions are built based on Application-Specific Integrated Circuits (ASICs), such as Google’s TPU, Meta’s MTIA, Micorosft Azure’s Maia, and AWS’s Tranium and Inferentia.  They are often designed to train and host company proprietary AI inference workloads related to their core businesses such as search engines or shopping recommendations.
+* Limitations:
+   * While ASICs can be more efficient by optimizing them for a specific workload, this can limit their flexibility to be used across different AI models and applications.
+   * Compared to the adaptable architecture of Inference One, they lack flexibility for reprogramming or upgrading, making it difficult to adapt to quickly evolving Gen AI model requirements.
+
+
+3.2.4 Startup ASIC-Based Inference Solutions
+* Overview: Numerous startups have developed inference solutions based on Application-Specific Integrated Circuits (ASICs).  Examples include Groq, SambaNova, Cerebras, and d-Matrix.  Many of these ASICs were architected and designed prior to the emergence of LLMs.
+* Limitations:
+   * Because they were designed prior to the emergence of LLMs, they are not architected to meet the needs of multi-modal GenAI models.  Key areas of weakness include lack of support for HBM with dependence on SRAM or insufficienct interconnect bandwidth to scale multiple ASICs to support large models.
+   * Due to these shortcomings, startups have in many cases shifted from selling systems to selling tokens as a service (TaaS) to generate revenue.  Analysis of current pricing concludes they will incur significant losses, and that the real underlying strategy is to attract investment to support development of next-gen systems that are better aligned to Gen AI model needs.
+
+
+3.2.5 Cloud-Based AI Services
+* Overview: Many enterprises use cloud-based AI services like AWS Sagemaker, Google Cloud AI, or Azure AI to deploy and scale AI models.
+* Limitations:
+   * While cloud services offer flexibility, they often come with high operational costs for continuous, large-scale AI deployments.
+   * Dependence on external cloud infrastructure increases the risk of security breaches which could expose highly proprietary and valuable customer data.
+   * It also limits customers’ ability to optimize and control hardware configurations, which Inference One’s dedicated solution is designed to address.
+
+
+These existing products and solutions face challenges in efficiency, scalability, and cost management. Inference One is designed to overcome these limitations, providing a more efficient, scalable, and cost-effective solution tailored to the needs of hyperscalers, CSPs, and AI-driven enterprises.
+   3. Network deployment
+How will customers deploy this product in the network?  Share the voice of the customer.  Provide network diagrams that show how the customer will deploy the solution.  Include network topology and solution details that have been discussed with Juniper SE(s), SME(s) or customer.  Please provide the same level of detail that customers expect to see within customer facing user documentation.
+
+
+ A diagram of a computer system
+
+Description automatically generated 
+
+The Inference One system, as depicted in the diagram above, is a simple system topology without high availability configuration. The topology provides a view of various hardware, software components, connections and where they are located in the data center environment. The system is interconnected through multiple network switches (DC Switch 1 and DC Switch 2) that link the compute nodes and manage data flow. The diagram shows dual Ethernet connections for redundancy and high availability.
+
+
+3.4 MVP and UCC
+This section outlines the high level requirements for the MVP and UCC; more detailed requirements will be captured in Section 5. Definitions:
+* MVP (Minimum Viable Product) that must be met to achieve FRS (first revenue shipment). 
+UCC (Use Case Complete) product means the ideal product that will be required to meet sales targets.  
+Data Center
+	Hyperscaler GenAI Workload Deployment
+	Data Center
+	Inference-as-a-service Deployment
+	
+
+Inference One Pod is designed to deliver exceptional compute density and efficiency within a compact 21RU form factor, making it a high-performance solution for varied deployment scenarios in AI inference. With a peak compute of 302 PFLOPS, 21 TB of HBM capacity, and 604 TB/s HBM bandwidth, it stands out for its ability to handle demanding multi-modal AI applications across diverse operational settings.
+
+
+* “Inference Datacenter Deployment” Domain
+
+
+MVP:  8-slot chassis Variant of Inference One (8 ILC). 
+* This configuration is suitable for FRS.
+* It must be designed for datacenters where reliability and uptime are paramount, with high-availability infrastructure, redundancy and failover capabilities. 
+UCC: 16-slot chassis variant of Inference One (16 ILC). 
+* This setup mirrors high-density configurations like HGX but optimizes space and power, making it ideal for large-scale AI tasks in on-site datacenter environments. It will be required to compete for a larger portion of Inference Datacenter business.
+
+
+* Enterprise On-premises GenAI Workload Deployment
+
+
+
+
+MVP:  8-slot chassis Variant of Inference One (8 ILC) 
+* This configuration is suitable for FRS.
+* It must be designed for datacenters where reliability and uptime are paramount, with high-availability infrastructure, redundancy and failover capabilities. 
+UCC: 
+   * 16-slot chassis variant of Inference One (16 ILC) 
+      * This setup mirrors high-density configurations like HGX but optimizes space and power, making it ideal for large-scale AI tasks in on-site datacenter environments. It will be required to compete for a larger portion of Inference Datacenter business.
+   * 4-slot chassis variant of Inference One (4 ILC)
+      * Same as the 8 lot chassis, but with half the ILC’s.
+
+
+* Hyperscaler GenAI Workload Deployment
+
+
+MVP:  8-slot chassis Variant of Inference One (8 ILC). 
+* This configuration is suitable for FRS.
+* It must be designed for datacenters where reliability and uptime are paramount, with high-availability infrastructure, redundancy and failover capabilities. 
+UCC: 16-slot chassis variant of Inference One (16 ILC). 
+* This setup mirrors high-density configurations like HGX but optimizes space and power, making it ideal for large-scale AI tasks in on-site datacenter environments. It will be required to compete for a larger portion of Inference Datacenter business.
+
+
+* Inference-as-a-Service Deployment
+
+
+The Inference One Pod is well-suited for API-driven, inference-as-a-service models. Through partnerships, it enables scalable, on-demand AI inference for businesses seeking to deploy AI capabilities without investing in infrastructure. Its high-speed inter-chip and HBM bandwidths ensure rapid response times, essential for serving real-time applications at scale. This model is perfect for businesses looking to leverage AI inference through a flexible, scalable platform capable of handling intense workloads. Inference One Pod is positioned as an advanced, modular AI infrastructure that adapts to varied operational needs while delivering top-tier AI inference performance, all within the smallest possible form factor for high-density compute.
+
+
+MVP:  8-slot chassis Variant of Inference One (8 ILC). 
+* This configuration is suitable for FRS.
+* It must be designed for datacenters where reliability and uptime are paramount, with high-availability infrastructure, redundancy and failover capabilities. 
+UCC: 16-slot chassis variant of Inference One (16 ILC). 
+* This setup mirrors high-density configurations like HGX but optimizes space and power, making it ideal for large-scale AI tasks in on-site datacenter environments. It will be required to compete for a larger portion of Inference Datacenter business.
+
+
+3.5 Failure cases
+Provide common failure cases and relate them to use cases.
+Some of the common failure cases for each use case, along with the remedies:
+
+
+* Inference Datacenter Deployment
+
+
+Failure Cases:
+   * Hardware Failures: Component issues (e.g., HBM, ILCs) can disrupt real-time processing.
+   * Redundancy Issues: Failure in redundancy mechanisms can reduce availability.
+   * Networking Failures: Network disruptions impact data flow and latency.
+Remedies:
+   * Use hot-swappable components and predictive maintenance for hardware.
+   * Ensure robust failover systems and regularly test redundancy protocols.
+   * Establish redundant networking paths and continuously monitor network health.
+
+
+* Enterprise On-premises GenAI Workload Deployment
+
+
+        Failure Cases:
+   * Data Storage and Access Failures: Storage issues impact GenAI data access.
+   * System Overload: Excessive load can cause crashes or slowdowns.
+   * Integration Failures: Incompatibility between hardware/software layers disrupts function.
+        Remedies:
+   * Use redundant storage, RAID configurations, and perform regular health checks.
+   * Implement load balancing and dynamic resource scaling to handle peak loads.
+   * Conduct compatibility testing and use modular architecture to isolate issues.
+
+
+*  Hyperscaler GenAI Workload Deployment
+
+
+        Failure Cases:
+   * Scaling Issues: Limits in concurrency handling can cause latency spikes.
+   * Power Management Failures: Power surges or shortages risk shutdowns.
+   * Load Distribution Failures: Poor balancing leads to bottlenecks in resources.
+        Remedies:
+   * Enable horizontal scaling and advanced load balancing techniques.
+   * Set up uninterruptible power supplies and monitor power usage closely.
+   * Use intelligent load balancers and schedule workload distribution effectively.
+
+
+* Inference-as-a-Service Deployment
+
+
+        Failure Cases:
+   * API Downtime: Interruptions affect real-time inference service delivery.
+   * Latency Increases: Network or inter-chip issues delay response times.
+   * Resource Allocation Failures: Insufficient resources limit service scalability.
+        Remedies:
+   * Implement redundant API gateways and load-test for high-traffic scenarios.
+   * Optimize network routing and use low-latency communication protocols.
+   * Use dynamic resource allocation, set quotas, and consider cloud backup resources.
+
+
+This integrated approach ensures robust deployment of Inference One Pod system, minimizing risks while optimizing performance across diverse use cases.
+
+
+3.6 JUNOS SDK interaction
+Describe how it interacts with JUNOS SDK Application(s).
+This section captures detailed interaction between Recogni Software and JUNOS EVO 
+
+
+3.6.1. System Architecture and Software Layer Integration
+
+
+JUNOS EVO Operating System (OS):
+* JUNOS EVO runs on Juniper’s management card CPUs, providing a foundational operating environment that facilitates system-wide control and health monitoring for Recogni’s AI capabilities.
+* The JUNOS EVO OS integrates seamlessly with Recogni software on Juniper’s hardware, allowing for hardware-level customization and a robust interaction layer that enables JUNOS to manage Recogni-driven AI tasks.
+Recogni Data Center Software:
+* Recogni software operates within a data center server environment, responsible for orchestrating Recogni’s AI workloads. This software forms the backbone of AI operations, interacting with JUNOS EVO to ensure that model requests and data flow smoothly between the AI pods, inference line cards (ILCs), and data center resources.
+* This system-level Recogni software includes Kubernetes-managed services, load balancing, and device monitoring to oversee the deployment, operation, and health of Recogni AI models within a Juniper network.
+Inference Line Card Customization (ILC):
+* JUNOS EVO on the ILC incorporates tailored Recogni drivers, device management, and an optimized data fabric to interface with Recogni’s embedded CPUs.
+* Each ILC houses a “Snowy Owl” CPU and multiple Recogni custom processors for AI inference tasks, with an integrated Recogni RTOS (Yocto Linux) managing health monitoring, device drivers, and real-time operational requirements.
+* Recogni’s customized infrastructure within the ILCs enables efficient control over model execution, high-speed data handling, and workload balancing across hardware.
+
+
+ A diagram of a computer software
+
+Description automatically generated 
+
+Fig. <insert number>
+
+
+
+
+3.6.2. Data and Control Channel Architecture
+
+
+High-Bandwidth Data Channels:
+* 400Gb Application Data Channels: These channels link Recogni ILCs with data center servers, allowing for rapid data transfer and model distribution between processing units. This high bandwidth supports the swift loading and serving of large models, ensuring minimal delay in AI model inference.
+* 10Gb Control Data Channels: Control channels facilitate communication between Juniper’s management cards and data center servers, handling chassis management tasks, device status updates, and health monitoring. This ensures the effective operation and connectivity of AI pods across the entire chassis-to-data-center environment.
+
+
+Recogni AI Pod System Connectivity: The AI pods, housing Recogni’s compute resources, connect to the JUNOS infrastructure via these channels, which support both public and private cloud configurations. This setup enables seamless communication between the Recogni ILCs and the data center, which can dynamically allocate compute power as needed.
+  
+
+
+
+3.6.3. Model Deployment and Kubernetes Orchestration
+
+
+Model Compilation, Quantization, and Loading:
+* Models are pre-processed through the Recogni SDK, which offers quantization (using Recogni’s “Pareto math”) and compilation capabilities. This ensures that models are optimized for the unique architecture of Recogni’s hardware.
+* The Recogni SDK supports common frameworks like PyTorch, enabling developers to import standard models or directly integrate from model hubs like Hugging Face. The SDK translates these models into Recogni’s intermediate representation (IR), an essential step that allows for further customization and tuning within Recogni’s environment.
+
+
+Deployment Workflow and Kubernetes Integration:
+* Model deployment begins with an HTTPS request to Recogni’s inference API, initiating provisioning of resources through Kubernetes. This process translates to a Kubernetes RecogniService custom resource that handles replicas and service load balancing.
+* The Recogni Kubernetes Operator manages resource orchestration by creating replicas of RecogniService, translating them into Kubernetes Pods, and allocating Recogni devices across the ILC nodes.
+
+
+ILC Pods and Scaling: Each Recogni Service replica is composed of several Kubernetes Pods, with each pod allocated to a Recogni accelerator on an ILC. This setup allows JUNOS EVO and Recogni software to scale resources dynamically, adapting to changing workload demands.
+ A screenshot of a computer
+
+Description automatically generated 
+
+Fig. <insert number>
+
+
+
+
+3.6.4. Hardware Integration and Inference Execution Pipeline
+
+
+ILC Setup and Device Management:
+* Each ILC operates under Recogni’s RTOS/Firmware (Yocto Linux), which handles essential tasks such as device health monitoring, driver management, and resource allocation.
+* The Recogni Device Manager (RDM) orchestrates model deployment by deploying weights and shards, configuring virtual-to-physical memory mapping, and loading execution environments on demand.
+* The Inference Server within each ILC assigns address mapping for virtual devices, configures runtime for user requests, and manages real-time execution of inference tasks.
+High-Throughput Model Serving and Load Balancing:
+* Recogni Load Balancer: Distributes inference requests efficiently across ILC nodes, leveraging multiple replicas for high-availability and load balancing.
+* The load balancer operates based on real-time data from the Recogni K8s Device Plugin, which monitors device health, availability, and capacity within the Kubernetes cluster.
+* Tokenization System: Each model and its associated replicas are assigned unique tokens for session management, allowing users to make inference requests with a specific model instance, ensuring model serving is efficient and isolated.
+ A screenshot of a computer
+
+Description automatically generated 
+
+Fig. <insert number>
+________________
+
+
+
+
+3.6.5. Runtime and Inference Request Handling
+
+
+In this section, the runtime deployment, startup and request handling will be described. First, see the high level description of the Inference One runtime in the diabram below:
+
+
+ A diagram of a computer system
+
+Description automatically generated 
+
+
+
+Fig. <insert number>
+
+
+Startup and initialization Process:
+* Deployment:
+   * This begins with the data center’s HTTPS request to our inference API to deploy a compiled model into N replicas (group of chips concurrently executing a model/graph)
+   * Once validated, this request is forwarded to the K8s API server by creating a "RecogniService" custom resource with N replicas (see figure below).
+   * The Recogni K8s Operator translates the "RecogniService" into a K8s Service (load balancer over replicas) and “N”  RecogniServiceReplica" resources. 
+   * The operator then translates each replica into “M” K8s Pods (where M is the number of accelerator chips used by a replica). Each of the MxN K8s Pods allocate an accelerator chip. The pods of a replica are scheduled on the same fabric.
+
+
+
+
+ A screenshot of a computer screen
+
+Description automatically generated 
+
+
+
+Fig. <insert number>
+
+
+* Startup of Replicas:
+   * In each replica, one K8s Pod is designated the leader (rank 0) while the others are designated as workers (rank > 0). Worker pods register their allocated accelerator chip with the leader who establishes the "virtual to physical address ID mapping". The inference server at rank 0 coordinates with worker pods to process inference requests, supported by Recogni’s load balancer. Requests are distributed evenly across replicas, maintaining high throughput and minimizing response times.
+   * In each K8s Pod, the accelerator loads its HBM image (parameters) and "graph executable", and signals readiness.
+   * The leader K8s pod in each replica runs the inference server + runtime.
+   * The inference server signals readiness and the K8s Service (created by the Recogni Operator for the "RecogniService") includes this replica's inference server in its list of endpoints to load balance over.
+* Inference Requests:
+   * Once all N replicas have signaled readiness, the HTTPS request to our inference API to deploy a compiled model into N replicas is now done, and and a token is issued that represents the "RecogniService" serving this model for inference requests is now ready.
+   * The user makes an inference request with prompt and the token issued is issued.
+   * Each inference request is processed with a dedicated session token, allowing Recogni’s infrastructure to manage concurrent model instances efficiently, even under high-demand scenarios.
+
+
+ A screenshot of a computer
+
+Description automatically generated 
+
+
+
+3.6.6. Developer Toolchain and Management Framework
+
+
+* Recogni SDK: The Recogni SDK offers an extensive suite of tools for model preparation, optimization, and debugging. Key components include:
+* Quantization Toolkit: Converts models to Recogni’s proprietary “Pareto math,” optimizing models for high-speed execution.
+* Profiling and Debugging Tools: Recogni provides real-time profiling to evaluate model performance on multi-chip systems. Developers can leverage these tools to pinpoint bottlenecks and adjust model configurations.
+* Modular Kernel Development: Developers can use the SDK’s Lunarite language to define custom kernels and operations, enabling advanced customization for unique model requirements.
+* Diagnostics and Health Monitoring:
+* Recogni’s software stack includes diagnostic dashboards and health monitoring tools to oversee system performance, device health, and resource allocation.
+* These tools allow real-time monitoring of compute resources, providing insights into the performance of both the JUNOS and Recogni infrastructure.
+* System-Level Monitoring: The management cards in the JUNOS chassis provide a continuous health assessment, integrating with Recogni’s diagnostic framework to maintain operational stability.
+ A screenshot of a computer
+
+Description automatically generated 
+
+
+
+
+
+3.6.7. Key Advantages and Integration Benefits
+
+
+* Seamless Resource Allocation: JUNOS EVO and Recogni software leverage Kubernetes to dynamically allocate resources across the system, improving model serving efficiency and minimizing latency.
+* Scalability and Flexibility: Kubernetes integration enables flexible scaling of AI resources, with the Recogni K8s Operator managing replicas and pod allocation to meet workload demands.
+* Developer-Friendly Environment: The Recogni SDK supports popular AI frameworks and offers a versatile toolchain for developers to manage model lifecycle, tune performance, and optimize AI workloads.
+* High-Performance Model Serving: With dedicated data channels, Recogni’s system supports high-throughput, low-latency AI inference serving, ideal for data center applications requiring fast response times and high availability.
+
+
+Summary and Conclusions
+
+
+The collaboration between JUNOS EVO and Recogni software creates an optimized AI infrastructure that merges Juniper’s networking technology with Recogni’s high-performance AI processing capabilities. This system provides a seamless integration of data handling, workload management, and high-speed AI model serving, offering developers a comprehensive toolkit for deploying, managing, and optimizing AI models. The architecture is scalable, secure, and tailored to meet the demands of data centers and AI-intensive applications, making it a powerful solution for modern AI workloads.
+
+
+3.7 Juniper-defined solution interaction
+How does it interact with a Juniper defined solution?  
+How is it different from existing   and competitor solutions in terms of serviceability, interop, quality, total cost of ownership?
+Share the voice of the customer.  Provide the detail on how this solution is part of larger solution or interacts with other solutions    Provide the solution information that have been discussed with Juniper SE(s), SME(s) or customer.  Please provide the same level of detail that customers expect to see within customer facing user documentation.
+N/A
+3.8 Competing product match
+How is it the same as existing and competitor solutions?  Describe in terms of serviceability, interop, quality, total cost of ownership.  Keep the $ numbers out of document and focus on some key performance metrics only
+
+
+3.8.1. Traditional Players
+* Overview:  Companies like Nvidia, AMD and Intel have GPU-based chips.  Although GPUs are better suited than CPUs for GenAI, they are designed to be flexible to support both training and inference and therefore incur a “training tax” when used for inference.
+Recogni Inference One is designed from the ground up for multi-modal Gen AI inferencing.  The architecture leverages Pareto log math for higher power efficiency and accuracy and optimizes SRAM and HBM memory interfaces to provide highest performance and scalability for large models.
+* Performance Metrics:  Although Recogni Inference One will have similar compute per chip (TFLOPS), system-level performance and energy usage will be much better per rack:
+   * Llama3.1-70B: 2 to 18x tokens/sec and 2 to 12x tokens/kWh
+   * Llama3.1-405B: 20 to 150x tokens/sec and 24 to 92k tokens/kWh
+
+
+3.8.2. Startups
+* Overview:  Custom ASICs from companies like Groq, Cerebras, and SambaNova were designed prior to the emergence of LLMs and are not architected to meet the needs of multi-modal GenAI.  Key areas of weakness include lack of support for HBM with dependence on SRAM or insufficienct interconnect bandwidth to scale multiple ASICs to support large models.
+Recogni Inference One is designed from the ground up for multi-modal Gen AI inferencing.  The architecture leverages Pareto log math for higher power efficiency and accuracy and optimizes SRAM and HBM memory interfaces to provide highest performance and scalability for large models.
+* Performance Metrics:  Recogni Inference One system-level performance and energy usage is significantly better and requires only one rack while competitors require up to 9 racks:
+   * Llama3.1-70B: 150 to 300x tokens/sec and 75 to 1100x tokens/kWh
+   * Llama3.1-405B: 2400x tokens/sec and 800x tokens/kWh (can only be run by SambaNova)
+
+
+  
+
+4. TARGETED GEOGRAPHIC MARKETS
+This section should list geographical destinations to which it is desirable to ship this product.  This information will be used to determine what specific regulatory, legal, support, marketing and export issues must be addressed before the product can ship to these locations.
+Note: As per the Eurasian Customs Union (EACU) import laws, any product containing data-plane encryption is not allowed to be imported into the EACU member countries (refer Appendix for the list of such countries) without import license. A license must be obtained for each transaction and obtaining such a license is a cumbersome and lengthy process. If your product has any form of data-plane encryption and you are planning to sell into any of these countries, you need to have a version of software that does not have any data-plane encryption enabled. It is recommended that whenever practicable, data-plane crypto should be a dormant feature enabled by means of a cryptographically assisted, serial number-bound, license key mechanism. In that way, Juniper can better protect against unlicensed importation and use of such functionality in the EACU.
+
+
+5. PRODUCT REQUIREMENTS
+Create all the requirements for the project in this section. Requirements should reference the subsection number (in Section 6). The embedded spreadsheet may be used to assist in creating REQ.  In the subsections below, use the subsections to provide background and/or flavor to captured requirements.
+For NPI projects that use DeepThought, you MUST upload these requirements to DT. The embedded spreadsheet can optionally be used to upload requirements.  The REQs created in DRT after upload can now be linked to RLIs, to provide traceability. Be sure to add the link to the DeepThought REQ query for this NPI project back into this MRD, to provide easy access to the latest list of REQs. .
+
+
+
+
+
+
+Once the REQs have been created in DeepThought, the MRD owner Must download the list of requirements with their DT numbers and paste it back into the MRD, in this section, replacing the spreadsheet above.  This will provide further traceability between the MRD and DT. 
+Each requirement must have MUST, SHOULD, MAY text to describe the relative priority of the requirement. 
+Note that for system (and/or line cards in a modular system) projects, you must use MUST, SHOULD, and MAY as directed below to identify both the MVP (Minimum Viable Product) and UCC (Use Case Complete) requirements. 
+MVP is defined as the set of requirements that must be met in order to FRS the product, and must include all requirements necessary for at least one customer Use Case.  
+UCC is defined as the requirements for a specific set of “follow up” Use Cases that need to get completed after the Use Case that comes with the MVP.  
+• All MUST requirements must be met to achieve the Minimum Viable Product (MVP) that can be FRS'd (including at least one Use Case).
+• All SHOULD requirements must be met to achieve Use Case Complete (UCC).
+• MAY requirements are not necessary for achievement of MVP or UCC.
+* Press Release
+This is an internal press release announcing the products.  The press release is intended for customers of this product and should explain the customer problem and how this product will solve it.   The press release statement articulates the intended product objectives and anticipated reception to the market.   Press release statements should be reviewed and considered by all functional teams participating in the NPI. 
+* Press Release Statement 
+In a maximum of 200-250 words provide your press release statement.
+* Hardware
+Content for this section should include (as applicable): 
+* Optics (pluggables) Requirements
+< Applicable for new HW containing pluggable interface ports >
+Use the following Master Optics AVL as your starting point to define the requirements. Reach out to Core Optics Team to develop your optics requirements.
+Example:
+req#_
+	Optics
+	Description
+	Type
+	Priority
+(MUST, SHOULD, MAY)
+	Required at (FRS / 
+FRS+1 qtr / FRS+2 qtrs)
+	 req#_5.2.109
+	<Optics SKU >
+e.g. 
+JNP-100G-DAC-1M
+	100G DAC Twinex Copper Cable 1M
+	e.g. breakout capabilities
+	
+
+	FRS
+	
+
+* New hardware requirements
+Describe any new hardware requirements.
+* Existing hardware interoperability
+For example:  operate on all platforms, including ERX 700, ERX 1400, and all interfaces:  10/100 Ethernet, Gigabit Ethernet, T1/E1, T3/E3, OC3/STM1, OC12/STM4, and so on.
+* Power Consumption Characterization
+This section is applicable to the hardware products only.
+Note to MRD writers: As of July 2023 Juniper adopted new generic power characterization  ​docx icon  principles common to all hardware products, this information is used for the data sheet publication, both typical and maximum power consumption.
+The MRD writer shall read the document and request compliance to the principles. The document provides certain degree of freedom to account for special requirements related to your product, for example:
+* Specific port configurations of the device 
+* Specific types of the optics
+* Operating temperature range
+* Features
+* Power Over Ethernet configurations
+Below is the placeholder that you shall populate.
+
+
+[R-<Insert Requirement Id>] Hardware product power characterization MUST comply to the common  ​docx icon  Power Characterization and Modeling document.
+[R-<Insert Requirement Id>] Typical and maximum power consumption is requested for the following port profiles (define the profiles).
+[R-<Insert Requirement Id>] Typical and maximum power consumption is requested with the following optics (define optics, note DAC cables yield the best power consumption, but they may not represent typical deployment of the product, 2KM single mode optics is recommended for routing products, and note that optics not only increase the power consumption, but also changes the cooling regime of all the components in the system, e.q. NPUs and increase leakage power – think twice before picking lower power optics)
+[R-<Insert Requirement Id>] Typical and maximum power consumption will follow the following methodology: <pick one of the options below>
+* Weighted average at various throughputs (specify weights), or
+* Power at specific throughput (specify throughput, e.q. 50%)
+[R-<Insert Requirement Id>] For products supporting Power over Ethernet, typical power and maximum power consumption shall be provided for the following port and load combinations <specify combinations>.
+
+
+      * Operating System (OS) type
+Identify the Operating System that will be used for this product (Junos, EVO, Sonic).  
+* Manufacturability & Testability Requirements
+The product manufacturability and testability requirements for the new hardware development must conform to the listed documents in section 1.1.1. and 1.1.2. 
+
+These requirements ensure that traceability of manufacturing and diagnostics development are addressed.
+* Hardware Design Specifications
+The new hardware development shall meet these hardware design specifications for testability of the product e.g. loopbacks, Load cards etc.  These specs are available via the Oracle Agile PLM system.
+Reference
+	Description
+	SPEC-9447
+	Spec, Design Requirements for Manufacturing Test
+	PROC-9026
+	DFT Guidelines for PCA Design with IEEE Std. 1149.1-2001 Boundary-Scan
+	PROC-8384
+	DFT guidelines, In Circuit Test
+	
+
+* Software and Diagnostics Design Specifications
+The product shall meet the listed software design specifications for testability and diagnostics.  These specs are available via the Oracle Agile PLM system.
+Reference
+	Description
+	SPEC-9447
+	Spec, Design Requirements for Manufacturing Test
+	
+
+* MTBF and other reliability requirements
+* Environmental or “GREEN” requirements for recyclability
+WEEE, ROHS, REACH for more info see http://www-int.juniper.net/jdi/eng-services/ .
+Reference for RoHS2 here:  http://core.juniper.net/jdi/rohs/ .
+* RoHS2 Compliance
+RoHS2 compliance can be achieved through two approaches: 
+* Use of exemptions
+* Avoidance of exemptions – selecting lead free
+The preferred approach is to avoid the use of exemptions.   If exemptions are to be utilized this must be stated, the reason for deciding to use exemptions must be documented, and a plan with funding must be put in place to remove the dependence upon the exemption from the product.
+* Solid State Devices (SSD)
+Capture use case parameters in the following table.
+Requirement Area
+	Spec – to be completed for this MRD
+	Explanation/Example
+	SSD Size
+	50GB/100GB/200GB etc
+	This is the usable space w/o overprovisioning 
+	RAID/Redundancy Support
+	RAID-0/RAID-1..
+	Data back-up/protection mechanism for recovery purpose
+	FRU Support
+	Field replaceable requirement
+	Front panel access required or no
+	DWPD – Disk Writes per Day
+	0 to 1
+	For e.g. a 200G SSD – requirement of 0.5DWPD would translate to 100GB data being written in one day; which in turn would further translate to a sustained data write rate of 1 MB/s
+	SMART Attribute Monitoring
+	Industry wide attributes provided by SSD vendors
+	Self-Monitoring, Analysis and Reporting Technology – Juniper SW should monitor these attributes and raise alarms if any as may be required
+	
+
+	
+
+	
+
+	
+
+* WEEE, ROHS, REACH Software
+Content for this section should include (as applicable): 
+* New software feature requirements
+Describe any new software requirements.
+* Existing software interoperability
+For example: operate with QoS mechanisms such as DiffServ or ATM QoS; support for passive monitoring and ISSU,  support all traffic encapsulated PPPoE, PPPoA, Frame Relay, ATM; statistics support and so on)
+* Virtualization Requirements
+Describe virtualization requirements. This section should include the requirements for a virtualized version of the product to be leveraged and made available for internal qualification and test purposes of the product. Having a virtualized version of the product will result in cost savings, scaling the test coverage and shortening the qualification and regression test cycles.
+Document Virtualization requirements for this project. 
+* Existing JUNOS SDK application(s) requirements
+List any JUNOS SDK applications that are required as part of larger solution.  Consult with JUNOS SDK PLM.
+* Future SDK application(s) requirements or interaction
+Describe future SDK application requirements or interactions.
+* Thermal Event Detection and Prevention
+1. In modular systems, Thermal Health Check algorithm will be implemented on systems with removable line cares.  Ref. RL I#45800 for details.
+2. In both modular and fixed systems, Software to monitor the PSM output connector termperature.  Additional Software requirements are listed in RLI #45800.
+* Network Management Requirements
+In considering the Network Management requirements for this product or feature, the following questions or topics should be addressed, (as applicable):
+* Key management applications
+List any applications that will be used to provision, monitor, or manage this feature.
+* Context in which this product will be managed
+For example:  service provider NOC, enterprise IT department, SP managed service, end-user self care.
+* Key management application functionality requirements
+Describe key functionality needed by any management applications for this feature or product.
+* Platform manageability requirements
+Consider CLI changes, SNMP functionality, such as new MIBs, traps, or RFCs to be supported, statistics that must be collected, policy management interface requirements, and management performance requirements.
+* Junos Telemetry Interface
+The Junos Telemetry Interface provides a better scale than SNMP because it utilizes a push model instead of a pull. As such it can export data already available from SNMP but at a higher scale. The current implementation supports a two-second resolution for PFE-level sensors. Describe the Junos Telemetry/ JTI Format requirements for this feature or product. Describe the applicable sensor model (externally published) or define the sensor requirements for a Juniper native model.
+
+
+When defining the requirements of a new NPI, provide the reference product that must serve as the baseline for telemetry coverage. Ensure the production annotations are extended to the new NPI. For help on Product Annotation, refer to:  https://uiwiki.juniper.net/index.php?title=Product_Annotation_for_Yang_models.
+
+
+The annotations ensure the telemetry and yang model coverage of the new product are published to the customers at https://apps.juniper.net/ydm-explorer/.
+* Customer expectations
+List Juniper and/or 3rd-party management solutions.
+* System requirements
+Installation, upgrade, provisioning, maintenance, auto-configuration or plug-and-play requirements?  How are these requirements related to other features?
+* Additional network management application integration requirements
+Management vendors whose applications must be integrated with this product?  If so, what are they?  When do they need to be integrated (FRS, post-FRS)?
+* Management support required
+From Juniper management applications such as JUNOScope, J-Web, NSM, SRC, or Junos Space?
+* Competitor management solution
+Especially as it applies to competitive hardware product
+* High-Availability, resiliency and integrity requirement
+Content for this section should include (as applicable): 
+* High-Availability features
+List any that are both internal to the product and interact with other products (including protocol requirements).
+* Resiliency features
+List the relationship to common failure case, customer use case and Juniper-defined solutions.
+* Usability, serviceability, security and testability requirements
+Each MRD MUST identify specific requirements and objectives that will help drive the evolution of the usability, serviceability, security and testability of Juniper's products. Identify where existing products fall short of meeting market and customer expectations. Each program represents an opportunity to resolve such shortcomings.  If the specific market opportunity for this program has particular needs in any of these areas, the needs must be identified here.  In addition, identify one or more specific high-level enhancements to these areas (even if they are not market-specific).  These requirements may be sourced from Sales, Professional Service, Engineering, System Test and JTAC.
+This is an important section.  You may have difficulty gathering this information from customers. To ensure that you cover this section with enough detail, solicit feedback from JTAC representatives, the Sales/Systems Engineering teams, and the Professional Service groups from within Juniper.   In addition to the requirements gathered from customers and JTAC, Juniper has established a new requirement for hardware design to provide in-system upgrade capability for all programmable logic devices.  
+* Usability
+Describe general usability enhancements, concepts, and approach.
+* Usability features 
+As they relate to installation, configuration, operation, maintenance, upgrades and sparing.
+* Serviceability
+Describe serviceability and how it relates to satisfying customer requirements.   Describe the serviceability requirements which must be met for this product including those asserted by Juniper to ensure quality hardware and software outcomes.
+
+
+If the product DOES NOT adhere to the following Serviceability requirements, a business justification MUST be provided in the individual requirements and approval MUST be obtained from the Customer support team.
+Please respond to these serviceability requirements. Mention “not applicable” where necessary. 
+
+
+Please contact Serviceability-REQ@juniper.net for clarification of this section and requirements.
+* Features
+Serviceability as it relates to live debugging and offline debugging capabilities, fault isolation, diagnostics, packet traceability and any other data to expedite resolution of hardware or software problems.
+* Upgrades
+[R-<Insert REQID>] Evaluate any field-upgradeable components in the new hardware that are capable of on-the-fly upgrades and restarts. It is imperative to ensure that the JFIRMWARE feature is supported at FRS. Examples of such components include BIOS, FPGAs, and power supplies.
+[R-<Insert REQID>] Review all recently introduced applications or processes in this product to determine their compatibility with on-the-fly upgrades and restarts, ensuring that JSU support is present at FRS.
+[R-<Insert REQID>] Provide support for In-Service Software Upgrade (ISSU) / Nonstop Software Upgrade (NSSU) to facilitate software upgrades in production deployments with minimal or zero downtime. Describe all the failure codes along with a recovery method. 
+Clearly mention the limitations/incompatibilities with features running on the device (if any) along with the OS (both starting and target release of ISSU) . E.g. as described in following example for SRX products [ https://supportportal.juniper.net/s/article/SRX-ISSU-ICU-upgrade-limitations-on-SRX-firewalls?language=en_US ].
+[R-<Insert REQID>] Assess and validate the (OSUM tool) one-step software upgrade process from a previous release (at least three versions behind) to the software bundled with this product.
+
+
+*  Alarms and Logging
+[R-<Insert REQID>] Ensure compliance with the following requirements for events and logging:
+1. Review all new operational outputs and incorporate relevant Ops CLI and logging into RSI.
+2. Ensure that the system has sufficient space to store core files from all FRUs.
+3. Review all thresholds for hardware component resources and utilization. Proactively trigger alarms and syslogging when thresholds are crossed. Provide a healthy operational range for the resource utilization so that JTAC can evaluate the system health after a recovery from an event.
+4. Verify that all new events are subscribed with EventD.
+5. Evaluate and provide support for archiving traces and logs into /var/log with configurable file size and log rotation settings.
+6. Review and implement support for telemetry sensors (Native/gRPC) for all newly introduced operational CLI statistics.
+[R-<Insert REQID>] Ensure that the resiliency framework, such as CMAlarm infrastructure (or a similar infrastructure utilized in this platform), can effectively identify each failure mode. This includes generating unique identifier logs, alarms, and default actions for each failure scenario. Describe all the failure/error codes along with known conditions that would generate the error. (if possible)
+[R-<Insert REQID>] Provide the steps to retrieve logs/data from all FRUs (if they are not transferable via standard CLI. E.g. TVP platforms might need to move data from Linux side to Junos side (or vice-versa) for users to retrieve it for analysis. )
+[R-<Insert REQID>] Provide support for maintaining the fault state of FRUs, as outlined in PR 1207307, PR 1620864, and PR 1499843. Preserving a persistent fault state info across reboots is beneficial for the following serviceability conditions::
+1. Utilize RMA Recommendations for remedial action.
+2. Automating the system to prevent the faulty FRU from being powered on with a persistent fault state.
+
+
+* Debuggability
+[R-<Insert REQID>] Examine and incorporate any new failure mode identification methods that utilize Fault Insertion Techniques to accurately emulate or simulate failures into the CBB Document. Refer to the CBB Documents. for details. These methods should be thoroughly reviewed and tested during the NPI process for inclusion in regression test plans following FRS.
+[R-<Insert REQID>] Evaluate and furnish PFE Tools (such as JSIM, JRCA, gdb macros, gcore) for JTAC, including any additional debugging procedures necessary for JTAC to analyze issues without requiring customers to recreate them.
+[During instances where time constraints hinder thorough debugging, customers may not provide sufficient time for data collection. Some opt to provide a gcore (especially PFE/FPC gcore) to assist in offline data analysis. However, in TVP releases, gcore for dcpfe running in containers may not function properly. Even if a gcore is provided, analyzing it requires familiarity with relevant data structures for printing and analysis. Standard gdb macros are needed for all key daemons committed to DCB and relevant branches, maintained for PFE core analysis. Additionally, for troubleshooting Juniper ASIC (Paradise, etc.), JSIM must be operational for all use cases, as it can be challenging to trace packets in the pipeline amidst production traffic, where JSIM proves invaluable.]
+[R-<Insert REQID>] Provide onbox port mirroring capabilities for capturing both host-bound and transit traffic, along with logging in /var/log in pcap format. (Reference: RLI# 58184, RLI# 58186, RLI# 55570). Also provide information on traceability of packet inside the device between ingress to egress interface.
+[R-<Insert REQID>] In the event of a fault condition, extract and dump pertinent register information from component levels, encompassing power, voltage, and other relevant platform details for all supported FRUs, including Fabric. Ensure that only relevant data is extracted, omitting unnecessary information. [For instance, utilize the platform-specific FRU "get-state" utility (brackla-fru-get-state) as an example.]
+[R-<Insert REQID>] Provide live debugging capability [including both CLI & PFE commands along with any component specific commands] which triggers no functional impact and no out-of-service window to the system during live debugging. Provide ability to perform offline debugging by collecting relevant information without triggering functional impact and without introducing out-of-service window to the system. The collected information should include all state replication data for cloning / replicating the production state in lab environment for offline analysis.
+[R-<Insert REQID>] Provide support for I2C resiliency and debuggability, including the ability to identify the exact slave device experiencing a failure at any given time, and trigger alarms in the event of continuous unexpected failures. [ Ref: https://junipernetworks.sharepoint.com/:w:/r/sites/engdoccenter/_layouts/15/Doc.aspx?sourcedoc=%7B4922C45B-F5EF-4890-9BB7-7F57B9E6901B%7D&file=resilBb_plat_board_common.docx&wdLOR=c9525A2CB-F760-684E-8DED-3EA905547CA9&action=default&mobileredirect=true ]
+
+
+* Diagnostics
+[R-<Insert REQID>] Support for Field Diagnostics support to enhance the identification and isolation of faulty hardware in customer networks deployed in the field. Refer: https://junipernetworks.sharepoint.com/:w:/r/sites/engdoccenter/_layouts/15/doc2.aspx?sourcedoc=%7BEDFA2D0C-5BD2-47C0-B307-D5C85C633F18%7D&file=FieldDiagnosticsFS.docx&action=default&mobileredirect=true. 
+[R-<Insert REQID>] Assess and provide feasible implementation of centralized correlation logic, such as from jinsight or a similar tool, to examine information like CRC link errors, error interrupts, cmerrors from various nodes, PFE-PPE wedges, etc. This aims to provide customers or JTAC with the most probable source of corruption to initiate the debugging process.
+[R-<Insert REQID>] Capability of running diagnostic tests on an FRU on a separated domain on the fly without restarting / affecting the rest of the live system. After the test, the FRU should be able to redeploy / be replaced and be able to add back to the system without any impact.
+
+
+[R-<Insert REQID>] Evaluate and support the following ASIC (HW) assisted serviceabilities and resiliencies:
+1. Integrate cell and fabric header CRC check into hardware without affecting performance, rather than relying on microcode.
+2. Develop a tool for end-to-end ttrace functionality, tracing from ingress to egress, eliminating the need to capture the same parcel from multiple PFEs and run them separately. This involves reserving a hardware tag bit in the fabric header for parcel tracing throughout the system.
+3. Implement the capability to perform warm resets per slice, per block, and per core based on the error location.
+4. Enable PTOC (Packet Transmission Overload Control) towards the WAN side, allowing for line-rate 100G or 400G traffic generation towards WAN side for essential field online diagnostics.
+5. Ensure that SOC (System on Chip) components of the ASIC, such as HBM (High Bandwidth Memory) memories, are second sourced and qualified as part of the initial NPI, wherever possible.
+
+
+* Resiliency
+[R-<Insert REQID>] The system must facilitate the hot insertion and removal of all Field Replaceable Units (FRUs).
+[R-<Insert REQID>] Assess and provide methods for recovering a Field Replaceable Unit (FRU) that would typically require removal and reinsertion. The failure scenario involves the FRU being powered up but unresponsive, with broken I2C access preventing reset or "hotswap_kill" actions. A solution is required wherein a signal from the Control Board (CB) triggers the power cycle of the hotswap controller on the FRUs. (Reference: RLI# 47890)
+[R-<Insert REQID>] Provide support for resetting each Packet Forwarding Engine (PFE) individually.
+[R-<Insert REQID>] Provide support for restarting processes or applications for any newly introduced process or application in the product.
+[R-<Insert REQID>] Minimize the dependency of PFE 0 on a line card for inline features and enable dynamic failover of inline services from the anchor PFE to the next available PFE on the line card. (Example Reference: RLI# 58101).
+
+
+* Documentation
+[R-<Insert REQID>] Review all new errors, alarms, and events occurring across software and hardware, and ensure they are accompanied by detailed descriptions  (including any error codes) and recommended remedial actions within the Onbox system.
+
+
+* Sparing strategy
+Describe expected strategy a customer will employ.
+* Cable management
+Customer cable management as it relates to sparing.
+* Security requirements
+
+
+Section 5.6.3 (A): Security requirements for Juniper platforms
+This section is for Juniper platforms. (Skip to Section B, if virtual/cloud-based/hosted products). If the product DOES NOT adhere to the following security requirements, a business justification MUST be provided in the individual sections and approval MUST be obtained from the Security Engineering Team.
+Please respond to these security requirements. Mention “not applicable” where necessary. 
+
+
+5.6.3.1 Hardware
+
+
+Hardware selection plays a critical role in securing the device. CPU’s provide hardware mechanisms for process and peripheral isolation, execution privilege layers, control flow integrity, memory encryption, sources of entropy, cryptographic hardware offload, virtual or physical Trusted Execution Environments (TEE), among others. These features may influence security certification goals such as FIPS 140-3, security strength claims for the platform, and the security services it may provide. 
+See requirements in [TODO - Please contact SDL-REQ@juniper.net for hyperlink and section #] (section TODO).
+5.6.3.2 Secure Boot        
+
+
+Secure boot provides a secure chain of trust through the various cold boot stages, starting with an immutable Boot Read-Only Memory (ROM) to OS process initialization. It provides mechanisms for verifying the integrity and authenticity of binaries and firmware, files, and calibration data. Read-write memory policies over data and executables, and the initialization of hardware mechanisms such as the CPU MMU and SMMU / IOMMU during the boot flow are all critical in booting the device securely.
+See requirements in [TODO - Please contact SDL-REQ@juniper.net for hyperlink and section #] (section TODO).
+5.6.3.3 Operating System
+Operating System (OS) hardening helps reduce a device’s attack surface by introducing security features that:
+* Minimize the risk that software corruption turns into exploitable code.
+* Prevent code injection attacks.
+* Contain process and peripheral corruptions through hardware mechanisms such as the CPU MMU and SMMU / IOMMU. 
+* Provide defense-in-depth protections against control flow integrity and dynamic link resolution, such as stack overflow detection and Relocation Read-Only (RELRO).
+* Increase the effort in exploiting vulnerabilities that rely on knowing address space layouts, such as Address Space Layout Randomization (ASLR). 
+* File system and data at rest protections against modification and disclosure.
+See requirements in [TODO - Please contact SDL-REQ@juniper.net for hyperlink and section #] (section TODO).
+
+
+5.6.3.4 Security Services
+The device provides security services to both itself and user applications. These include:
+* Cryptographic key generation and management.
+* Secure communication services including cryptographic processing and hardware offload.
+* Key store services.
+* Rollback protection, where user and device Calibration Data cannot be rolled back to a previous state.
+* Remote attestation [RAT-ATT-DRAFT 22, TCG-ATT-DRAFT 19].
+* Device unique identities [IEEE-802.1AR 18].
+See requirements in [TODO - Please contact SDL-REQ@juniper.net for hyperlink and section #] (section TODO).
+
+
+5.6.3.5 Documentation
+To help support federal customers and align with Executive Order 14028 [EO 14028, SBOM 21], the product is required to collect, safeguard, maintain and share provenance data for all components of each software release in a Software Bill of Materials (SBOM). The distribution of SBOM documentation to an end user may require Product Line Management (PLM) approval depending on individual product teams.
+* For each Software Release, the product shall be delivered with a Software Bill of Materials (SBOM) for Juniper Platform containing the following, as described on page 9 in [SBOM 21]:
+   * Author name.
+   * Supplier name.
+   * Component name.
+   * Version string.
+   * Unique identifier.
+   * Relationship.
+   * Timestamp.
+Products that leverage existing images won’t need a new SBOM, but any image with a new name will require a separate SBOM. 
+
+
+Section 5.6.3 (B): Security Requirements for Cloud Hosted Solution 
+(AMAZON WEB SERVICES, Microsoft Azure) 
+
+This section is for Juniper’s Cloud Product Security Requirements. Mention “not applicable” wherever necessary. If the product DOES NOT adhere to the following security requirements, a business justification MUST be provided.
+5.6.3.1 Data Protection
+        5.6.3.1.1 Data handling during transit process
+   * Data in transit MUST be protected between end user device(s) and the service. 
+   * Data in transit MUST be protected internally within the service. 
+   * Data in transit MUST be protected between the service and other services (e.g., where APIs (Application Program Interface) are exposed).
+        5.6.3.1.2 Data handling at rest
+   * Data MUST be stored in encrypted form, use standard approved crypto algorithms for encryption.
+   * The principle of least privilege MUST be enforced for data access. 
+Secure erase mechanisms MUST be enforced for destroying Critical Security Parameters.  
+5.6.3.2 Encryption and Key Management
+Adequate cryptography skills are required for reliable key management. For this reason, personnel responsible for key management must be identified and trained. 
+An inventory of all cryptographic keys, their use, storage, and life cycle MUST be published. 
+5.6.3.3 Security Architecture
+Security architecture should meet the below goals: 
+* make initial compromise of the system difficult 
+* limit the impact of any compromise 
+* make disruption of the system difficult 
+* make detection of a compromise easy 
+Security architecture documents MUST be published at the end of product design phase.
+5.6.3.4 Cloud Shared responsibility model
+If any resource is shared between the consumer of the product and Juniper Networks, the following must apply:
+* Base OS images used MUST be hardened and 3rd party applications consumed must be published from authorized vendors. 
+* Service configuration MUST be secure by default.
+* Any monitoring access with elevated privileges provided to Juniper Networks MUST: 
+* Be Approved by the customer
+* Be Temporary
+* Can be disabled by the customer
+5.6.3.5 External Interface Protection
+All external interfaces must only support authenticated access over a secure channel. 
+         6. Operational Security
+        5.6.3.6.1 Configuration and change management
+Any configuration change MUST be tested and authorized prior to deployment. 
+        5.6.3.6.2 Protective Monitoring
+* Audit logs MUST be captured at various layers of cloud stack and retained for forensic purposes. 
+* Security logs from the cloud infrastructure MUST be actively monitored. 
+        5.6.3.6.3 Vulnerability management
+* Vulnerability management process SHOULD be in place to identify, triage and mitigate vulnerabilities. 
+* An up-to-date inventory of 3rd party apps and libraries MUST be published and managed.
+        5.6.3.6.4 Cloud Incident Management        
+Cloud-specific incident management process and policy document MUST be published.
+5.6.3.7 User Access and Separation of Layers
+* A malicious or compromised user of the service MUST NOT be able to affect the service or data of another. 
+* The principle of least privilege MUST be adhered to when provisioning new users.
+* User access MUST be allowed only over an authenticated and secure channel. 
+            1. User Credential Management 
+* User credentials MUST be stored in an encrypted and secure format.
+* All Personnel with access to user credentials and personal identifiable information (PII) MUST be identified and trained.
+* Any credit card information MUST be stored in compliance with the PCI-DSS standard. (https://blog.pcisecuritystandards.org/topic/pci-dss-v4-0 )
+5.6.3.8 Documentation
+To help support federal customers and align with Executive Order 14028 [EO 14028, SBOM 21], the product is required to collect, safeguard, maintain and share provenance data for all components of each software release in a Software Bill of Materials (SBOM) for Cloud Hosted Solutions. The distribution of SBOM documentation to an end user may require Product Line Management (PLM) approval depending on individual product teams.
+
+
+* For each Software Release, the product shall be delivered with a Software Bill of Materials (SBOM) for on-premise Cloud Hosted Solutions containing the following, as described on page 9 in [SBOM 21]:
+   * Author name.
+   * Supplier name.
+   * Component name.
+   * Version string.
+   * Unique identifier.
+   * Relationship.
+   * Timestamp. 
+Section 5.6.3 (C): Security Policies
+
+The following are security policies intended to be followed throughout the product development lifecycle for Juniper cloud and platforms up to End of Software Engineering (EoSE). These are policies and will not have Release Line Items (RLI) for functional verification.
+
+
+5.6.3.1 Common Vulnerabilities and Exposures (CVEs)
+Any shipped software component should not contain known CVEs with a Common Vulnerability Scoring System (CVSS) score greater than 5.0, when the product is first released. Thereafter, in the following releases up to End of Software Engineering (EoSE), software components should not contain known CVEs with a CVSS score greater than 3.0.
+
+
+5.6.3.2 Penetration Testing
+Is penetration testing required for this product? If so, please contact pen-test-request@juniper.net
+
+
+Any shipped or new product MAY be subject to penetration testing. The penetration test plan describes tools and techniques to be employed and includes a combination of manual and automated tests. Penetration testing discovers exploits and weaknesses that can compromise or breach the confidentiality, integrity, or availability of the system.
+
+
+5.6.3.3 Vulnerability Scanning & Tracking
+The product will undergo vulnerability scanning on each software release by System Test team using vulnerability scanning tool(s). Implementation vulnerabilities discovered by scanning tools or during the software development lifecycle must be documented and tracked using the SIRT trouble ticketing system [SIRT DEF-TRACK].
+
+
+________________________________________________________________
+
+
+      * Sustainability
+Describe the sustainability (Energy Efficiency, Circularity and Packaging) requirements which must be met for this product including those asserted to ensure quality hardware and software outcomes.
+
+
+If the product DOES NOT adhere to the following Sustainability requirements, a business justification MUST be provided in the individual requirements.
+
+
+Please contact Sustainability-REQ@juniper.net for clarification of this section and requirements.        
+* Energy Efficiency
+Describe the Energy Efficiency (Hardware and Software) feature requirements which must be met for this product including those asserted to ensure quality hardware and software outcomes.
+
+
+Please Note: The requirements listed are not restricted, and you have the option to incorporate additional energy efficiency features that enhance the overall product efficiency.
+
+
+[R-<Insert RequirementID>] Support for WAN SerDes automatic shutdown in modular chassis or compact chassis as applicable with all following possible scenarios and not limited to:
+1. Shutdown of SerDes when there is empty port unused, disabled or not configured.
+2. Shutdown of SerDes lanes facing Gearbox/PHY from Optics Cage or PFE when there are empty ports unused, disabled, not configured.
+3. Shutdown of unused SerDes lanes based on the Port Speed/Optics used.
+4. Shutdown of unused SerDes lanes facing RGB/PHY from Optics Cage or PFE based on the Port Speed/Optics used.
+
+
+[R-<Insert RequirementID>] Support for automatic Retimers, Gearbox, PHY Reset-mode if all ports connected these devices are empty, unused, disables or not configured.
+
+
+[R-<Insert RequirementID>] Support for Manual PFE “Soft” Power OFF and Power ON through CLI and Netconf.
+
+
+[R-<Insert RequirementID>] Support for Automatic PFE Shutdown when the connected ports are empty, unused, not configured, disabled or no inline services turned ON.
+
+
+[R-<Insert RequirementID>] Support for Automatic Fabric Links shutdown when there is no FPC or PFE used from the respective slot.
+
+
+[R-<Insert RequirementID>] Support for N+1 Fabric Mode.
+
+
+[R-<Insert RequirementID>] Support for MACSec Block Activation/De-activation, MACSec Bypass when MACSec not used at per system, per FPC or per port-group level.
+
+
+[R-<Insert RequirementID>] Support for Coarse clock gating at all possible parallel processing design - Examples are unused PPEs in a parallel processing design, or logic/IO for unused modes of a multi-mode design.  Preferrable to dynamically enable/disable based on PPS.
+
+
+[R-<Insert RequirementID>] Support for Adaptive Fabric based on max bandwidth PFE/FPC in the system to dynamically run N Active Fabric with N+1 redundancy. Note: The max bandwidth should consider Inline services if running in the max bandwidth PFE.
+
+
+[R-<Insert RequirementID>] Support for PSM Efficiency optimization through Hardware and Software design considerations.Example:
+Hardware: Preferrable for 80Plus rated power supplies Platinum/Titanium in PSU/PEM Hardware specs for higher efficiency.
+Software: Dynamic PSU/PEM ON and OFF in multi-PSU/PEM systems based on Power Utilization to run the PSU/PEM at its Peak Efficiency.
+
+
+[R-<Insert RequirementID>] Support for Turn-off Revenue port LED to save incremental power saving per system and significant from network wide power consumption.
+
+
+[R-<Insert RequirementID>] Support for External Buffer Shutdown in Platforms that have an external memory attached to the PFE and use them only when needed to save power.
+
+
+[R-<Insert RequirementID>] Support to reduce the platform energy consumption by controlling the fan speed as per the platform, Optics heat dissipation and described ambient temperature.
+
+
+[R-<Insert RequirementID>] Support considering Heat Sink based approach for ASICs heat dissipation versus fan-based approach to reduce power consumption.
+
+
+[R-<Insert RequirementID>] Support for IEEE 802.3az Energy Efficient Ethernet (EEE) in help reducing the power consumption on physical layer devices.
+
+
+[R-<Insert RequirementID>] Support for intelligent PoE that auto detects the power each PD consumes so that only the required amount of power is delivered.
+
+
+[R-<Insert RequirementID>] Support for Power monitoring (Typical and Actual) and logging for all active FRUs and Components in the system to be monitored on power consumptions.
+
+
+[R-<Insert RequirementID>] Support for Juniper Telemetry Interface sensors for all Power Monitoring operational states in the system.
+
+
+[R-<Insert RequirementID>] Support for periodic and on-change telemetry sensors for all the Power Monitoring data streaming and events.
+
+
+* Circulatiry
+Describe the Circularity requirements which must be met for this product.
+
+
+* Packaging
+Describe the Packaging requirements which must be met for this product.
+      * Testability
+Describe testability scope and approach.
+* Customer testing and certification
+How does customer plan to perform testing and certification?
+* Testing suites
+What testing suites from test vendors will be used?
+* Compliance standards
+What standards exist to verify compliance or certify this type of solution?
+See Compliance Engineering Homepage for guidance:
+https://junipernetworks.sharepoint.com/teams/SST/ST/compeng/SitePages/Home.aspx
+
+
+* Performance and Scale Requirements
+Content for this section should include (as applicable): 
+* Aggregate packets per second 
+Per port, per interface, per chassis.
+* Line speeds
+Line speeds that must be supported.
+* Scalability
+Number of VCs per port, per interface, per chassis.
+* Availability goals
+Uptime, boot time, etc.
+* Performance and scale goals
+Please tie these goals back to customer/application section.
+Why do they need this? Add competitor section (who is forcing us to respond here?
+* Standards Compliance and Interoperability
+The product must have regulatory approvals and compliance statements consistent with the Juniper Compliance Standards document unless otherwise noted: https://junipernetworks.sharepoint.com/teams/SST/ST/compeng/SitePages/Home.aspx 
+
+
+(This tool will have a permanent home on the Compliance Engineering SharePoint site once it goes live:  ETC:  3/1/16)
+Content for this section should include (as applicable) any exceptions to the Agency Specification and any additional requirements, as follows: 
+* Standards compliance requirements
+List any standards compliance requirements, notably any which are new or unique.
+See Compliance Engineering Homepage for guidance:
+https://junipernetworks.sharepoint.com/teams/SST/ST/compeng/SitePages/Home.aspx
+* Environmental Product Compliance
+The environmental compliance standards according to SPEC-9200 are mandatory for Juniper products, FRUs (Field Replacement Units) and all suppliers. The source and list of specifications are listed below.
+1. https://agileplm.juniper.net/Agile/PLMServlet?fromPCClient=true&module=ItemHandler&requestUrl=module%3DItemHandler%26opcode%3DdisplayObject%26classid%3D9000%26objid%3D1056482574%26tabid%3D0%26
+2. https://junipernetworks.sharepoint.com/teams/SST/ST/compeng/Archive/00-Compliance/Requirements%20and%20Specifications/Common/Environmental%20Compliance_Requirements.pdf 
+* Product or subcomponent certification requirements
+List certification requirements including NEBS, TAA, and homologation requirements beyond Engineering Services' “Tier 1” countries.
+* Percentage of forecast section requiring TAA
+List when a TAA product is required relative to (FRS) First Revenue Ship of the non-TAA product.
+* National Government, Federal, public sector or industry standard certification requirements
+Compliance with Common Criteria and FIPS (Federal Information Processing Standard) are mandatory considerations for all new introductions of hardware platforms, software with cryptographic capabilities, any changes to Junos cryptographic libraries and any third party software integration. Security-related Products may require additional industry standard certifications such as ICSA certifications.
+* Common Criteria requirements
+Compliance with Common Criteria and FIPS (Federal Information Processing Standard) are mandatory for all new introductions of hardware and software crypto library and any third party software integration.  Common Criteria certification is required for all products that are targeted for use by the United States government, Canada, UK, Australia and NATO countries.
+Identify the Common Criteria protection profile (NDPP for any Network Appliances such as router and switches, FWPP for any Firewall products or capabilities, VPNPP for any VPN capabilities within the platform, etc.) that is required by this program or by the product that it goes into. If there is any question, please contact FIPS-CC-Review-Team@Juniper.net.
+If the product/feature/software proposed DOES NOT require Common Criteria certifications, a business justification MUST be provided.
+Refer to the work instructions for MRD Template, section “Guideline on Federal and public certification requirements” at the end of this document, for additional information.
+* FIPS requirements
+Compliance with FIPS (Federal Information Processing Standard) is a mandatory consideration for all NPI programs and required for most products that process user data or perform cryptographic functions and are targeted for use by the United States Government.
+Identify the level of FIPS Certifications required:
+* Level one for software modules or hardware modules that are being deployed in physically secure facilities
+* Level two for hardware modules that are being deployed in facilities where its physical security is in question
+For new devices with dual routing engines or that can be deployed in virtual chassis or HA cluster, the FIPS certification should include certification with a single RE, or standalone configurations as well as redundant RE, or Virtual chassis, or HA Cluster.  This might require feature development.
+If the product DOES NOT require FIPS Certifications, a business justification MUST be provided.
+If there is any question, please contact FIPS-CC-Review-Team@Juniper.net.
+Refer to the work instructions for MRD Template, section “Guideline on Federal and public certification requirements” at the end of this document, for additional information.
+* Impact on FIPS and Common Criteria certifications
+Answer the following questions if this program or product has impact(s) on FIPS and Common Criteria Certifications:
+1. Does this program add any new cryptographic algorithm or protocol to the product? If a new cryptographic algorithm or protocol is added to the product, please specify in detail.
+
+
+2. Does this program add a new implementation of an existing cryptographic algorithm or protocol? If a new implementation of an existing cryptographic algorithm or protocol is added to the product, please specify in detail.
+
+
+3. Does this program modify or remove an existing cryptographic algorithm or protocol implementation? If an existing cryptographic algorithm or protocol is modified or removed from the product, please specify in detail.
+
+Refer to the work instructions for MRD Template, section “Guideline on Federal and public certification requirements” at the end of this document, for additional information.
+   * IPV6 Readiness
+IPv6 is now Mandatory in order to address the IPv4/IPv6 coverage gap.   
+   1. Does this product belong to a family that is already IPV6 compatible?   
+   2. Describe the subnet addressing requirements for this product. 
+   3. Will a dual stack implementation be required for this product? 
+   4. If this is a new hardware, describe which IPv6 Logo certification will be covered at FRS and USGv6 certification completion timeline if it cannot meet FRS timeline. 
+
+IPv6 Logo certification: https://www.ipv6ready.org/?page=phase-2-tech-info
+USGv6: https://www.iol.unh.edu/services/testing/ipv6/testsuites/ 
+If there is no need for IPv6 for this product, please provide detailed responses to the following and ensure that the JUNOS IPv6 PLM has endorsed your decision. 
+      1. If IPv6 is not going to be supported, describe why this product does *not* need IPv6. 
+      2. If IPv6 support is being delayed for this product, describe the migration plan including details of when and how IPv6 will be achieved. 
+      3. Describe all scale and performance requirements for both IPv4 and IPv6. 
+      * Homologation at FRS
+Homologation is expected for the following countries at FRS: 
+United States, Canada, European Union, UK, Australia, New Zealand, and Japan.
+      * Post FRS Homologation
+Specify any additions or deletions to the reference list of countries for your product family in Appendix 16. The reference list for product families not applicable to the MRD can be deleted. The duration in the list represents the expected number of months that the homologation process is expected to take after FRS and should not be changed.
+Refer to below Sharepoint link for the latest product certification durations​ for NPI post-FRS plan of record countries​:
+https://junipernetworks.sharepoint.com/teams/SST/ST/compeng/Archive/00-Compliance/Country%20Shipping%20Controls/Homologation_POR.pptx
+      * Regional country certifications
+Specify any other regional country certifications requirements such as CESG (UK requirement), DSD (Australian requirement), or CSE (Canadian).
+      * Interoperability testing requirements
+List any products that should be considered for interoperability testing.
+      * Security requirements
+List any security requirements related to the preceding certifications.
+      * MEF Requirements 
+The MEF has released the new version of the recomedations for switching equipment and Metro Area Networs searching compliancy with MEF standards. MEF 3.0 replaces the CE2.0 certification track adopting the newer versions of the MEF recommendations (more details can be found at www.mef.com). 
+      * MEF Certification Registry of Juniper Platforms
+      * MEF 3.0 Test Requirements
+      * MEF 3.0 Carrier Ethernet Certification Blueprint
+      * CE2.0 and MEF3.0 overview and comparison​​
+      * Full list of the MEF recommendations and standards
+      * IoMetrix LabInTheSky Repository​
+Refer to the Juniper site for guidance.  
+      * Licensing Requirements
+Note, in 2019, Juniper adopted a model for licensing of all products, called the Juniper Flex model.  The Flex model mandates the structure and packaging for all Juniper products that involve Software (SW).  Operationally, it uses the Juniper Agile License system (JAL), both the Entitlement Management System and the JAL License Manager. All products that contain SW MUST use this model going forward.  Training and documentation is available on the PLM Sharepoint site here.
+Content for this section should include (as applicable):
+      * License type
+Subscription licenses in 1, 3 or 5 year options and hidden perpetual licenses are the options.  No stand-alone feature licenses.  Tiers MUST be Standard, Advanced, and Premium.  
+      * Similar Juniper product licensing
+If your product family already has Standard, Advanced and Premium license types defined, you MUST reuse these or get exception permission from your VP PLM.
+      * License scope
+The Flex license model metrics allow for the product group to license per product instance (instance, chassis, line card…) on metrics such as capacity, scale, throughput, storage, and features.  Metrics can combine in the 3 tier model if desired (for example, license features AND scale)  See 6.9.2 to make sure you are in compliance with any product family decisions.
+      * License entitlement
+The JAL client MUST be implemented.  Any new features that are licensed must be included into the license model. 
+      * License keys
+The JAL client will track license keys.  Manual keys must also be allowed to be entered into the product.  All SKUs must register with the Entitlement Management System EMS (part of JAL).  Keys are mandatory.
+      * License limits enforcement
+Limits are enforced according to the Flex policies – the same for all types of Juniper products. 
+      * Non-commercial licenses 
+Demo, emergency and trial licenses must all be supported.  These types are all defined and common by the Juniper EMS system. 
+      * Support services entitlement
+Subscription SKUs will include Juniper support services unless otherwise specified (for example PAR SKUs).  Perpetual licenses require separate support SKUs.
+      * Packaging Requirements
+Content for this section should include (as applicable):
+      * Orderability
+Is this item separately orderable/chargeable?
+      * Distribution
+Must it be distributed separately?
+      * Model numbers
+Identify the projected list of model numbers that will be created to support this project.
+      * License SKUs
+Identify whether or not license SKUs will be for specific product platforms or generic for multiple produce platforms.
+      * New SKUs
+Will new SKU(s) or items on price book be created for this project?  If so, provide number and structure of the SKU(s) and the justification for their existence.
+      * PAR SW SKUs
+If your product has subscription SW that can be supported by PAR Partners (channel partners who offer Level 1 & Level 2 TAC support), then you must also create PAR SKUs before FRS.
+      * Information Experience (Technical Documentation)
+Content for this section should include (as applicable):
+      * Required deliverables
+Examples include printed Quick Start Guide, Deployment Guide, Solutions Guide, Hardware Guides, Software Guides, CLI and GUI Help, Use Cases, Configuration Examples, API Documentation and Secure Configuration Guide for use of FIPS and Common Criteria.
+      * User personas 
+Which personae are the primary consumers of the deliverables? 
+Network/Security Architect, Network Planner, Network Operations/Data Center Manger, Sales Engineer, Network Operations/Security Manager, IT Developer.
+      * Localization 
+If required, list target languages and timelines.
+      * OEM rebranding 
+If required, list target OEMs and timelines.
+      * Inbound OEM documents 
+If there are any inbound OEM documents associated with the project, please consult with the Information Experience representative on the NPI team. If you are not sure, ask the iX rep.
+      * Quality and Reliability Requirements
+Content for this section should include (as applicable):
+      * MTBF
+What is the required MTBF?
+      * Other quality or reliability metrics
+List all other quality or reliability metrics that apply.
+      * Infrastructure Support 
+For example: ISSU, hotfix, Virtual Chassis.
+      * Describe infrastructure support
+New products must implement their own support for “infrastructure” items such as GRES, NSR, ISSU.
+The purpose of this section’s presence in the template is to ensure that the infrastructure support requirement is stated explicitly so that nothing falls through the cracks.
+      * Field Conversion
+Will this product support field conversions?  Field conversion is defined as the ability for the product to be converted from one product series to another product series, or air flow direction, or change in power source (AC to DC, or DC to AC) on premise at a customer location. 
+
+
+The information in this section is important to CSS and other functions in determining the impact to their respective areas. Here are a few examples: outlining the RMA process due to a field conversion, changes to the install base (IB) record, service contract changes for renewals, BOM structures, technical documentation needs, etc. 
+      * Hardware Conversion Requirements
+Describe the hardware aspects of the conversion.
+Is the hardware of original product sufficient to convert to another product?  Example: For QFX10k8 to convert to a JNP/PTX10k8, customer required to add a 2nd SSD in order to take advantage of all the SW features in 17.1R1. 
+Or, are different line cards required in order for the original product-series to function as the converted product-series?
+
+
+      * Software Conversion Requirements
+Describe software requirements to support the conversion.
+Will you sell an upgrade/downgrade SW License key so the IB records reflect the current product the customer is using?  SW license needs to be serialized so it flows into the IB. The lack of SW license serialization will impact service contracts and renewals.
+What software changes will be required to convert the original product? 
+In order to support a field conversion, the following capabilities should be available via CLI command or other SW mechanisms:
+      * Show current system personalities 
+      * Show all the personalities the underline HW is capable of supporting
+      * If a CLI command is entered that is incompatible with the current personality, the system should be able to return a warning to indicate such and give a summary of steps of system conversion.
+      * Example: If a PTX-only command is entered on the JNP/QFX system, the command should return a message telling so together with a list of steps about how to convert a current JNP/PTX to a JNP/QFX.
+For common hardware products the RE or chassis FRU must be able to support more than one product image.  For example, the default image of PTX and a second image of QFX for RMA purposes.   
+      * Inclusion and Diversity
+      * Inclusion and Diversity Requirements 
+Language used in code, user interfaces, hardware, product labeling, and documentation for any new functionality will comply with standards to promote inclusion and diversity. For example, the term ‘blacklist’ should be avoided and the alternative term ‘blocklist’ preferred. Juniper’s Inclusion and Diversity team maintains a style guide here: https://core.juniper.net/sites/community/diversity/doc/InclusiveLanguageGuide.pdf
+      * Cloud Attachment Ready Features:
+      * QR Code sticker support
+For device cloud attachment to Juniper cloud services, QR code sticker support is MANDATORY for every product. The QR code is generated during manufacturing.
+(The QR code sticker example for Mist cloud attachment can be found at: https://www.juniper.net/documentation/us/en/quick-start/cloud-ready-switches/topics/topic-map/step-1-begin-v2.html#concept_ilc_krd_qjb)
+      * SZTP client software
+Every product must support sZTP or ZTP in order to connect to Juniper's Cloud Services /Customers DHCP(redirect)server by default. Default mode (sZTP or ZTP) will be driven by the product market requirements. Customers can change default mode through CLI. The SZTP client is based on the industry-standard RFC 8572.(Note that SZTP requires DevID and Secure Boot support, as mentioned in the Security Requirements for Juniper Platforms.
+
+
+
+
+PRODUCT TIMING AND PHASING
+Content for this section should include (as applicable):
+Timing requirements
+Market/customer/competitor demands on timing.
+Feature Parity
+Will this product achieve Feature Parity with the product it’s replacing or its companion?  What is the phasing and timing on feature parity?
+Phased introduction plans
+Describe any ideas you may have for phased introduction of the product.
+Migration plan requirements
+If no migration plan is required, explain why. For example, "complements existing product, new product family".
+Product replacement
+Does new product replace existing product? 
+If so, provide model numbers and timeline for EOL?  Will the product be compatible?  If not, please explain what customers need to do to migrate.
+Customer migration timing 
+Include timeline for install base to transition to new product, requirements for field programs (like trade-ins) to encourage migration, customer specific migrations plans.
+Special training requirements
+Does new product require special training for field/customers?
+Product interchangeability
+Is new product interchangeable with existing product?
+Expected life
+What is the expected life of this product?
+Software Release Support Model
+Select from the following support models for the software releases for this product. The End of Engineering (EOE) and End of Support (EOS) dates will be posted on the support website when each release of software is posted.
+
+
+	MODEL:
+	SUPPORT PERIOD:
+	EXAMPLE RELEASE:
+	____
+	Limited Support
+	9 months of Engineering Support followed by
+6 months of JTAC only Support
+	Applications, Pulse, AIS
+	____
+	Standard Support
+	24 months of Engineering Support followed by
+6 months of JTAC only Support
+	JUNOS Standard, UAC, CTPOS, JUNOSe, SRC-PE, BXOS, JUNOSSCOPE, WLAN, vGW
+	____
+	Extended Support
+	36 months of Engineering Support followed by
+6 months of JTAC only Support
+	JUNOS Extended, JUNOSe
+	____
+	Not Applicable
+	
+
+	
+
+	
+
+
+
+
+
+PRODUCT POSITION
+Content for this section should include (as applicable):
+      * Competition
+Who are they?  Features, pricing, customer base, geographical dominance, and so on.
+
+
+      * Differentiation
+Why will customers buy this product instead of competition (in areas such as interoperability, serviceability, deployment and maintenance scenarios)?
+
+
+      * Portfolio fit
+How does this product fit within the overall Juniper portfolio?
+      * XBT review
+Select the XBT(s) that are relevant (i.e. should review and potentially influence the requirements) for this product.  You can select more than one XBT. The Tech Senates of the selected XBTs will be asked to review this MRD.
+Cloud :                Yes/No
+Service Provider:         Yes/No
+Enterprise:                 Yes/No
+Security:                 Yes/No
+Software:                 Yes/No
+SALES/CHANNEL OVERVIEW
+Content for this section should include (as applicable):
+      * Channel
+How will this product be sold (new or existing channel)?
+      * Partnerships
+Any partnerships that might be interesting/required?  
+Define the nature of the partnership and the required timing of the partnership.
+
+
+NON-GOALS 
+Content for this section should include (as applicable):
+      * Features/functionality that are not goals
+Describe features and functionality that are specifically not goals of this project.
+      * Problems this product does not address
+Describe problems this product specifically does not address. 
+      * Specific features and functionality not be carried forward 
+List all features or functionality that will not be carried forward from any previous product that this is replacing.
+
+
+PRODUCT DEPENDENCIES
+Content for this section should include (as applicable):
+      * Other required programs, features or RLIs 
+List any that are required for this product.
+      * Somewhat dependent programs, features or RLIs
+List any programs, features or RLIs that are somewhat or potentially dependent upon this feature or product.
+      * Related programs, features or RLIs
+List any related programs, features, or RLIs.
+      * Other dependencies
+List any other functional specs/existing features that are dependent on this product.
+      * Programs that must precede this project
+List any programs that must precede this project. In other words, if this project is dependent upon another project's completion, please indicate the project and any contingencies.
+
+
+POTENTIAL RISKS
+Content for this section should include (as applicable):
+      * Risk factors
+Any external or internal factors that would put this proposal at risk?
+For example:  market shifts, channel issues, market timing, features, or other factors.
+
+
+PRODUCT LEVERAGE
+Content for this section should include (as applicable):
+      * Future product potential
+Describe or list any products that can be developed using this technology?
+      * New areas or markets
+Describe any new markets or technology areas that could be addressed using this product?
+APPENDIX: REFERENCE DOCUMENTS
+Include any reference documents in this section, such as supporting background and forecasts.
+APPENDIX: EACU COUNTRIES HAVING IMPORT RESTRICTIONS
+      1. ARMENIA
+      2. BELARUS
+      3. KAZAKHSTAN
+      4. KYRGYZSTAN
+      5. RUSSIA
+
+
+If there is any question, please email export_controldesk@juniper.net or kniven@juniper.net 
+APPENDIX: HOMOLOGATION
+The duration in the list below represents some examples of the expected number of months that the homologation process is expected to take after FRS.
+Refer to the NPI post-FRS plan of record countries for the latest product certification durations​ at this Sharepoint link:
+https://junipernetworks.sharepoint.com/teams/SST/ST/compeng/Archive/00-Compliance/Country%20Shipping%20Controls/Homologation_POR.pptx
+
+
+Edge and Core Product Family
+Product Family
+	Country
+	Duration (Months)
+	M,MX, T, PTX, SRX
+	Argentina
+	3
+	M,MX, T, PTX, SRX
+	Azerbaijan
+	3
+	M,MX, T, PTX, SRX
+	Bahrain
+	3
+	M,MX, T, PTX, SRX
+	Mexico
+	3
+	M,MX, T, PTX, SRX
+	Saudi Arabia
+	3
+	M,MX, T, PTX, SRX
+	Singapore
+	3
+	M,MX, T, PTX, SRX
+	South Africa
+	9
+	M,MX, T, PTX, SRX
+	Venezuela
+	3
+	M,MX, T, PTX, SRX
+	Vietnam
+	3
+	M,MX, T, PTX, SRX
+	Croatia
+	6
+	M,MX, T, PTX, SRX
+	Egypt
+	3
+	M,MX, T, PTX, SRX
+	Israel
+	3
+	M,MX, T, PTX, SRX
+	Jordan
+	3
+	M,MX, T, PTX, SRX
+	Oman
+	3
+	M,MX, T, PTX, SRX
+	Malaysia
+	6
+	M,MX, T, PTX, SRX
+	Pakistan
+	6
+	M,MX, T, PTX, SRX
+	Philippines
+	6
+	M,MX, T, PTX, SRX
+	South Korea
+	6
+	M,MX, T, PTX, SRX
+	Taiwan
+	6
+	M,MX, T, PTX, SRX
+	Thailand
+	3
+	M,MX, T, PTX, SRX
+	UAE
+	3
+	M,MX, T, PTX, SRX
+	Brazil
+	9
+	M,MX, T, PTX, SRX
+	China
+	9
+	M,MX, T, PTX, SRX
+	India
+	9
+	M,MX, T, PTX, SRX
+	Indonesia
+	9
+	M,MX, T, PTX, SRX
+	Serbia
+	3
+	M,MX, T, PTX, SRX
+	Ukraine
+	9
+	
+
+Data Center & Switching Products
+Product Family
+	Country
+	Duration (Months)
+	EX & QFX
+	Argentina
+	3
+	EX & QFX
+	Azerbaijan
+	3
+	EX & QFX
+	Bahrain
+	3
+	EX & QFX
+	Mexico
+	3
+	EX & QFX
+	Oman
+	3
+	EX & QFX
+	Nigeria
+	3
+	EX & QFX
+	Saudi Arabia
+	3
+	EX & QFX
+	Singapore
+	3
+	EX & QFX
+	South Africa
+	9
+	EX & QFX
+	Venezuela
+	3
+	EX & QFX
+	Vietnam
+	3
+	EX & QFX
+	Croatia
+	6
+	EX & QFX
+	Egypt
+	3
+	EX & QFX
+	Israel
+	3
+	EX & QFX
+	Jordan
+	3
+	EX & QFX
+	Kuwait
+	6
+	EX & QFX
+	Lebanon
+	6
+	EX & QFX
+	Malaysia
+	6
+	EX & QFX
+	Philippines
+	6
+	EX & QFX
+	Qatar
+	3
+	EX & QFX
+	South Korea
+	6
+	EX & QFX
+	Taiwan
+	6
+	EX & QFX
+	Thailand
+	3
+	EX & QFX
+	UAE
+	3
+	EX & QFX
+	Uzbekistan
+	3
+	EX & QFX
+	Brazil
+	9
+	EX & QFX
+	China
+	9
+	EX & QFX
+	India
+	9
+	EX & QFX
+	Indonesia
+	9
+	EX & QFX
+	Serbia
+	3
+	EX & QFX
+	Ukraine
+	9
+	
+
+Wireless LAN Products
+Product Family
+	Country
+	Duration
+(Months)
+	WLAN
+	Bahrain
+	6
+	WLAN
+	Egypt
+	6
+	WLAN
+	Hong Kong
+	6
+	WLAN
+	India
+	9
+	WLAN
+	Lebanon
+	6
+	WLAN
+	Oman
+	6
+	WLAN
+	Saudi Arabia
+	6
+	WLAN
+	Singapore
+	6
+	WLAN
+	Taiwan
+	6
+	WLAN
+	Thailand
+	6
+	WLAN
+	Turkey
+	6
+	WLAN
+	UAE
+	6
+	WLAN
+	Venezuela
+	6
+	WLAN
+	Chile
+	6
+	WLAN
+	Costa Rica
+	6
+	WLAN
+	Trinidad and Tobago
+	6
+	WLAN
+	Uruguay
+	6
+	WLAN
+	Kuwait
+	6
+	WLAN
+	Kenya
+	6
+	WLAN
+	Vietnam
+	6
+	WLAN
+	China
+	9
+	WLAN
+	Indonesia
+	9
+	WLAN
+	Israel
+	6
+	WLAN
+	Jordan
+	6
+	WLAN
+	Malaysia
+	6
+	WLAN
+	Pakistan
+	6
+	WLAN
+	Paraguay
+	6
+	WLAN
+	Peru
+	6
+	WLAN
+	Philippines
+	6
+	WLAN
+	South Africa
+	9
+	WLAN
+	South Korea
+	6
+	WLAN
+	Botswana
+	6
+	WLAN
+	Ghana
+	6
+	WLAN
+	Argentina
+	9
+	WLAN
+	Algeria
+	9
+	WLAN
+	Azerbaijan
+	9
+	WLAN
+	Brazil
+	9
+	WLAN
+	Mexico
+	9
+	WLAN
+	Nigeria
+	9
+	
+
+APPENDIX:  Review Questions for Systems Engineering reviewers
+For Systems Engineers who are reviewing this document, please ensure your feedback address the items below:
+      * Is the use case, or are the use cases complete from a feature, functionality, customer fit perspective?
+      * Are there any (significant) requirements missing in the MRD? If yes, specify missing requirements and specify the impact on prospects
+      * List of Prospects, Target Customers for this Product.
+      * Other comments from Sales
+
+
+
+
+APPENDIX:  Template Revision History
+NOTE:  This section may be deleted from the actual deliverable because it is dedicated to revisions of the template itself instead of the contents. For revisions of the contents of the MRD for a specific program, please refer to the Document Revision History section at the beginning of this document.
+      * Template Revision History 
+Revision
+	Effective Date
+	Change Description
+	02
+	27-Aug-2003
+	Updated from previous uncontrolled version to use standard format and document numbering.
+	03
+	16-Sep-2003
+	TL-9000 related updates to the template
+Added section for target geographical markets to address TL-9000 requirement Removed “W” from template name as it will now be used by both Westford and Sunnyvale teams.
+	04
+	4-Nov-2003
+	Added MTBF to the reliability section
+	05
+	6/18/04
+	Added detail to Network Management section 6.3, as proposed by Craig Bardenheuer and reviewed by PLM-D-staff.  
+	06
+	11/10/04
+	Added link to Engineering Services Agency Specification at the request of Dave Schilling and Subbu Tallak.
+	07
+	5/26/05
+	Changed owner to Judy Beningson
+	08
+	6/8/05
+	Changed owner to John Stewart
+	09
+	8/2/2007
+	Added a sub-section called “Infrastructure Support (e.g., ISSU)” under the “Product Requirements” section.
+	10
+	8/10/2009
+	Approval negotiated by Julia Lovin with Elise Gerich, Mike Kouri,  and Rameshbabu Prabagaran (delegated by Amir Khan) with changes as follows: 
+Added bullets addressing Serviceability and Green requirements to the Hardware section in Product Requirements section.
+Added bullet addressing Serviceability requirements to the Software section in the Product Requirements section.
+Added 2 bullets in Forecast section.  The first asks for geographical dispersion, the second for type of support expected to be sold.
+	11
+	10/19/2009
+	Inserted Template Revision History as final appendix in document
+Added bullet of “support for passive monitoring and ISSU” in section 6.1, Hardware Requirements.
+Added example of “support for passive monitoring” as an example in software interoperability in section 6.2, Software requirements.
+Added Migration planning content in section 7. Product Timing and Phasing.
+	12
+	1/2/2010
+	Added “Green” networking requirements in 6.1 Hardware Requirements and 6.2 Software Requirements sections. 
+Converted to new Juniper standard template.
+	13
+	04/08/2012
+	Updated due to NPI back to Basics project.
+	14
+	04/25/2012
+	Revised content to fix typos, grammar, add sectional numbering, update as per comments from stakeholders.
+	15
+	10/1/2012
+	Updates to use case from XI(Tech pubs)
+	3.0
+(R16)
+	3/19/2013
+	Updated table of contents.
+Update to version 3.0 as part of NPI Back to Basics to align versions in template, on website and in Documentum. Future revisions should be checked in as minor versions (3.1, 3.2, etc) unless approved by PGLT.
+	3.1
+(R17)
+	7/12/2013
+	Added homologation requirements section 6.7.7 and 6.7.8.
+	3.2
+(R18)
+	8/7/2013
+	Added CX to approver list for SBU & MVP
+	3.3
+(R19)
+	8/21/2013
+	Updated Government Certification section 6.7.4. Added Public Sector Certifications Office as approver for PSD programs. Added certification guidelines to work instructions.
+	3.4
+(R20)
+	5/28/2014
+	Updated to include Service Now in Serviceability section. Updated to call for serviceability requirements for in system upgrades of programmable devices in support of NPI Hardware Quality initiative.  Updated Approver list to call out NMS, including Space Platform.
+	21
+	11/21/2014
+	Updated to include IPV6 requirements.
+	22
+	2/27/2015
+	Expanded security requirements in Section 6.5.3.
+	23
+	5/15/2015
+	Update to accommodate DRT approval, clarified Serviceability requirements. 
+	24
+	10/30/2015
+	RoHS compliance; corrected links for RoHS2 & Engineering Services
+	25
+	2/12/2016
+	Updated section 5 (This section should list geographical destinations to which it is desirable to ship this product.) Also added list of 5 countries to appendix
+Updated link on pg 34 as export control desk alias was broken
+Pg 35 / section 18 add clarification for (iX) and cleaned up other groups
+Updated / replaced broken links green design guidance and Link to Compliance Requirements Tool (sections 6.1.7, 6.1.8, 6.2.7)
+
+
+	26
+	6/27/2016
+	Updated JVision Telemetry; RoHS2 compliance without exemption 
+	27
+	10/06/2016
+	Added new Open Books Taxonomy to section 15 Added new Diagnostics section: 6.1.3 Manufacturability & Testability Requirements. 
+	27.1
+(v28)
+	9/25/2017
+	Added a new section (Section 8) to capture field conversion requirements. 
+	28
+
+
+	6/25/2018
+	Updated the Requirements table in section 6.1.3.1 and 6.1.3.2. Also, due to a misalignment between the Agile released template and the template released on the NPI Website, the former version (v28) has been renamed as 27.1 in order to rectify the gap.
+	29
+	9/27/2018
+	Added Press Release section (new) 6.1 and 6.1.1 for the Press Release Statement.  Added common hardware default and secondary image requirements to section 6.14.2 Software Conversion Requirements.   Added ROI information to 9.1.1 Financial Sheets, and 9.3.10 Risks and Impacts to Forecast to strengthen the relationship between the ROI calculation and the risk statements in the MRD. 
+	30
+	12/07/2018
+	To align with the new addition of the process for MRD Review, updated section 18 MRD Approver’s Checklist table with a new reviewer “System Engineering Leadership”.
+	31
+	12/3/2019
+	Updated section 6.9 to reflect the new Flex program for software subscriptions.  Created new section 3.2.10 to address requirements for Solid State Devices (SSDs).  Added new table for capturing bulk requirements (section 6.0) and clarified Specification section. The Business Case (section 9) has been modified to be called Business Justification, to distinguish between this doc and the Business Case deliverable and section 8.3 was updated and section 8.4 added to specify which XBT the MRD is meant for.
+	32
+	05/01/2020
+	Updated requirements traceability section (section 5.0). Added clarity around Minimum Viable Product (MVP) and Use Case Complete (UCC) descriptions. Removed approval instructions, as they’re redundant to the instructions in the Deliverables checklist. Added appendix to provide guidance for SE reviews.
+	33
+	09/05/2020
+	Updated Excel file used for capturing requirements.   Added new requirement in section 5.2.3 to identify OS type
+	34
+	09/27/2021
+	Added Section 5.15, Inclusion and Diversity.
+	35
+	12/10/2021
+	      1. Updated bulk upload template to include Use Case Level 1, section 5.
+      2. New section 5.3.8 Thermal Event Detection and Prevention.
+      3. Updated FIPS language to highlight dual RE and Virtual Chassis and High Availability Cluster requirements in section 5.8.4.2.
+	36
+	12/09/2022
+	      1. Complete rewrite of security requirements section- 5.6.3
+      2. Updated Homologation info
+      3. Fixed broken MEF link 
+      4. Added new Optics Pluggable Requirements section 5.2.1
+      5. Made change to embedded REQ workbook to add FT to PLM team Pick List and remove Software and Solutions.
+      6. Removed Service Now section (was 5.6.2.1) as Sevice Now has been EOL since 2020.
+      7. Changed template classification from Juniper Business use only to Juniper Confidential
+	37
+	7/10/2023
+	Made REQ upload template use optional.  Updated the REQ upload template to add column for License required [yes/no] for each REQ.
+	38
+	9/13/2023
+	      1. Emphasize proper security handling in footer
+      2. Added new section 5.3.4 Power Consumption Characterization 
+      3. Added new section 5.16 Cloud Attachment Ready Features
+
+
+	39
+	4/10/24
+	In Section 5: “Product Requirements,” replaced REQ Upload Template with new version that omits the “?” from “Licensed Required” column on each tab of REQ upload template.
+	40
+	4/10/24
+	      1. Deleted sub-sections of Serviceability and Sustainability from Rev 39.
+      2. Consolidated dedicated sections for Serviceability (5.6.2) and Sustainability (5.6.4) in Rev 40.
+      3. Changed Copyright date in footer from 2003-2023 to 2003-2024.
+	41
+	4/12/24
+	Removed sub-section 1.4, “Business Justification Overview” and full section “Business Justification” from Rev 40. Updated ToC.
+      * This is in response to a directive from our COO to re-publish the MRD template without these sections is to remove sensitive COGs-, Financial-, and Business case-related data from all MRDs moving forward to make it shareable with SEs via EDC. 
+      * This critical sensitive and confidential information is present in the Business Case document and has been duplicated in previous versions of the MRD template (Rev 40 and under). Removing it from the MRD addresses these concerns:
+      1. Avoids duplication of information (Business Case + MRD), preventing version control issues.
+      2. Makes the MRD shareable with SEs, providing them key information about the product.
+      3. Reduces PLM efforts in document creation.
+	42
+	7/19/24
+	      1. Enhanced the Telemetry Guidelines (current Section 5.4.4.1) to cover annotations
+      2. Substantially revised Security Requirements (current Section 5.6.3) based on feedback from the previous change to this section
+      3. Added new Section for Environmental Product Compliance Regulations (current Section 5.8.2)
+      4. Updated MEF Requirements (current Section 5.8.11) to reflect MEF 3.0
+	
+
+
+
+
+
+      * Approver List for this Revision
+Name
+	Function
+	Location
+	Date
+	Approval Method
+	Bill Shelton
+	Owner
+	Herndon
+	
+
+	Agile
+	Mat Nervet-Labbe
+	CBO - Software
+	Sunnyvale
+	
+
+	Agile
+	Sweta Patel
+	Business Operations
+	Sunnyvale
+	
+
+	Agile
+	
+
+        _________________________________________________________________________________         {"HashCode":-290306243,"Height":792.0,"Width":612.0,"Placement":"Footer","Index":"Primary","Section":1,"Top":0.0,"Left":0.0} 
+Do not duplicate/share content without prior management approval
+© Copyright 2003-2024 Juniper Networks, Inc. All rights reserved--  Proprietary and Confidential -- printed copies of this document are for reference only
+Work Instruction Template: J2.05.P01.T06 -  Template Revision 07        Template Owner: Aruna Devi 
+Page  of 
+Juniper Business Use Only
