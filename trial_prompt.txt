@@ -3,14 +3,3 @@ What is pyxis?
 What is the role of AMEM in chip-to-chip transfers?
 How does the fabric ensure reliable communication between Pyxis devices?
 Is lunarite a good alternative to MLIR? 
-
-
-some files are shared with me 
-some files are in some folder but not shared, i only have view  them 
-some files are on different domain 
-I am not understanding what is the right way of putting all the data in one folder?? Isn"t it too much 
-to ask all the employees to put the data in that folder? I meajnn i dont know to do
-
-so its not like for examples this link is only mapped to 1 .md file.
-when you open this link , a page open and there are so many other documentation tabs that have content for example user guide>lunarite.hub>lunarite.nn>lunarite.conversion like this there are many .md files 
-Another thing is that i am not sure
